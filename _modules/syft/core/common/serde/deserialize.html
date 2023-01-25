@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>syft.core.common.serde.deserialize &#8212; PySyft  documentation</title>
+    
+  <link href="../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../../../index.html">
+  <img src="../../../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../api_reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../guides/index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for syft.core.common.serde.deserialize</h1><div class="highlight"><pre>
+<span></span><span class="c1"># stdlib</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="c1"># third party</span>
+<span class="kn">from</span> <span class="nn">google.protobuf.message</span> <span class="kn">import</span> <span class="n">Message</span>
+
+<span class="c1"># relative</span>
+<span class="kn">from</span> <span class="nn">....logger</span> <span class="kn">import</span> <span class="n">traceback_and_raise</span>
+<span class="kn">from</span> <span class="nn">....proto.util.data_message_pb2</span> <span class="kn">import</span> <span class="n">DataMessage</span>
+<span class="kn">from</span> <span class="nn">....util</span> <span class="kn">import</span> <span class="n">index_syft_by_module_name</span>
+<span class="kn">from</span> <span class="nn">.capnp</span> <span class="kn">import</span> <span class="n">CAPNP_END_MAGIC_HEADER_BYTES</span>
+<span class="kn">from</span> <span class="nn">.capnp</span> <span class="kn">import</span> <span class="n">CAPNP_REGISTRY</span>
+<span class="kn">from</span> <span class="nn">.capnp</span> <span class="kn">import</span> <span class="n">CAPNP_START_MAGIC_HEADER</span>
+<span class="kn">from</span> <span class="nn">.capnp</span> <span class="kn">import</span> <span class="n">CAPNP_START_MAGIC_HEADER_BYTES</span>
+<span class="kn">from</span> <span class="nn">.types</span> <span class="kn">import</span> <span class="n">Deserializeable</span>
+
+<span class="n">PROTOBUF_START_MAGIC_HEADER</span> <span class="o">=</span> <span class="s2">&quot;protobuf:&quot;</span>
+<span class="n">PROTOBUF_START_MAGIC_HEADER_BYTES</span> <span class="o">=</span> <span class="n">PROTOBUF_START_MAGIC_HEADER</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># WARNING: This code has more 🐉 Dragons than a game of D&amp;D 🗡🧙🎲</span>
+<span class="c1"># you were warned...</span>
+<span class="c1"># enter at your own peril...</span>
+<span class="c1"># seriously, get some 🧪 HP Potions and 📜 TP Scrolls ready...</span>
+<span class="k">def</span> <span class="nf">_deserialize</span><span class="p">(</span>
+    <span class="n">blob</span><span class="p">:</span> <span class="n">Deserializeable</span><span class="p">,</span>
+    <span class="n">from_proto</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">from_bytes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;We assume you&#39;re deserializing a protobuf object by default</span>
+
+<span class="sd">    This function deserializes from encoding to a Python object. There are a few ways of</span>
+<span class="sd">    using this function:</span>
+<span class="sd">    1. An Message object is passed,q this will transform a protobuf message into its associated</span>
+<span class="sd">    class.</span>
+<span class="sd">    the from_proto has to be set (it is by default).</span>
+<span class="sd">    2. Bytes are passed. This requires the from_bytes flag set the schema_type specified.</span>
+<span class="sd">    We cannot (and we should not) be able to get the schema_type from the binary representation.</span>
+
+<span class="sd">    Note: The only format that does not require the schema_type is when we are passing</span>
+<span class="sd">    Messages directly.</span>
+
+<span class="sd">    Raises: ValueError if you are not setting one from_&lt;protocol&gt; flag.</span>
+<span class="sd">            ValueError if you are deserializing a data type that requires a schema type and not</span>
+<span class="sd">            providing one.</span>
+<span class="sd">            TypeError if you are trying to deserialize an unsupported type.</span>
+
+<span class="sd">    :param blob: this parameter is the data to be deserialized from various formats.</span>
+<span class="sd">    :type blob: Union[str, dict, bytes, Messages]</span>
+<span class="sd">    :param from_proto: set this flag to True if you want to deserialize a protobuf message.</span>
+<span class="sd">    :param from_bytes: set this flag to True if you want to deserialize a binary object.</span>
+<span class="sd">    :type from_bytes: bool</span>
+<span class="sd">    :return: a deserialized form of the object on which _deserialize() is called.</span>
+<span class="sd">    :rtype: Serializable</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">deserialization_error</span> <span class="o">=</span> <span class="ne">TypeError</span><span class="p">(</span>
+        <span class="s2">&quot;You tried to deserialize an unsupported type. This can be caused by &quot;</span>
+        <span class="s2">&quot;several reasons. Either you are actively writing Syft code and forgot &quot;</span>
+        <span class="s2">&quot;to create one, or you are trying to deserialize an object which was &quot;</span>
+        <span class="s2">&quot;serialized using a different version of Syft and the object you tried &quot;</span>
+        <span class="s2">&quot;to deserialize is not supported in this version.&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># try to decode capnp first</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">blob</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">deserialize_capnp</span><span class="p">(</span><span class="n">buf</span><span class="o">=</span><span class="n">blob</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">CapnpMagicBytesNotFound</span><span class="p">:</span>  <span class="c1"># nosec</span>
+            <span class="c1"># probably not capnp bytes</span>
+            <span class="k">pass</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># capnp magic bytes found but another problem has occured</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;failed capnp deserialize&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">if</span> <span class="n">from_bytes</span><span class="p">:</span>
+        <span class="n">data_message</span> <span class="o">=</span> <span class="n">DataMessage</span><span class="p">()</span>
+        <span class="n">data_message</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">blob</span><span class="p">)</span>
+        <span class="n">obj_type</span> <span class="o">=</span> <span class="n">index_syft_by_module_name</span><span class="p">(</span><span class="n">fully_qualified_name</span><span class="o">=</span><span class="n">data_message</span><span class="o">.</span><span class="n">obj_type</span><span class="p">)</span>
+        <span class="n">get_protobuf_schema</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj_type</span><span class="p">,</span> <span class="s2">&quot;get_protobuf_schema&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">get_protobuf_schema</span><span class="p">):</span>
+            <span class="n">traceback_and_raise</span><span class="p">(</span><span class="n">deserialization_error</span><span class="p">)</span>
+
+        <span class="n">protobuf_type</span> <span class="o">=</span> <span class="n">get_protobuf_schema</span><span class="p">()</span>
+        <span class="n">blob</span> <span class="o">=</span> <span class="n">protobuf_type</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">blob</span><span class="p">,</span> <span class="n">Message</span><span class="p">):</span>
+            <span class="n">traceback_and_raise</span><span class="p">(</span><span class="n">deserialization_error</span><span class="p">)</span>
+
+        <span class="n">blob</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">data_message</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+    <span class="c1"># lets try to lookup the type we are deserializing</span>
+    <span class="c1"># TODO: This needs to be cleaned up in GenerateWrapper and made more consistent.</span>
+    <span class="c1"># There are serveral code paths that come through here and use different ways to</span>
+    <span class="c1"># match and overload protobuf -&gt; deserialize type</span>
+    <span class="n">obj_type</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">blob</span><span class="p">),</span> <span class="s2">&quot;schema2type&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="c1"># relative</span>
+    <span class="kn">from</span> <span class="nn">.recursive</span> <span class="kn">import</span> <span class="n">rs_get_protobuf_schema</span>
+    <span class="kn">from</span> <span class="nn">.recursive</span> <span class="kn">import</span> <span class="n">rs_proto2object</span>
+
+    <span class="k">if</span> <span class="n">obj_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># TODO: This can probably be removed now we have lists of obj_types</span>
+        <span class="n">obj_type</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">blob</span><span class="p">,</span> <span class="s2">&quot;obj_type&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">blob</span><span class="p">,</span> <span class="n">rs_get_protobuf_schema</span><span class="p">()):</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">rs_proto2object</span><span class="p">(</span><span class="n">proto</span><span class="o">=</span><span class="n">blob</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;temporary_box&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;upcast&quot;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">upcast</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">res</span>
+
+        <span class="k">if</span> <span class="n">obj_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">traceback_and_raise</span><span class="p">(</span><span class="n">deserialization_error</span><span class="p">)</span>
+
+        <span class="n">obj_type</span> <span class="o">=</span> <span class="n">index_syft_by_module_name</span><span class="p">(</span><span class="n">fully_qualified_name</span><span class="o">=</span><span class="n">obj_type</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="n">obj_type</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj_type</span><span class="p">,</span> <span class="s2">&quot;_sy_serializable_wrapper_type&quot;</span><span class="p">,</span> <span class="n">obj_type</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj_type</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">blob</span><span class="p">,</span> <span class="n">rs_get_protobuf_schema</span><span class="p">()):</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">rs_proto2object</span><span class="p">(</span><span class="n">proto</span><span class="o">=</span><span class="n">blob</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;temporary_box&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;upcast&quot;</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">upcast</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">res</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj_type</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">obj_type</span> <span class="o">=</span> <span class="n">obj_type</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># this means we have multiple classes that use the same proto but use the</span>
+            <span class="c1"># obj_type field to differentiate, so lets figure out which one in the list</span>
+            <span class="n">obj_type_re</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;obj_type: &quot;(.+)&quot;&#39;</span>
+            <span class="c1"># the first obj_type in the protobuf will be the main outer type</span>
+            <span class="n">obj_types</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">obj_type_re</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">blob</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj_types</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">real_obj_type</span> <span class="o">=</span> <span class="n">obj_types</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">possible_type</span> <span class="ow">in</span> <span class="n">obj_type</span><span class="p">:</span>
+                    <span class="n">possible_type_match</span> <span class="o">=</span> <span class="n">possible_type</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">possible_type</span><span class="p">,</span> <span class="s2">&quot;wrapped_type&quot;</span><span class="p">):</span>
+                        <span class="n">possible_type_match</span> <span class="o">=</span> <span class="n">possible_type</span><span class="o">.</span><span class="n">wrapped_type</span><span class="p">()</span>
+                    <span class="c1"># get the str inside &lt;class ...&gt;, fqn in sympy is different</span>
+                    <span class="n">real_obj_type_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">possible_type_match</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">real_obj_type</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;Wrapper&quot;</span><span class="p">):</span>
+                        <span class="n">real_obj_type</span> <span class="o">=</span> <span class="n">real_obj_type</span><span class="p">[:</span><span class="o">-</span><span class="mi">7</span><span class="p">]</span>  <span class="c1"># remove the last Wrapper</span>
+
+                    <span class="k">if</span> <span class="n">real_obj_type</span> <span class="o">==</span> <span class="n">real_obj_type_str</span> <span class="ow">or</span> <span class="n">real_obj_type</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span>
+                        <span class="n">real_obj_type_str</span>
+                    <span class="p">):</span>
+                        <span class="c1"># found it, lets overwrite obj_type and break</span>
+                        <span class="n">obj_type</span> <span class="o">=</span> <span class="n">possible_type</span>
+                        <span class="k">break</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj_type</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+        <span class="n">traceback_and_raise</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">deserialization_error</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">blob</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">_proto2object</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj_type</span><span class="p">,</span> <span class="s2">&quot;_proto2object&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">_proto2object</span><span class="p">):</span>
+        <span class="n">traceback_and_raise</span><span class="p">(</span><span class="n">deserialization_error</span><span class="p">)</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">_proto2object</span><span class="p">(</span><span class="n">proto</span><span class="o">=</span><span class="n">blob</span><span class="p">)</span>
+
+    <span class="c1"># if its a temporary_box upcast</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;temporary_box&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="s2">&quot;upcast&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">upcast</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<div class="viewcode-block" id="CapnpMagicBytesNotFound"><a class="viewcode-back" href="../../../../../api_reference/syft.core.common.serde.deserialize.html#syft.core.common.serde.deserialize.CapnpMagicBytesNotFound">[docs]</a><span class="k">class</span> <span class="nc">CapnpMagicBytesNotFound</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<span class="k">def</span> <span class="nf">deserialize_capnp</span><span class="p">(</span><span class="n">buf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="c1"># only search 1000 bytes to prevent wasting time on large files</span>
+    <span class="n">search_range</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="n">header_bytes</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">search_range</span><span class="p">]</span>
+    <span class="n">chars</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
+    <span class="c1"># filter header bytes</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">header_bytes</span><span class="p">:</span>
+        <span class="c1"># only allow ascii letters or : in headers and class name to prevent lookup</span>
+        <span class="c1"># breaking somehow, when packing weird stuff like \x03 ends up in the string</span>
+        <span class="c1"># e.g. PhiTensor -&gt; ND\x03imEntityPhiTensor</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="mi">91</span><span class="p">)</span> <span class="ow">or</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">97</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">58</span><span class="p">:</span>
+            <span class="n">chars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">header_bytes</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span>
+
+    <span class="n">proto_start_index</span> <span class="o">=</span> <span class="n">header_bytes</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">PROTOBUF_START_MAGIC_HEADER_BYTES</span><span class="p">)</span>
+    <span class="n">start_index</span> <span class="o">=</span> <span class="n">header_bytes</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">CAPNP_START_MAGIC_HEADER_BYTES</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">proto_start_index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">proto_start_index</span> <span class="o">&lt;</span> <span class="n">start_index</span><span class="p">):</span>
+        <span class="c1"># we have protobuf on the outside</span>
+        <span class="k">raise</span> <span class="n">CapnpMagicBytesNotFound</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;protobuf Magic Header </span><span class="si">{</span><span class="n">PROTOBUF_START_MAGIC_HEADER</span><span class="si">}</span><span class="s2"> found in bytes&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">start_index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">CapnpMagicBytesNotFound</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;capnp Magic Header </span><span class="si">{</span><span class="n">CAPNP_START_MAGIC_HEADER</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;not found in bytes&quot;</span>
+        <span class="p">)</span>
+    <span class="n">start_index</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">CAPNP_START_MAGIC_HEADER_BYTES</span><span class="p">)</span>
+    <span class="n">end_index</span> <span class="o">=</span> <span class="n">start_index</span> <span class="o">+</span> <span class="n">header_bytes</span><span class="p">[</span><span class="n">start_index</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span>
+        <span class="n">CAPNP_END_MAGIC_HEADER_BYTES</span>
+    <span class="p">)</span>
+    <span class="n">class_name_bytes</span> <span class="o">=</span> <span class="n">header_bytes</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span><span class="n">end_index</span><span class="p">]</span>
+    <span class="n">class_name</span> <span class="o">=</span> <span class="n">class_name_bytes</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">end_index</span> <span class="o">&lt;=</span> <span class="n">start_index</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;End Index should always be greater than Start index&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">class_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">CAPNP_REGISTRY</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Found capnp Magic Header: </span><span class="si">{</span><span class="n">CAPNP_START_MAGIC_HEADER</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;and Class </span><span class="si">{</span><span class="n">class_name</span><span class="si">}</span><span class="s2"> but no mapping in capnp registry </span><span class="si">{</span><span class="n">CAPNP_REGISTRY</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">CAPNP_REGISTRY</span><span class="p">[</span><span class="n">class_name</span><span class="p">](</span><span class="n">buf</span><span class="o">=</span><span class="n">buf</span><span class="p">)</span>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

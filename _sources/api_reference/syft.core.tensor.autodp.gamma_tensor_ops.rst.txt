@@ -1,0 +1,29 @@
+syft.core.tensor.autodp.gamma\_tensor\_ops
+==========================================
+
+.. automodule:: syft.core.tensor.autodp.gamma_tensor_ops
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      GAMMA_TENSOR_OP
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>syft.core.node.common.util &#8212; PySyft  documentation</title>
+    
+  <link href="../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../../../index.html">
+  <img src="../../../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../api_reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../guides/index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for syft.core.node.common.util</h1><div class="highlight"><pre>
+<span></span><span class="c1"># stdlib</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Generator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="c1"># third party</span>
+<span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">from</span> <span class="nn">botocore.client</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseSettings</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c1"># relative</span>
+<span class="kn">from</span> <span class="nn">....grid</span> <span class="kn">import</span> <span class="n">GridURL</span>
+<span class="kn">from</span> <span class="nn">....util</span> <span class="kn">import</span> <span class="n">get_fully_qualified_name</span>
+<span class="kn">from</span> <span class="nn">....util</span> <span class="kn">import</span> <span class="n">size_mb</span>
+<span class="kn">from</span> <span class="nn">....util</span> <span class="kn">import</span> <span class="n">verify_tls</span>
+<span class="kn">from</span> <span class="nn">...common.serde.serialize</span> <span class="kn">import</span> <span class="n">_serialize</span> <span class="k">as</span> <span class="n">serialize</span>
+<span class="kn">from</span> <span class="nn">...common.uid</span> <span class="kn">import</span> <span class="n">UID</span>
+<span class="kn">from</span> <span class="nn">...store.proxy_dataset</span> <span class="kn">import</span> <span class="n">ProxyDataset</span>
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="n">DatasetUploadError</span>
+
+<span class="n">MIN_BLOB_UPLOAD_SIZE_MB</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<div class="viewcode-block" id="read_chunks"><a class="viewcode-back" href="../../../../../api_reference/syft.core.node.common.util.html#syft.core.node.common.util.read_chunks">[docs]</a><span class="k">def</span> <span class="nf">read_chunks</span><span class="p">(</span>
+    <span class="n">fp</span><span class="p">:</span> <span class="n">BytesIO</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1024</span><span class="o">**</span><span class="mi">3</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read data in chunks from the file.&quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">yield</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="listify"><a class="viewcode-back" href="../../../../../api_reference/syft.core.node.common.util.html#syft.core.node.common.util.listify">[docs]</a><span class="k">def</span> <span class="nf">listify</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;turns x into a list.</span>
+<span class="sd">    If x is a list or tuple, return as list.</span>
+<span class="sd">    if x is not a list: return [x]</span>
+<span class="sd">    if x is None: return []</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (Any): some object</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[Any]: x, as a list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">else</span> <span class="p">([]</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[</span><span class="n">x</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="upload_result_to_s3"><a class="viewcode-back" href="../../../../../api_reference/syft.core.node.common.util.html#syft.core.node.common.util.upload_result_to_s3">[docs]</a><span class="k">def</span> <span class="nf">upload_result_to_s3</span><span class="p">(</span>
+    <span class="n">asset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">domain_id</span><span class="p">:</span> <span class="n">UID</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="n">settings</span><span class="p">:</span> <span class="n">BaseSettings</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProxyDataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Upload data to Seaweed using boto3 client.</span>
+
+<span class="sd">    - Serialize data to binary</span>
+<span class="sd">    - Upload data to Seaweed using boto3 client</span>
+<span class="sd">    - Create a ProxyDataset to store the metadata of the data uploaded to Seaweed</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        asset_name (str): name of the data being uploaded to Seaweed</span>
+<span class="sd">        dataset_name (str): name of the dataset to which the data belongs</span>
+<span class="sd">        domain_id (UID): unique id of the domain node</span>
+<span class="sd">        data (Any): data to be uploaded to Seaweed</span>
+<span class="sd">        settings (BaseSettings): base settings of the PyGrid server</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ProxyDataset: Class to store the metadata of the data being uploaded</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">s3_client</span> <span class="o">=</span> <span class="n">get_s3_client</span><span class="p">(</span><span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)</span>
+
+    <span class="n">binary_dataset</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">serialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">to_bytes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="c1"># 1- Serialize the data to be uploaded to bytes.</span>
+    <span class="n">binary_buffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">binary_dataset</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">asset_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="c1"># 2 - Start to upload binary data into Seaweed.</span>
+    <span class="n">upload_response</span> <span class="o">=</span> <span class="n">s3_client</span><span class="o">.</span><span class="n">put_object</span><span class="p">(</span>
+        <span class="n">Bucket</span><span class="o">=</span><span class="n">domain_id</span><span class="o">.</span><span class="n">no_dash</span><span class="p">,</span>
+        <span class="n">Body</span><span class="o">=</span><span class="n">binary_buffer</span><span class="p">,</span>
+        <span class="n">Key</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
+        <span class="n">ContentType</span><span class="o">=</span><span class="s2">&quot;application/octet-stream&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># TODO: Throw an exception if the response is not valid</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Upload Result&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">upload_response</span><span class="p">)</span>
+
+    <span class="c1"># 3 - Create a ProxyDataset for the given data</span>
+    <span class="c1"># Retrieve fully qualified name to  use for pointer creation.</span>
+    <span class="n">obj_public_kwargs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;proxy_public_kwargs&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">data_fqn</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_fully_qualified_name</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+    <span class="c1"># relative</span>
+    <span class="kn">from</span> <span class="nn">...tensor</span> <span class="kn">import</span> <span class="n">Tensor</span>
+    <span class="kn">from</span> <span class="nn">...tensor.autodp.gamma_tensor</span> <span class="kn">import</span> <span class="n">GammaTensor</span> <span class="k">as</span> <span class="n">GT</span>
+    <span class="kn">from</span> <span class="nn">...tensor.autodp.phi_tensor</span> <span class="kn">import</span> <span class="n">PhiTensor</span> <span class="k">as</span> <span class="n">PT</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">PT</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">GT</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="n">data_fqn</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_fully_qualified_name</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">child</span><span class="p">))</span>
+        <span class="n">child_kwargs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="s2">&quot;proxy_public_kwargs&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">obj_public_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">child_kwargs</span><span class="p">)</span>
+
+    <span class="n">proxy_obj</span> <span class="o">=</span> <span class="n">ProxyDataset</span><span class="p">(</span>
+        <span class="n">asset_name</span><span class="o">=</span><span class="n">asset_name</span><span class="p">,</span>
+        <span class="n">dataset_name</span><span class="o">=</span><span class="n">dataset_name</span><span class="p">,</span>
+        <span class="n">node_id</span><span class="o">=</span><span class="n">domain_id</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+        <span class="n">fqn</span><span class="o">=</span><span class="n">data_fqn</span><span class="p">,</span>
+        <span class="n">shape</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+        <span class="n">obj_public_kwargs</span><span class="o">=</span><span class="n">obj_public_kwargs</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">proxy_obj</span></div>
+
+
+<div class="viewcode-block" id="abort_s3_object_upload"><a class="viewcode-back" href="../../../../../api_reference/syft.core.node.common.util.html#syft.core.node.common.util.abort_s3_object_upload">[docs]</a><span class="k">def</span> <span class="nf">abort_s3_object_upload</span><span class="p">(</span>
+    <span class="n">client</span><span class="p">:</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">,</span> <span class="n">upload_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">asset_name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abort upload to s3 for the given asset.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        client (boto3.client): boto3 client.</span>
+<span class="sd">        upload_id (str): upload id generated for multipart upload.</span>
+<span class="sd">        asset_name (str): name of the data/asset.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># relative</span>
+    <span class="kn">from</span> <span class="nn">.node_service.upload_service.upload_service_messages</span> <span class="kn">import</span> <span class="p">(</span>
+        <span class="n">AbortDataUploadMessage</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Send a message to PyGrid to abort the data being uploaded to s3.</span>
+    <span class="c1"># TODO: make this call async -&gt; could use celery .delay method to do</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">perform_api_request_generic</span><span class="p">(</span>
+        <span class="n">syft_msg</span><span class="o">=</span><span class="n">AbortDataUploadMessage</span><span class="p">,</span>
+        <span class="n">content</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;upload_id&quot;</span><span class="p">:</span> <span class="n">upload_id</span><span class="p">,</span>
+            <span class="s2">&quot;asset_name&quot;</span><span class="p">:</span> <span class="n">asset_name</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="upload_to_s3_using_presigned"><a class="viewcode-back" href="../../../../../api_reference/syft.core.node.common.util.html#syft.core.node.common.util.upload_to_s3_using_presigned">[docs]</a><span class="k">def</span> <span class="nf">upload_to_s3_using_presigned</span><span class="p">(</span>
+    <span class="n">client</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">asset_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">dataset_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProxyDataset</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform a multipart upload of data to Seaweed using boto3 presigned urls.</span>
+<span class="sd">    The main steps involve:</span>
+<span class="sd">    - Converting the data to binary data</span>
+<span class="sd">    - Chunking the binary into smaller chunks</span>
+<span class="sd">    - Create presigned urls for each chunk</span>
+<span class="sd">    - Upload data to Seaweed via PUT request</span>
+<span class="sd">    - Send a acknowledge to Seaweed via PyGrid when all chunks are successfully uploaded</span>
+<span class="sd">    - Create a ProxyDataset to store metadata of the uploaded data</span>
+<span class="sd">    Args:</span>
+<span class="sd">        client (Any): Client to send object to</span>
+<span class="sd">        data (Any): Data to be uploaded to Seaweed</span>
+<span class="sd">        chunk_size (int): smallest size of the data to be uploaded in bytes</span>
+<span class="sd">        asset_name (str): name of the data being uploaded</span>
+<span class="sd">        dataset_name Optional[(str)]: name of the dataset to which the data belongs</span>
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception: If upload of data chunks to Seaweed fails.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        ProxyDataset: Class to store metadata about the data that is uploaded to Seaweed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data_upload_description</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Uploading `</span><span class="si">{</span><span class="n">asset_name</span><span class="si">}</span><span class="s2">`&quot;</span>
+    <span class="c1"># relative</span>
+    <span class="kn">from</span> <span class="nn">.node_service.upload_service.upload_service_messages</span> <span class="kn">import</span> <span class="p">(</span>
+        <span class="n">UploadDataCompleteMessage</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">.node_service.upload_service.upload_service_messages</span> <span class="kn">import</span> <span class="n">UploadDataMessage</span>
+
+    <span class="n">dataset_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">)</span>
+
+    <span class="c1"># Step 1 - Convert data to be uploaded to binary</span>
+    <span class="n">binary_dataset</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">serialize</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">to_bytes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="n">file_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">binary_dataset</span><span class="p">)</span>
+
+    <span class="c1"># Step 2 - Send a message to PyGrid to inform of the data being uploaded,</span>
+    <span class="c1"># and get presigned url for each chunk of data being uploaded.</span>
+    <span class="n">upload_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">perform_api_request_generic</span><span class="p">(</span>
+        <span class="n">syft_msg</span><span class="o">=</span><span class="n">UploadDataMessage</span><span class="p">,</span>
+        <span class="n">content</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">asset_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;file_size&quot;</span><span class="p">:</span> <span class="n">file_size</span><span class="p">,</span>
+            <span class="s2">&quot;chunk_size&quot;</span><span class="p">:</span> <span class="n">chunk_size</span><span class="p">,</span>
+            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="n">client</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+            <span class="s2">&quot;reply_to&quot;</span><span class="p">:</span> <span class="n">client</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Step 3 - Starts to upload binary data into Seaweed.</span>
+        <span class="n">binary_buffer</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">binary_dataset</span><span class="p">)</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">upload_response</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">parts</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;part_no&quot;</span><span class="p">])</span>
+        <span class="n">etag_chunk_no_pairs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="n">data_chunks</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">read_chunks</span><span class="p">(</span><span class="n">binary_buffer</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">),</span> <span class="n">parts</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span>
+            <span class="n">parts</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="n">data_upload_description</span><span class="p">,</span> <span class="n">colour</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">):</span>
+            <span class="n">data_chunk</span><span class="p">,</span> <span class="n">part</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">data_chunks</span><span class="p">)</span>
+            <span class="n">presigned_url</span> <span class="o">=</span> <span class="n">part</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+            <span class="n">part_no</span> <span class="o">=</span> <span class="n">part</span><span class="p">[</span><span class="s2">&quot;part_no&quot;</span><span class="p">]</span>
+            <span class="n">client_url</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">url_from_path</span><span class="p">(</span><span class="n">presigned_url</span><span class="p">)</span>
+            <span class="n">part</span><span class="p">[</span><span class="s2">&quot;client_url&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">client_url</span>
+
+            <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">client_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data_chunk</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="n">verify_tls</span><span class="p">())</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">res</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>  <span class="c1"># raise an error if upload fails</span>
+                <span class="n">error_message</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Failed to upload `</span><span class="si">{</span><span class="n">asset_name</span><span class="si">}</span><span class="s2">` to store</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;Status code: </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">res</span><span class="o">.</span><span class="n">reason</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="n">DatasetUploadError</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="n">error_message</span><span class="p">)</span>
+            <span class="n">etag</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;ETag&quot;</span><span class="p">]</span>
+            <span class="n">etag_chunk_no_pairs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span><span class="s2">&quot;ETag&quot;</span><span class="p">:</span> <span class="n">etag</span><span class="p">,</span> <span class="s2">&quot;PartNumber&quot;</span><span class="p">:</span> <span class="n">part_no</span><span class="p">}</span>
+            <span class="p">)</span>  <span class="c1"># maintain list of part no and ETag</span>
+
+        <span class="c1"># Step 4 - Send a message to PyGrid informing about dataset upload complete!</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="n">syft_msg</span><span class="o">=</span><span class="n">UploadDataCompleteMessage</span><span class="p">,</span>
+            <span class="n">content</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;upload_id&quot;</span><span class="p">:</span> <span class="n">upload_response</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">upload_id</span><span class="p">,</span>
+                <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">asset_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;parts&quot;</span><span class="p">:</span> <span class="n">etag_chunk_no_pairs</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Step 5 - Create a proxy dataset for the uploaded data.</span>
+        <span class="c1"># Retrieve fully qualified name to  use for pointer creation.</span>
+        <span class="n">obj_public_kwargs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;proxy_public_kwargs&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">data_fqn</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_fully_qualified_name</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+        <span class="c1"># relative</span>
+        <span class="kn">from</span> <span class="nn">...tensor</span> <span class="kn">import</span> <span class="n">Tensor</span>
+        <span class="kn">from</span> <span class="nn">...tensor.autodp.gamma_tensor</span> <span class="kn">import</span> <span class="n">GammaTensor</span> <span class="k">as</span> <span class="n">GT</span>
+        <span class="kn">from</span> <span class="nn">...tensor.autodp.phi_tensor</span> <span class="kn">import</span> <span class="n">PhiTensor</span> <span class="k">as</span> <span class="n">PT</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">PT</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">GT</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">data_fqn</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_fully_qualified_name</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">child</span><span class="p">))</span>
+            <span class="n">child_kwargs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="s2">&quot;proxy_public_kwargs&quot;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="n">obj_public_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">child_kwargs</span><span class="p">)</span>
+
+        <span class="n">data_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">):</span>
+            <span class="n">data_shape</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">):</span>
+            <span class="n">data_shape</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),)</span>
+
+        <span class="n">proxy_data</span> <span class="o">=</span> <span class="n">ProxyDataset</span><span class="p">(</span>
+            <span class="n">asset_name</span><span class="o">=</span><span class="n">asset_name</span><span class="p">,</span>
+            <span class="n">dataset_name</span><span class="o">=</span><span class="n">dataset_name</span><span class="p">,</span>
+            <span class="n">node_id</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="n">fqn</span><span class="o">=</span><span class="n">data_fqn</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="n">data_shape</span><span class="p">,</span>
+            <span class="n">obj_public_kwargs</span><span class="o">=</span><span class="n">obj_public_kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">Exception</span><span class="p">,</span> <span class="ne">KeyboardInterrupt</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">upload_id</span> <span class="o">=</span> <span class="n">upload_response</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">upload_id</span>
+        <span class="n">abort_s3_object_upload</span><span class="p">(</span>
+            <span class="n">client</span><span class="o">=</span><span class="n">client</span><span class="p">,</span> <span class="n">upload_id</span><span class="o">=</span><span class="n">upload_id</span><span class="p">,</span> <span class="n">asset_name</span><span class="o">=</span><span class="n">asset_name</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">return</span> <span class="n">proxy_data</span></div>
+
+
+<span class="k">def</span> <span class="nf">get_s3_client</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="n">BaseSettings</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;boto3.client.S3&quot;</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">s3_endpoint</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">S3_ENDPOINT</span>
+        <span class="n">s3_port</span> <span class="o">=</span> <span class="n">settings</span><span class="o">.</span><span class="n">S3_PORT</span>
+        <span class="n">s3_grid_url</span> <span class="o">=</span> <span class="n">GridURL</span><span class="p">(</span><span class="n">host_or_ip</span><span class="o">=</span><span class="n">s3_endpoint</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">s3_port</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span>
+            <span class="s2">&quot;s3&quot;</span><span class="p">,</span>
+            <span class="n">endpoint_url</span><span class="o">=</span><span class="n">s3_grid_url</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+            <span class="n">aws_access_key_id</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">S3_ROOT_USER</span><span class="p">,</span>
+            <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">S3_ROOT_PWD</span><span class="p">,</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">Config</span><span class="p">(</span><span class="n">signature_version</span><span class="o">=</span><span class="s2">&quot;s3v4&quot;</span><span class="p">),</span>
+            <span class="n">region_name</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">S3_REGION</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to create S3 Client with </span><span class="si">{</span><span class="n">s3_endpoint</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">s3_port</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">s3_grid_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+
+
+<div class="viewcode-block" id="check_send_to_blob_storage"><a class="viewcode-back" href="../../../../../api_reference/syft.core.node.common.util.html#syft.core.node.common.util.check_send_to_blob_storage">[docs]</a><span class="k">def</span> <span class="nf">check_send_to_blob_storage</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">use_blob_storage</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if the data needs to be send to Seaweed storage depending upon its size and type.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        obj (Any): Data to be stored to Seaweed.</span>
+<span class="sd">        use_blob_storage (bool, optional): Explicit flag to send the data to blob storage. Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: Returns True if obj can be stored in blob store else returns False.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># relative</span>
+    <span class="kn">from</span> <span class="nn">...tensor</span> <span class="kn">import</span> <span class="n">Tensor</span>
+    <span class="kn">from</span> <span class="nn">...tensor.autodp.phi_tensor</span> <span class="kn">import</span> <span class="n">PhiTensor</span> <span class="k">as</span> <span class="n">PT</span>
+
+    <span class="k">if</span> <span class="n">use_blob_storage</span> <span class="ow">and</span> <span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">(</span><span class="n">PT</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">))</span> <span class="ow">or</span> <span class="n">size_mb</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">MIN_BLOB_UPLOAD_SIZE_MB</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

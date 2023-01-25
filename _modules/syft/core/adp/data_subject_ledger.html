@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>syft.core.adp.data_subject_ledger &#8212; PySyft  documentation</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../../index.html">
+  <img src="../../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../api_reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../guides/index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for syft.core.adp.data_subject_ledger</h1><div class="highlight"><pre>
+<span></span><span class="c1"># future</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="c1"># stdlib</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+
+<span class="c1"># third party</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">Final</span>
+
+<span class="c1"># relative</span>
+<span class="kn">from</span> <span class="nn">...logger</span> <span class="kn">import</span> <span class="n">info</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="c1"># stdlib</span>
+    <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">flax.struct</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="c1"># third party</span>
+<span class="kn">import</span> <span class="nn">jax</span>
+<span class="kn">from</span> <span class="nn">jax</span> <span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">jnp</span>
+<span class="kn">from</span> <span class="nn">nacl.signing</span> <span class="kn">import</span> <span class="n">VerifyKey</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize_scalar</span>
+
+<span class="c1"># relative</span>
+<span class="kn">from</span> <span class="nn">...core.node.common.node_manager.user_manager</span> <span class="kn">import</span> <span class="n">RefreshBudgetException</span>
+<span class="kn">from</span> <span class="nn">..common.serde.capnp</span> <span class="kn">import</span> <span class="n">CapnpModule</span>
+<span class="kn">from</span> <span class="nn">..common.serde.capnp</span> <span class="kn">import</span> <span class="n">get_capnp_schema</span>
+<span class="kn">from</span> <span class="nn">..common.serde.capnp</span> <span class="kn">import</span> <span class="n">serde_magic_header</span>
+<span class="kn">from</span> <span class="nn">..common.serde.deserialize</span> <span class="kn">import</span> <span class="n">_deserialize</span> <span class="k">as</span> <span class="n">deserialize</span>
+<span class="kn">from</span> <span class="nn">..common.serde.serializable</span> <span class="kn">import</span> <span class="n">serializable</span>
+<span class="kn">from</span> <span class="nn">..common.serde.serialize</span> <span class="kn">import</span> <span class="n">_serialize</span> <span class="k">as</span> <span class="n">serialize</span>
+<span class="kn">from</span> <span class="nn">.abstract_ledger_store</span> <span class="kn">import</span> <span class="n">AbstractDataSubjectLedger</span>
+<span class="kn">from</span> <span class="nn">.abstract_ledger_store</span> <span class="kn">import</span> <span class="n">AbstractLedgerStore</span>
+
+
+<div class="viewcode-block" id="convert_constants_to_indices"><a class="viewcode-back" href="../../../../api_reference/syft.core.adp.data_subject_ledger.html#syft.core.adp.data_subject_ledger.convert_constants_to_indices">[docs]</a><span class="k">def</span> <span class="nf">convert_constants_to_indices</span><span class="p">(</span><span class="n">rdp_constant_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given an array of RDP Constants, this will return an array of the same size/shape telling you which indices in the</span>
+<span class="sd">    DataSubjectLedger&#39;s cache you need to query.</span>
+
+<span class="sd">    This currently assumes the cache generated on May 4th 2022, where there are 1.2M values in total.</span>
+<span class="sd">    - 500,000 of these correspond to RDP constants between 0 and 50 (10,000 between any two consecutive integers)</span>
+<span class="sd">    - 700,000 of these correspond to RDP constants between 50 and 700,050</span>
+
+<span class="sd">    An easy way to check if you&#39;re using the right cache is that the very</span>
+<span class="sd">    first value in the cache should be 0.05372712063485988</span>
+
+<span class="sd">    MAKE SURE THERE ARE NO ZEROS IN THE CACHE!!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Find indices for all RDP constants &lt;= 50</span>
+    <span class="n">sub50_mask</span> <span class="o">=</span> <span class="n">rdp_constant_array</span> <span class="o">&lt;=</span> <span class="mi">50</span>
+    <span class="c1"># np.maximum is to avoid negative indices when rdp_constant_array is &lt; 1</span>
+    <span class="n">sub50_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
+        <span class="p">((</span><span class="n">rdp_constant_array</span> <span class="o">*</span> <span class="n">sub50_mask</span> <span class="o">*</span> <span class="mi">10_000</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">0</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="c1"># Find indices for all RDP constants &gt; 50</span>
+    <span class="n">gt50_mask</span> <span class="o">=</span> <span class="n">rdp_constant_array</span> <span class="o">&gt;</span> <span class="mi">50</span>
+    <span class="n">gt50_indices</span> <span class="o">=</span> <span class="p">((</span><span class="n">rdp_constant_array</span> <span class="o">-</span> <span class="mi">51</span> <span class="o">+</span> <span class="mi">500_000</span><span class="p">)</span> <span class="o">*</span> <span class="n">gt50_mask</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="c1"># We should be able to do a straight addition because</span>
+    <span class="k">return</span> <span class="n">sub50_indices</span> <span class="o">+</span> <span class="n">gt50_indices</span></div>
+
+
+<span class="k">def</span> <span class="nf">get_cache_path</span><span class="p">(</span><span class="n">cache_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">here</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+    <span class="n">root_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">here</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;..&quot;</span> <span class="o">/</span> <span class="s2">&quot;..&quot;</span> <span class="o">/</span> <span class="s2">&quot;cache&quot;</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">root_dir</span> <span class="o">/</span> <span class="n">cache_filename</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">load_cache</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="n">CACHE_PATH</span> <span class="o">=</span> <span class="n">get_cache_path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">CACHE_PATH</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot load </span><span class="si">{</span><span class="n">CACHE_PATH</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">cache_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">CACHE_PATH</span><span class="p">)</span>
+    <span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loaded constant2epsilon cache of size: </span><span class="si">{</span><span class="n">cache_array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cache_array</span>
+
+
+<div class="viewcode-block" id="RDPParams"><a class="viewcode-back" href="../../../../api_reference/syft.core.adp.data_subject_ledger.html#syft.core.adp.data_subject_ledger.RDPParams">[docs]</a><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">RDPParams</span><span class="p">:</span>
+    <span class="n">sigmas</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span>
+    <span class="n">l2_norms</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span>
+    <span class="n">l2_norm_bounds</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span>
+    <span class="n">Ls</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span>
+    <span class="c1"># coeffs: jnp.array</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;RDPParams:&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">res</span><span class="si">}</span><span class="se">\n</span><span class="s2"> sigmas:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sigmas</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">res</span><span class="si">}</span><span class="se">\n</span><span class="s2"> l2_norms:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">l2_norms</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">res</span><span class="si">}</span><span class="se">\n</span><span class="s2"> l2_norm_bounds:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">l2_norm_bounds</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">res</span><span class="si">}</span><span class="se">\n</span><span class="s2"> Ls:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">Ls</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="c1"># res = f&quot;{res}\n coeffs:{self.coeffs}&quot;</span>
+
+        <span class="k">return</span> <span class="n">res</span></div>
+
+
+<span class="c1"># def get_unique_data_subjects(data_subjects_query: np.ndarray) -&gt; np.ndarray:</span>
+<span class="c1">#     # This might look horribly wrong, but .sum() returns all the unique DS for a DataSubjectArray ~ Ishan</span>
+<span class="c1">#     return sorted(list(data_subjects_query.sum()))</span>
+
+
+<div class="viewcode-block" id="map_dsa_to_rdp_constants"><a class="viewcode-back" href="../../../../api_reference/syft.core.adp.data_subject_ledger.html#syft.core.adp.data_subject_ledger.map_dsa_to_rdp_constants">[docs]</a><span class="k">def</span> <span class="nf">map_dsa_to_rdp_constants</span><span class="p">(</span>
+    <span class="n">data_subject_rdp_constants</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+    <span class="n">rdp_constants</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert data subject array to data subject index array.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">data_subject_name</span><span class="p">,</span> <span class="n">rdp_constant</span> <span class="ow">in</span> <span class="n">data_subject_rdp_constants</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">rdp_constants</span><span class="p">[</span><span class="n">data_subject_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">rdp_constants</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">data_subject_name</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">rdp_constant</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">rdp_constants</span></div>
+
+
+<span class="nd">@partial</span><span class="p">(</span><span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="n">static_argnums</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">compute_rdp_constant</span><span class="p">(</span><span class="n">rdp_params</span><span class="p">:</span> <span class="n">RDPParams</span><span class="p">,</span> <span class="n">private</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">DeviceArray</span><span class="p">:</span>
+    <span class="n">squared_Ls</span> <span class="o">=</span> <span class="n">rdp_params</span><span class="o">.</span><span class="n">Ls</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">squared_sigma</span> <span class="o">=</span> <span class="n">rdp_params</span><span class="o">.</span><span class="n">sigmas</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">private</span><span class="p">:</span>
+        <span class="c1"># this is calculated on the private true values</span>
+        <span class="n">squared_l2</span> <span class="o">=</span> <span class="n">rdp_params</span><span class="o">.</span><span class="n">l2_norms</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># bounds is computed on the metadata</span>
+        <span class="n">squared_l2</span> <span class="o">=</span> <span class="n">rdp_params</span><span class="o">.</span><span class="n">l2_norm_bounds</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="k">return</span> <span class="n">squared_Ls</span> <span class="o">*</span> <span class="n">squared_l2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">squared_sigma</span><span class="p">)</span>
+
+
+<span class="nd">@jax</span><span class="o">.</span><span class="n">jit</span>
+<span class="k">def</span> <span class="nf">get_budgets_and_mask</span><span class="p">(</span>
+    <span class="n">epsilon_spend</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">user_budget</span><span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">float64</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">jax</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">DeviceArray</span><span class="p">]:</span>
+    <span class="c1"># Function to vectorize the result of the budget computation.</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">epsilon_spend</span><span class="p">)</span> <span class="o">*</span> <span class="n">user_budget</span> <span class="o">&lt;</span> <span class="n">epsilon_spend</span>
+    <span class="c1"># get the highest value which was under budget and represented by False in the mask</span>
+    <span class="n">highest_possible_spend</span> <span class="o">=</span> <span class="n">jnp</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">epsilon_spend</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">mask</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">highest_possible_spend</span><span class="p">,</span> <span class="n">user_budget</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="DataSubjectLedger"><a class="viewcode-back" href="../../../../api_reference/syft.core.adp.data_subject_ledger.html#syft.core.adp.data_subject_ledger.DataSubjectLedger">[docs]</a><span class="nd">@serializable</span><span class="p">(</span><span class="n">capnp_bytes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">DataSubjectLedger</span><span class="p">(</span><span class="n">AbstractDataSubjectLedger</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;for a particular data subject, this is the list</span>
+<span class="sd">    of all mechanisms releasing information about this</span>
+<span class="sd">    particular subject, stored in a vectorized form&quot;&quot;&quot;</span>
+
+    <span class="n">CONSTANT2EPSILSON_CACHE_FILENAME</span> <span class="o">=</span> <span class="s2">&quot;constant2epsilon_1200k.npy&quot;</span>
+    <span class="n">_cache_constant2epsilon</span> <span class="o">=</span> <span class="n">load_cache</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">CONSTANT2EPSILSON_CACHE_FILENAME</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">constants</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">update_number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">timestamp_of_last_update</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rdp_constants</span> <span class="o">=</span> <span class="n">constants</span> <span class="k">if</span> <span class="n">constants</span> <span class="k">else</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_number</span> <span class="o">=</span> <span class="n">update_number</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timestamp_of_last_update</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">timestamp_of_last_update</span>
+            <span class="k">if</span> <span class="n">timestamp_of_last_update</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="k">else</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pending_save</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DataSubjectLedger</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span> <span class="o">==</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_number</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_update_number</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timestamp_of_last_update</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_timestamp_of_last_update</span>
+            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rdp_constants</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_rdp_constants</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">delta</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="n">FIXED_DELTA</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mf">1e-6</span>
+        <span class="k">return</span> <span class="n">FIXED_DELTA</span>  <span class="c1"># WARNING: CHANGING DELTA INVALIDATES THE CACHE</span>
+
+    <span class="k">def</span> <span class="nf">bind_to_store_with_key</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">store</span><span class="p">:</span> <span class="n">AbstractLedgerStore</span><span class="p">,</span> <span class="n">user_key</span><span class="p">:</span> <span class="n">VerifyKey</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">store</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_key</span> <span class="o">=</span> <span class="n">user_key</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_or_create</span><span class="p">(</span>
+        <span class="n">store</span><span class="p">:</span> <span class="n">AbstractLedgerStore</span><span class="p">,</span> <span class="n">user_key</span><span class="p">:</span> <span class="n">VerifyKey</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AbstractDataSubjectLedger</span><span class="p">]:</span>
+        <span class="n">ledger</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AbstractDataSubjectLedger</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># todo change user_key or uid?</span>
+            <span class="n">ledger</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">user_key</span><span class="p">)</span>
+            <span class="n">ledger</span><span class="o">.</span><span class="n">bind_to_store_with_key</span><span class="p">(</span><span class="n">store</span><span class="o">=</span><span class="n">store</span><span class="p">,</span> <span class="n">user_key</span><span class="o">=</span><span class="n">user_key</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Creating new Ledger&quot;</span><span class="p">)</span>
+            <span class="n">ledger</span> <span class="o">=</span> <span class="n">DataSubjectLedger</span><span class="p">()</span>
+            <span class="n">ledger</span><span class="o">.</span><span class="n">bind_to_store_with_key</span><span class="p">(</span><span class="n">store</span><span class="o">=</span><span class="n">store</span><span class="p">,</span> <span class="n">user_key</span><span class="o">=</span><span class="n">user_key</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to read ledger from ledger store. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ledger</span>
+
+    <span class="c1"># def get_entity_overbudget_mask_for_epsilon_and_append(</span>
+    <span class="c1">#     self,</span>
+    <span class="c1">#     unique_entity_ids_query: np.ndarray,</span>
+    <span class="c1">#     rdp_params: RDPParams,</span>
+    <span class="c1">#     get_budget_for_user: Callable,</span>
+    <span class="c1">#     deduct_epsilon_for_user: Callable,</span>
+    <span class="c1">#     private: bool = True,</span>
+    <span class="c1"># ) -&gt; np.ndarray:</span>
+    <span class="c1">#     # coerce to np.int64</span>
+    <span class="c1">#     entity_ids_query: np.ndarray = (</span>
+    <span class="c1">#         unique_entity_ids_query  # = unique_entity_ids_query.astype(np.int64)</span>
+    <span class="c1">#     )</span>
+    <span class="c1">#     # calculate constants</span>
+    <span class="c1">#     rdp_constants = self._get_batch_rdp_constants(</span>
+    <span class="c1">#         entity_ids_query=entity_ids_query, rdp_params=rdp_params, private=private</span>
+    <span class="c1">#     )</span>
+    <span class="c1">#</span>
+    <span class="c1">#     # here we iteratively attempt to calculate the overbudget mask and save</span>
+    <span class="c1">#     # changes to the database</span>
+    <span class="c1">#     mask = self._get_overbudgeted_entities(</span>
+    <span class="c1">#         get_budget_for_user=get_budget_for_user,</span>
+    <span class="c1">#         deduct_epsilon_for_user=deduct_epsilon_for_user,</span>
+    <span class="c1">#         rdp_constants=rdp_constants,</span>
+    <span class="c1">#     )</span>
+    <span class="c1">#</span>
+    <span class="c1">#     # at this point we are confident that the database budget field has been updated</span>
+    <span class="c1">#     # so now we should flush the _rdp_constants that we have calculated to storage</span>
+    <span class="c1">#     if self._write_ledger():</span>
+    <span class="c1">#         return mask</span>
+
+    <span class="k">def</span> <span class="nf">_write_ledger</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_number</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pending_save</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pending_save</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to write ledger to ledger store. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="k">def</span> <span class="nf">_increase_max_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">new_entries</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">current_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cache_constant2epsilon</span><span class="p">)</span>
+        <span class="n">new_alphas</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">new_size</span> <span class="o">-</span> <span class="n">current_size</span><span class="p">):</span>
+            <span class="n">alph</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_optimal_alpha_for_constant</span><span class="p">(</span>
+                <span class="n">constant</span><span class="o">=</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">current_size</span>
+            <span class="p">)</span>
+            <span class="n">new_entries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eps</span><span class="p">)</span>
+            <span class="n">new_alphas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alph</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_constant2epsilon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_cache_constant2epsilon</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_entries</span><span class="p">)]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_fetch_eps_spend_for_big_rdp</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">big_rdp_constant</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        We only use this when the RDP constant is large enough that extending the cache would take too long.</span>
+<span class="sd">        As of Nov 21, 2022, we decided the cutoff would be the current cache size + 150,000</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># There may be a vectorized way of doing this using jnp.take() and cacheable as a boolean mask</span>
+
+        <span class="n">eps_values</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># filter values that are cache-able</span>
+        <span class="n">cacheable</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">big_rdp_constant</span> <span class="o">&lt;=</span> <span class="mi">700_050</span>
+        <span class="p">)</span>  <span class="c1"># TODO: Replace this with a class variable</span>
+        <span class="n">cacheable</span> <span class="o">=</span> <span class="n">cacheable</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">rdp_constants</span> <span class="o">=</span> <span class="n">big_rdp_constant</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">is_cacheable</span><span class="p">,</span> <span class="n">constant</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cacheable</span><span class="p">,</span> <span class="n">rdp_constants</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">is_cacheable</span><span class="p">:</span>
+                <span class="n">eps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_constant2epsilon</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">eps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_optimal_alpha_for_constant</span><span class="p">(</span><span class="n">constant</span><span class="p">)</span>
+            <span class="n">eps_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eps</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">eps_values</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">big_rdp_constant</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_fake_rdp_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constant</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">constant</span>
+
+        <span class="k">return</span> <span class="n">func</span>
+
+    <span class="k">def</span> <span class="nf">_get_alpha_search_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdp_compose_func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+        <span class="n">log_delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>  <span class="c1"># the input is the RDP&#39;s \alpha</span>
+            <span class="k">if</span> <span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">alpha_minus_1</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span>
+                    <span class="n">rdp_compose_func</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha_minus_1</span> <span class="o">/</span> <span class="n">alpha</span><span class="p">)</span>
+                    <span class="o">-</span> <span class="p">(</span><span class="n">log_delta</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span> <span class="o">/</span> <span class="n">alpha_minus_1</span><span class="p">,</span>
+                    <span class="mi">0</span><span class="p">,</span>
+                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">fun</span>
+
+    <span class="k">def</span> <span class="nf">_get_optimal_alpha_for_constant</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">constant</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_fake_rdp_func</span><span class="p">(</span><span class="n">constant</span><span class="o">=</span><span class="n">constant</span><span class="p">)</span>
+        <span class="n">f2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_alpha_search_function</span><span class="p">(</span><span class="n">rdp_compose_func</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">minimize_scalar</span><span class="p">(</span>
+            <span class="n">f2</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;Brent&quot;</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># , bounds=[1, np.inf]</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">results</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">fun</span>
+
+    <span class="k">def</span> <span class="nf">update_rdp_constants</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_subject_rdp_constants</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rdp_constants</span> <span class="o">=</span> <span class="n">map_dsa_to_rdp_constants</span><span class="p">(</span>
+            <span class="n">data_subject_rdp_constants</span><span class="o">=</span><span class="n">data_subject_rdp_constants</span><span class="p">,</span>
+            <span class="n">rdp_constants</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_rdp_constants</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># def _get_batch_rdp_constants(</span>
+    <span class="c1">#     self, entity_ids_query: jnp.ndarray, rdp_params: RDPParams, private: bool = True</span>
+    <span class="c1"># ) -&gt; jnp.ndarray:</span>
+    <span class="c1">#     query_constants = compute_rdp_constant(rdp_params, private)</span>
+    <span class="c1">#</span>
+    <span class="c1">#     self.update_rdp_constants(</span>
+    <span class="c1">#         query_constants=query_constants, entity_ids_query=entity_ids_query</span>
+    <span class="c1">#     )</span>
+    <span class="c1">#     return query_constants</span>
+
+    <span class="k">def</span> <span class="nf">_get_epsilon_spend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rdp_constants</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="n">rdp_constants_lookup</span> <span class="o">=</span> <span class="n">convert_constants_to_indices</span><span class="p">(</span><span class="n">rdp_constants</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">rdp_constants_lookup</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cache_constant2epsilon</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">150_000</span><span class="p">:</span>
+            <span class="n">eps_spend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fetch_eps_spend_for_big_rdp</span><span class="p">(</span>
+                <span class="n">rdp_constants</span><span class="p">,</span> <span class="n">rdp_constants_lookup</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># needed as np.int64 to use take</span>
+                <span class="n">eps_spend</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">take</span><span class="p">)(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_cache_constant2epsilon</span><span class="p">,</span> <span class="n">rdp_constants_lookup</span>
+                <span class="p">)</span>
+
+                <span class="c1"># take no longer wraps which was probably wrong:</span>
+                <span class="c1"># https://github.com/google/jax/commit/0b470361dac51fb4f5ab2f720f1cf35e442db005</span>
+                <span class="c1"># now we should expect NaN when the max rdp_constants_lookup is higher</span>
+                <span class="c1"># than the length of self._cache_constant2epsilon</span>
+                <span class="c1"># we could also check the max head of time if its faster than checking the</span>
+                <span class="c1"># output for NaNs</span>
+                <span class="k">if</span> <span class="n">jnp</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">eps_spend</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;NaNs from RDP Lookup, we need to recalculate&quot;</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cache missed the value at </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">rdp_constants_lookup</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_increase_max_cache</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">rdp_constants_lookup</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">))</span>
+                <span class="n">eps_spend</span> <span class="o">=</span> <span class="n">jax</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="n">jnp</span><span class="o">.</span><span class="n">take</span><span class="p">)(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_cache_constant2epsilon</span><span class="p">,</span> <span class="n">rdp_constants_lookup</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">eps_spend</span>
+
+    <span class="k">def</span> <span class="nf">_calculate_mask_for_current_budget</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">get_budget_for_user</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">epsilon_spend</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+        <span class="n">user_budget</span> <span class="o">=</span> <span class="n">get_budget_for_user</span><span class="p">(</span><span class="n">verify_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_key</span><span class="p">)</span>
+        <span class="c1"># create a mask of True and False where true is over current user_budget</span>
+        <span class="k">return</span> <span class="n">get_budgets_and_mask</span><span class="p">(</span><span class="n">epsilon_spend</span><span class="p">,</span> <span class="n">user_budget</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_overbudgeted_entities</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">get_budget_for_user</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+        <span class="n">deduct_epsilon_for_user</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+        <span class="n">rdp_constants</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+        <span class="n">epsilon_spend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_epsilon_spend</span><span class="p">(</span><span class="n">rdp_constants</span><span class="o">=</span><span class="n">rdp_constants</span><span class="p">)</span>
+
+        <span class="c1"># try first time</span>
+        <span class="p">(</span>
+            <span class="n">highest_possible_spend</span><span class="p">,</span>
+            <span class="n">user_budget</span><span class="p">,</span>
+            <span class="n">mask</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_mask_for_current_budget</span><span class="p">(</span>
+            <span class="n">get_budget_for_user</span><span class="o">=</span><span class="n">get_budget_for_user</span><span class="p">,</span> <span class="n">epsilon_spend</span><span class="o">=</span><span class="n">epsilon_spend</span>
+        <span class="p">)</span>
+
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">highest_possible_spend</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">highest_possible_spend</span><span class="p">)</span>
+        <span class="n">user_budget</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">user_budget</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Epsilon spend &quot;</span><span class="p">,</span> <span class="n">epsilon_spend</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Highest possible spend &quot;</span><span class="p">,</span> <span class="n">highest_possible_spend</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">highest_possible_spend</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># go spend it in the db</span>
+            <span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Attemping to spend epsilon: </span><span class="si">{</span><span class="n">highest_possible_spend</span><span class="si">}</span><span class="s2">. Try: </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="n">attempts</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">user_budget</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spend_epsilon</span><span class="p">(</span>
+                        <span class="n">deduct_epsilon_for_user</span><span class="o">=</span><span class="n">deduct_epsilon_for_user</span><span class="p">,</span>
+                        <span class="n">epsilon_spend</span><span class="o">=</span><span class="n">highest_possible_spend</span><span class="p">,</span>
+                        <span class="n">old_user_budget</span><span class="o">=</span><span class="n">user_budget</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="k">break</span>
+                <span class="k">except</span> <span class="n">RefreshBudgetException</span><span class="p">:</span>  <span class="c1"># nosec</span>
+                    <span class="c1"># this is the only exception we allow to retry</span>
+                    <span class="p">(</span>
+                        <span class="n">highest_possible_spend</span><span class="p">,</span>
+                        <span class="n">user_budget</span><span class="p">,</span>
+                        <span class="n">mask</span><span class="p">,</span>
+                    <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_mask_for_current_budget</span><span class="p">(</span>
+                        <span class="n">get_budget_for_user</span><span class="o">=</span><span class="n">get_budget_for_user</span><span class="p">,</span>
+                        <span class="n">epsilon_spend</span><span class="o">=</span><span class="n">epsilon_spend</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Problem spending epsilon. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">e</span>
+
+        <span class="k">if</span> <span class="n">user_budget</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Failed to spend_epsilon&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">mask</span>
+
+    <span class="k">def</span> <span class="nf">spend_epsilon</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">deduct_epsilon_for_user</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+        <span class="n">epsilon_spend</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">old_user_budget</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+
+        <span class="k">if</span> <span class="n">epsilon_spend</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;Deducting a negative epsilon spend would result in potentially infinite PB. &quot;</span>
+                <span class="s2">&quot;Please contact the OpenMined support team.&quot;</span>
+                <span class="s2">&quot;Thank you, and sorry for the inconvenience!&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># get the budget</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;got user budget&quot;</span><span class="p">,</span> <span class="n">old_user_budget</span><span class="p">,</span> <span class="s2">&quot;epsilon_spent&quot;</span><span class="p">,</span> <span class="n">epsilon_spend</span><span class="p">)</span>
+        <span class="n">deduct_epsilon_for_user</span><span class="p">(</span>
+            <span class="n">verify_key</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">user_key</span><span class="p">,</span>
+            <span class="n">old_budget</span><span class="o">=</span><span class="n">old_user_budget</span><span class="p">,</span>
+            <span class="n">epsilon_spend</span><span class="o">=</span><span class="n">epsilon_spend</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># return the budget we used</span>
+        <span class="k">return</span> <span class="n">old_user_budget</span>
+
+    <span class="k">def</span> <span class="nf">_object2bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">get_capnp_schema</span><span class="p">(</span><span class="n">schema_file</span><span class="o">=</span><span class="s2">&quot;data_subject_ledger.capnp&quot;</span><span class="p">)</span>
+
+        <span class="n">dsl_struct</span><span class="p">:</span> <span class="n">CapnpModule</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">DataSubjectLedger</span>  <span class="c1"># type: ignore</span>
+        <span class="n">dsl_msg</span> <span class="o">=</span> <span class="n">dsl_struct</span><span class="o">.</span><span class="n">new_message</span><span class="p">()</span>
+        <span class="c1"># this is how we dispatch correct deserialization of bytes</span>
+        <span class="n">dsl_msg</span><span class="o">.</span><span class="n">magicHeader</span> <span class="o">=</span> <span class="n">serde_magic_header</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="c1"># Old way to serialize it : capnp_serialize(self._rdp_constants)</span>
+        <span class="n">dsl_msg</span><span class="o">.</span><span class="n">constants</span> <span class="o">=</span> <span class="n">serialize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rdp_constants</span><span class="p">,</span> <span class="n">to_bytes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">dsl_msg</span><span class="o">.</span><span class="n">updateNumber</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_update_number</span>
+        <span class="n">dsl_msg</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timestamp_of_last_update</span>
+
+        <span class="k">return</span> <span class="n">dsl_msg</span><span class="o">.</span><span class="n">to_bytes_packed</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_bytes2object</span><span class="p">(</span><span class="n">buf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataSubjectLedger</span><span class="p">:</span>
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">get_capnp_schema</span><span class="p">(</span><span class="n">schema_file</span><span class="o">=</span><span class="s2">&quot;data_subject_ledger.capnp&quot;</span><span class="p">)</span>
+        <span class="n">dsl_struct</span><span class="p">:</span> <span class="n">CapnpModule</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">DataSubjectLedger</span>  <span class="c1"># type: ignore</span>
+        <span class="c1"># https://stackoverflow.com/questions/48458839/capnproto-maximum-filesize</span>
+        <span class="n">MAX_TRAVERSAL_LIMIT</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">64</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="c1"># to pack or not to pack?</span>
+        <span class="n">dsl_msg</span> <span class="o">=</span> <span class="n">dsl_struct</span><span class="o">.</span><span class="n">from_bytes_packed</span><span class="p">(</span>
+            <span class="n">buf</span><span class="p">,</span> <span class="n">traversal_limit_in_words</span><span class="o">=</span><span class="n">MAX_TRAVERSAL_LIMIT</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Old way to deserialize it : capnp_deserialize(dsl_msg.constants)</span>
+        <span class="n">constants</span> <span class="o">=</span> <span class="n">deserialize</span><span class="p">(</span><span class="n">dsl_msg</span><span class="o">.</span><span class="n">constants</span><span class="p">,</span> <span class="n">from_bytes</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">update_number</span> <span class="o">=</span> <span class="n">dsl_msg</span><span class="o">.</span><span class="n">updateNumber</span>
+        <span class="n">timestamp_of_last_update</span> <span class="o">=</span> <span class="n">dsl_msg</span><span class="o">.</span><span class="n">timestamp</span>
+
+        <span class="k">return</span> <span class="n">DataSubjectLedger</span><span class="p">(</span>
+            <span class="n">constants</span><span class="o">=</span><span class="n">constants</span><span class="p">,</span>
+            <span class="n">update_number</span><span class="o">=</span><span class="n">update_number</span><span class="p">,</span>
+            <span class="n">timestamp_of_last_update</span><span class="o">=</span><span class="n">timestamp_of_last_update</span><span class="p">,</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

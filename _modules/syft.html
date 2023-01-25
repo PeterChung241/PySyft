@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>syft &#8212; PySyft  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api_reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../guides/index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for syft</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Welcome to the syft package! This package is the primary package for PySyft.</span>
+<span class="sd">This package has two kinds of attributes: submodules and convenience functions.</span>
+<span class="sd">Submodules are configured in the standard way, but the convenience</span>
+<span class="sd">functions exist to allow for a convenient `import syft as sy` to then expose</span>
+<span class="sd">the most-used functionalities directly on syft. Note that this way of importing</span>
+<span class="sd">PySyft is the strict convention in this codebase. (Do no simply call</span>
+<span class="sd">`import syft` and then directly use `syft.&lt;method&gt;`.)</span>
+<span class="sd">The syft module is split into two distinct groups of functionality which we casually refer to</span>
+<span class="sd">as syft &quot;core&quot; and syft &quot;python&quot;. &quot;core&quot; functionality is functionality which is designed</span>
+<span class="sd">to be universal across all Syft languages (javascript, kotlin, swift, etc.).</span>
+<span class="sd">Syft &quot;python&quot; includes all functionality which by its very nature cannot be</span>
+<span class="sd">truly polyglot. Syft &quot;core&quot; functionality includes the following modules:</span>
+<span class="sd">* :py:mod:`syft.core.node` - APIs for interacting with remote machines you do not directly control.</span>
+<span class="sd">* :py:mod:`syft.core.message` - APIs for serializing messages sent between Client and Node classes.</span>
+<span class="sd">* :py:mod:`syft.core.pointer` - Client side API for referring to objects on a Node</span>
+<span class="sd">* :py:mod:`syft.core.store` - Server side API for referring to object storage on a node (things pointers point to)</span>
+<span class="sd">Syft &quot;python&quot; functionality includes the following modules:</span>
+<span class="sd">* :py:mod:`syft.ast` - code generates external library common syntax tree using an allowlist list of methods</span>
+<span class="sd">* :py:mod:`syft.typecheck` - automatically checks and enforces Python type hints and the exclusive use of kwargs.</span>
+<span class="sd">* :py:mod:`syft.lib` - uses the ast library to dynamically create remote execution APIs for supported Python libs.</span>
+<span class="sd">    IMPORTANT: syft.core should be very careful when importing functionality from outside of syft</span>
+<span class="sd">    core!!! Since we plan to drop syft core down to a language (such as C++ or Rust)</span>
+<span class="sd">    this can create future complications with lower level languages calling</span>
+<span class="sd">    higher level ones.</span>
+<span class="sd">To begin your education in Syft, continue to the :py:mod:`syft.core.node.vm.vm` module...</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.7.0&quot;</span>
+
+<span class="c1"># stdlib</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="c1"># third party</span>
+<span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">DistributionNotFound</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">pkg_resources</span> <span class="kn">import</span> <span class="n">get_distribution</span>  <span class="c1"># noqa: F401</span>
+
+<span class="c1"># relative</span>
+<span class="c1"># Package Imports</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">filterwarnings</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">jax_settings</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">lib</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">logger</span>  <span class="c1"># noqa: F401</span>
+
+<span class="c1"># ASTRACT OBJECT IMPORTS</span>
+<span class="kn">from</span> <span class="nn">.core</span> <span class="kn">import</span> <span class="n">common</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.adp.data_subject_list</span> <span class="kn">import</span> <span class="n">DataSubjectArray</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.adp.data_subject_list</span> <span class="kn">import</span> <span class="n">DataSubjectList</span>  <span class="c1"># noqa: F401</span>
+
+<span class="c1"># Convenience Methods</span>
+<span class="kn">from</span> <span class="nn">.core.common.serde.deserialize</span> <span class="kn">import</span> <span class="n">_deserialize</span> <span class="k">as</span> <span class="n">deserialize</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.common.serde.serialize</span> <span class="kn">import</span> <span class="n">_serialize</span> <span class="k">as</span> <span class="n">serialize</span>  <span class="c1"># noqa: F401</span>
+
+<span class="c1"># TFF</span>
+<span class="kn">from</span> <span class="nn">.core.node.common.node_service</span> <span class="kn">import</span> <span class="n">tff</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.node.common.node_service.testing_services.repr_service</span> <span class="kn">import</span> <span class="p">(</span>  <span class="c1"># noqa: F401</span>
+    <span class="n">ReprMessage</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.core.node.device</span> <span class="kn">import</span> <span class="n">Device</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.node.device_client</span> <span class="kn">import</span> <span class="n">DeviceClient</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.node.domain</span> <span class="kn">import</span> <span class="n">Domain</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.node.domain</span> <span class="kn">import</span> <span class="n">DomainClient</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.node.network</span> <span class="kn">import</span> <span class="n">Network</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.node.network_client</span> <span class="kn">import</span> <span class="n">NetworkClient</span>  <span class="c1"># noqa: F401</span>
+
+<span class="c1"># Convenience Constructors</span>
+<span class="kn">from</span> <span class="nn">.core.node.vm</span> <span class="kn">import</span> <span class="n">VirtualMachine</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.node.vm_client</span> <span class="kn">import</span> <span class="n">VirtualMachineClient</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.tensor</span> <span class="kn">import</span> <span class="n">autodp</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.tensor</span> <span class="kn">import</span> <span class="n">nn</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.tensor.autodp.gamma_tensor</span> <span class="kn">import</span> <span class="n">GammaTensor</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.tensor.autodp.phi_tensor</span> <span class="kn">import</span> <span class="n">PhiTensor</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.tensor.lazy_repeat_array</span> <span class="kn">import</span> <span class="n">lazyrepeatarray</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.core.tensor.tensor</span> <span class="kn">import</span> <span class="n">Tensor</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.experimental_flags</span> <span class="kn">import</span> <span class="n">flags</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.grid.client.client</span> <span class="kn">import</span> <span class="n">connect</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.grid.client.client</span> <span class="kn">import</span> <span class="n">login</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.grid.client.client</span> <span class="kn">import</span> <span class="n">register</span>  <span class="c1"># noqa: F401</span>
+
+<span class="c1"># Convenience Objects</span>
+<span class="kn">from</span> <span class="nn">.lib</span> <span class="kn">import</span> <span class="n">lib_ast</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.lib</span> <span class="kn">import</span> <span class="n">load</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.lib</span> <span class="kn">import</span> <span class="n">load_lib</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.registry</span> <span class="kn">import</span> <span class="n">NetworkRegistry</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.user_settings</span> <span class="kn">import</span> <span class="n">UserSettings</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.user_settings</span> <span class="kn">import</span> <span class="n">settings</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.version_compare</span> <span class="kn">import</span> <span class="n">make_requires</span>
+
+<span class="n">LATEST_STABLE_SYFT</span> <span class="o">=</span> <span class="s2">&quot;0.7&quot;</span>
+<span class="n">requires</span> <span class="o">=</span> <span class="n">make_requires</span><span class="p">(</span><span class="n">LATEST_STABLE_SYFT</span><span class="p">,</span> <span class="n">__version__</span><span class="p">)</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="module_property"><a class="viewcode-back" href="../api_reference/syft.html#syft.module_property">[docs]</a><span class="k">def</span> <span class="nf">module_property</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Decorator to turn module functions into properties.</span>
+<span class="sd">    Function names must be prefixed with an underscore.&quot;&quot;&quot;</span>
+    <span class="n">module</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">func</span><span class="o">.</span><span class="vm">__module__</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">base_getattr</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;module &#39;</span><span class="si">{</span><span class="n">module</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; has no attribute &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+
+    <span class="n">old_getattr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s2">&quot;__getattr__&quot;</span><span class="p">,</span> <span class="n">base_getattr</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">new_getattr</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">if</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">old_getattr</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="n">module</span><span class="o">.</span><span class="fm">__getattr__</span> <span class="o">=</span> <span class="n">new_getattr</span>  <span class="c1"># type: ignore</span>
+    <span class="k">return</span> <span class="n">func</span></div>
+
+
+<span class="nd">@module_property</span>
+<span class="k">def</span> <span class="nf">_networks</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">NetworkRegistry</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">NetworkRegistry</span><span class="p">()</span>
+
+
+<span class="nd">@module_property</span>
+<span class="k">def</span> <span class="nf">_settings</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">UserSettings</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">settings</span>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+syft.core.node.common.node\_service.tff.tff\_service
+====================================================
+
+.. automodule:: syft.core.node.common.node_service.tff.tff_service
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      aux_recursive_od2d
+      ordereddict2dict
+      tff_program
+      tff_train_federated
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      TFFService
+   
+   
+
+   
+   
+   
+
+
+

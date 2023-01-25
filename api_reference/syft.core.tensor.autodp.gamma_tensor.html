@@ -1,0 +1,2355 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>syft.core.tensor.autodp.gamma_tensor &#8212; PySyft  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="syft.core.tensor.autodp.gamma_tensor_ops" href="syft.core.tensor.autodp.gamma_tensor_ops.html" />
+    <link rel="prev" title="syft.core.tensor.autodp.gamma_functions" href="syft.core.tensor.autodp.gamma_functions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../guides/index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="syft.ast.html">
+   syft.ast
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.attribute.html">
+     syft.ast.attribute
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.callable.html">
+     syft.ast.callable
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.dynamic_object.html">
+     syft.ast.dynamic_object
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.enum.html">
+     syft.ast.enum
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.globals.html">
+     syft.ast.globals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.klass.html">
+     syft.ast.klass
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.module.html">
+     syft.ast.module
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.property.html">
+     syft.ast.property
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.static_attr.html">
+     syft.ast.static_attr
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.ast.util.html">
+     syft.ast.util
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="syft.capnp.html">
+   syft.capnp package
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="syft.core.html">
+   syft.core
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.core.adp.html">
+     syft.core.adp
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.adp.abstract_ledger_store.html">
+       syft.core.adp.abstract_ledger_store
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.adp.data_subject.html">
+       syft.core.adp.data_subject
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.adp.data_subject_ledger.html">
+       syft.core.adp.data_subject_ledger
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.adp.data_subject_list.html">
+       syft.core.adp.data_subject_list
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.adp.ledger_store.html">
+       syft.core.adp.ledger_store
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.adp.vectorized_publish.html">
+       syft.core.adp.vectorized_publish
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.core.common.html">
+     syft.core.common
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.common.decorators.html">
+       syft.core.common.decorators
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.common.environment.html">
+       syft.core.common.environment
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.common.group.html">
+       syft.core.common.group
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.common.message.html">
+       syft.core.common.message
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.common.object.html">
+       syft.core.common.object
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.common.pointer.html">
+       syft.core.common.pointer
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.common.serde.html">
+       syft.core.common.serde
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+      <label for="toctree-checkbox-5">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.common.serde.capnp.html">
+         syft.core.common.serde.capnp
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.common.serde.deserialize.html">
+         syft.core.common.serde.deserialize
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.common.serde.recursive.html">
+         syft.core.common.serde.recursive
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.common.serde.serializable.html">
+         syft.core.common.serde.serializable
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.common.serde.serialize.html">
+         syft.core.common.serde.serialize
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.common.serde.types.html">
+         syft.core.common.serde.types
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.common.storeable_object.html">
+       syft.core.common.storeable_object
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.common.uid.html">
+       syft.core.common.uid
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.core.io.html">
+     syft.core.io
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.io.address.html">
+       syft.core.io.address
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.io.connection.html">
+       syft.core.io.connection
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.io.location.html">
+       syft.core.io.location
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.io.location.group.html">
+         syft.core.io.location.group
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.io.location.location.html">
+         syft.core.io.location.location
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.io.location.specific.html">
+         syft.core.io.location.specific
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.io.route.html">
+       syft.core.io.route
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.io.virtual.html">
+       syft.core.io.virtual
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.core.node.html">
+     syft.core.node
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.node.abstract.html">
+       syft.core.node.abstract
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.abstract.node.html">
+         syft.core.node.abstract.node
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.abstract.node_service_interface.html">
+         syft.core.node.abstract.node_service_interface
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.abstract_node_msg_registry.html">
+       syft.core.node.abstract_node_msg_registry
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.node.common.html">
+       syft.core.node.common
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.action.html">
+         syft.core.node.common.action
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.client.html">
+         syft.core.node.common.client
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.client_manager.html">
+         syft.core.node.common.client_manager
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.exceptions.html">
+         syft.core.node.common.exceptions
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.metadata.html">
+         syft.core.node.common.metadata
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.node.html">
+         syft.core.node.common.node
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.node_manager.html">
+         syft.core.node.common.node_manager
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.node_service.html">
+         syft.core.node.common.node_service
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.node_table.html">
+         syft.core.node.common.node_table
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.permissions.html">
+         syft.core.node.common.permissions
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.node.common.util.html">
+         syft.core.node.common.util
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.device.html">
+       syft.core.node.device
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.device_client.html">
+       syft.core.node.device_client
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.domain.html">
+       syft.core.node.domain
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.domain_client.html">
+       syft.core.node.domain_client
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.domain_interface.html">
+       syft.core.node.domain_interface
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.domain_msg_registry.html">
+       syft.core.node.domain_msg_registry
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.domain_service.html">
+       syft.core.node.domain_service
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.enums.html">
+       syft.core.node.enums
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.exceptions.html">
+       syft.core.node.exceptions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.network.html">
+       syft.core.node.network
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.network_client.html">
+       syft.core.node.network_client
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.network_msg_registry.html">
+       syft.core.node.network_msg_registry
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.network_service.html">
+       syft.core.node.network_service
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.node_service.html">
+       syft.core.node.node_service
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.registry.html">
+       syft.core.node.registry
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.service.html">
+       syft.core.node.service
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.vm.html">
+       syft.core.node.vm
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.node.vm_client.html">
+       syft.core.node.vm_client
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.core.pointer.html">
+     syft.core.pointer
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.pointer.garbage_collection.html">
+       syft.core.pointer.garbage_collection
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.pointer.garbage_collection.garbage_collection.html">
+         syft.core.pointer.garbage_collection.garbage_collection
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.pointer.garbage_collection.gc_batched.html">
+         syft.core.pointer.garbage_collection.gc_batched
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.pointer.garbage_collection.gc_simple.html">
+         syft.core.pointer.garbage_collection.gc_simple
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.pointer.garbage_collection.gc_strategy.html">
+         syft.core.pointer.garbage_collection.gc_strategy
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.pointer.pointer.html">
+       syft.core.pointer.pointer
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.core.smpc.html">
+     syft.core.smpc
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.smpc.approximations.html">
+       syft.core.smpc.approximations
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.approximations.exp.html">
+         syft.core.smpc.approximations.exp
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.approximations.log.html">
+         syft.core.smpc.approximations.log
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.approximations.reciprocal.html">
+         syft.core.smpc.approximations.reciprocal
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.approximations.utils.html">
+         syft.core.smpc.approximations.utils
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.smpc.protocol.html">
+       syft.core.smpc.protocol
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.protocol.aby3.html">
+         syft.core.smpc.protocol.aby3
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.protocol.beaver.html">
+         syft.core.smpc.protocol.beaver
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.protocol.spdz.html">
+         syft.core.smpc.protocol.spdz
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.smpc.store.html">
+       syft.core.smpc.store
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.store.crypto_primitive_provider.html">
+         syft.core.smpc.store.crypto_primitive_provider
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.store.crypto_store.html">
+         syft.core.smpc.store.crypto_store
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.smpc.store.exceptions.html">
+         syft.core.smpc.store.exceptions
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.core.store.html">
+     syft.core.store
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.store.dataset.html">
+       syft.core.store.dataset
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.store.proxy_dataset.html">
+       syft.core.store.proxy_dataset
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.store.store_interface.html">
+       syft.core.store.store_interface
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.store.storeable_object.html">
+       syft.core.store.storeable_object
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="syft.core.tensor.html">
+     syft.core.tensor
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+    <label for="toctree-checkbox-18">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.ancestors.html">
+       syft.core.tensor.ancestors
+      </a>
+     </li>
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="syft.core.tensor.autodp.html">
+       syft.core.tensor.autodp
+      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+      <label for="toctree-checkbox-19">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.autodp.gamma_functions.html">
+         syft.core.tensor.autodp.gamma_functions
+        </a>
+       </li>
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         syft.core.tensor.autodp.gamma_tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.autodp.gamma_tensor_ops.html">
+         syft.core.tensor.autodp.gamma_tensor_ops
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.autodp.jax_ops.html">
+         syft.core.tensor.autodp.jax_ops
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.autodp.phi_tensor.html">
+         syft.core.tensor.autodp.phi_tensor
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.broadcastable.html">
+       syft.core.tensor.broadcastable
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.config.html">
+       syft.core.tensor.config
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.fixed_precision_tensor.html">
+       syft.core.tensor.fixed_precision_tensor
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.fixed_precision_tensor_ancestor.html">
+       syft.core.tensor.fixed_precision_tensor_ancestor
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.functions.html">
+       syft.core.tensor.functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.lazy_repeat_array.html">
+       syft.core.tensor.lazy_repeat_array
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.manager.html">
+       syft.core.tensor.manager
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.tensor.nn.html">
+       syft.core.tensor.nn
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+      <label for="toctree-checkbox-20">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.nn.activations.html">
+         syft.core.tensor.nn.activations
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.nn.initializations.html">
+         syft.core.tensor.nn.initializations
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.nn.layers.html">
+         syft.core.tensor.nn.layers
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.nn.loss.html">
+         syft.core.tensor.nn.loss
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.nn.model.html">
+         syft.core.tensor.nn.model
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.nn.optimizers.html">
+         syft.core.tensor.nn.optimizers
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.nn.utils.html">
+         syft.core.tensor.nn.utils
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.passthrough.html">
+       syft.core.tensor.passthrough
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="syft.core.tensor.smpc.html">
+       syft.core.tensor.smpc
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.smpc.context.html">
+         syft.core.tensor.smpc.context
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html">
+         syft.core.tensor.smpc.mpc_tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor_ancestor.html">
+         syft.core.tensor.smpc.mpc_tensor_ancestor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.smpc.share_tensor.html">
+         syft.core.tensor.smpc.share_tensor
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="syft.core.tensor.smpc.utils.html">
+         syft.core.tensor.smpc.utils
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.tensor.html">
+       syft.core.tensor.tensor
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.tensor.util.html">
+       syft.core.tensor.util
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.core.test.html">
+     syft.core.test
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.core.test.module_test.html">
+       syft.core.test.module_test
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="syft.grid.html">
+   syft.grid
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+  <label for="toctree-checkbox-23">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.grid.client.html">
+     syft.grid.client
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.grid.client.client.html">
+       syft.grid.client.client
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.grid.client.grid_connection.html">
+       syft.grid.client.grid_connection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.grid.client.proxy_client.html">
+       syft.grid.client.proxy_client
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.grid.connections.html">
+     syft.grid.connections
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.grid.connections.http_connection.html">
+       syft.grid.connections.http_connection
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.grid.grid_url.html">
+     syft.grid.grid_url
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="syft.lib.html">
+   syft.lib package
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/>
+  <label for="toctree-checkbox-26">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.lib.misc.html">
+     syft.lib.misc package
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.lib.numpy.html">
+     syft.lib.numpy package
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="syft.lib.python.html">
+     syft.lib.python package
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/>
+    <label for="toctree-checkbox-27">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="syft.lib.python.collections.html">
+       syft.lib.python.collections package
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="syft.lib.torch.html">
+     syft.lib.torch package
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section id="module-syft.core.tensor.autodp.gamma_tensor">
+<span id="syft-core-tensor-autodp-gamma-tensor"></span><h1>syft.core.tensor.autodp.gamma_tensor<a class="headerlink" href="#module-syft.core.tensor.autodp.gamma_tensor" title="Permalink to this headline">¶</a></h1>
+<p class="rubric">Functions</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_lookup_tables</span></code>(dictionary)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_new_lookup_tables</span></code>(dictionary)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">debox_child</span></code>(other)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">debox_linear</span></code>(other)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">debox_other</span></code>(other, attr)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">debox_phi</span></code>(other)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">jax2numpy</span></code>(value, dtype)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy2jax</span></code>(value, dtype)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ones_like</span></code>(tensor, *args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_state</span></code>(state, other)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">zeros_like</span></code>(tensor, *args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor" title="syft.core.tensor.autodp.gamma_tensor.GammaTensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GammaTensor</span></code></a>(child, jax_op, sources[, ...])</p></td>
+<td><p>A differential privacy tensor that contains data belonging to atleast 2 or more unique data subjects.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorWrappedGammaTensorPointer</span></code></a>(client[, ...])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">syft.core.tensor.autodp.gamma_tensor.</span></span><span class="sig-name descname"><span class="pre">TensorWrappedGammaTensorPointer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id_at_location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public_dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="syft.core.pointer.pointer.html#syft.core.pointer.pointer.Pointer" title="syft.core.pointer.pointer.Pointer"><code class="xref py py-class docutils literal notranslate"><span class="pre">syft.core.pointer.pointer.Pointer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.concatenate">
+<span class="sig-name descname"><span class="pre">concatenate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.concatenate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.concatenate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the “concatenate” operation between “self” and “other”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedGammaTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">TensorWrappedGammaTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.divmod">
+<span class="sig-name descname"><span class="pre">divmod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.divmod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.divmod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the “divmod” operation between “self” and “other”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedGammaTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">TensorWrappedGammaTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.sum">
+<span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum of array elements over a given axis.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>axis: None or int or tuple of ints, optional</dt><dd><p>Axis or axes along which a sum is performed.
+The default, axis=None, will sum all of the elements of the input array.
+If axis is negative it counts from the last to the first axis.
+If axis is a tuple of ints, a sum is performed on all of the axes specified in the tuple instead of a
+single axis or all the axes as before.</p>
+</dd>
+<dt>keepdims: bool, optional</dt><dd><p>If this is set to True, the axes which are reduced are left in the result as dimensions with size one.
+With this option, the result will broadcast correctly against the input array.
+If the default value is passed, then keepdims will not be passed through to the sum method of
+sub-classes of ndarray, however any non-default value will be. If the sub-class’ method does not
+implement keepdims any exceptions will be raised.</p>
+</dd>
+<dt>initial: scalar, optional</dt><dd><p>Starting value for the sum. See reduce for details.</p>
+</dd>
+<dt>where: array_like of bool, optional</dt><dd><p>Elements to include in the sum. See reduce for details.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.ptp">
+<span class="sig-name descname"><span class="pre">ptp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.ptp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.ptp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the “ptp” operation between “self” and “other”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedGammaTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">TensorWrappedGammaTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.argmax">
+<span class="sig-name descname"><span class="pre">argmax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.argmax"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.argmax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the “argmax” operation between “self” and “other”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedGammaTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">TensorWrappedGammaTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.argmin">
+<span class="sig-name descname"><span class="pre">argmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.argmin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.argmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the “argmin” operation between “self” and “other”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedGammaTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">TensorWrappedGammaTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.all">
+<span class="sig-name descname"><span class="pre">all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the “all” operation between “self” and “other”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedGammaTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">TensorWrappedGammaTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.any">
+<span class="sig-name descname"><span class="pre">any</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.any"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.any" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the “any” operation between “self” and “other”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedGammaTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">TensorWrappedGammaTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.var">
+<span class="sig-name descname"><span class="pre">var</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.var"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the variance along the specified axis of the array elements, a measure of the spread of a distribution.
+The variance is computed for the flattened array by default, otherwise over the specified axis.</p>
+<p>Parameters</p>
+<blockquote>
+<div><dl class="simple">
+<dt>axis: None or int or tuple of ints, optional</dt><dd><p>Axis or axes along which the variance is computed.
+The default is to compute the variance of the flattened array.
+If this is a tuple of ints, a variance is performed over multiple axes, instead of a single axis or all
+the axes as before.</p>
+</dd>
+<dt>ddof: int, optional</dt><dd><p>“Delta Degrees of Freedom”: the divisor used in the calculation is N - ddof, where N represents the
+number of elements. By default ddof is zero.</p>
+</dd>
+<dt>keepdims: bool, optional</dt><dd><p>If this is set to True, the axes which are reduced are left in the result as dimensions with size one.
+With this option, the result will broadcast correctly against the input array.
+If the default value is passed, then keepdims will not be passed through to the var method of
+sub-classes of ndarray, however any non-default value will be. If the sub-class’ method does not
+implement keepdims any exceptions will be raised.</p>
+</dd>
+<dt>where: array_like of bool, optional</dt><dd><p>Elements to include in the variance. See reduce for details.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.cumsum">
+<span class="sig-name descname"><span class="pre">cumsum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.cumsum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.cumsum" title="Permalink to this definition">¶</a></dt>
+<dd><p>”
+Return the cumulative sum of the elements along a given axis.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>axis: int, optional</dt><dd><p>Axis along which the cumulative sum is computed. The default (None) is to compute the cumsum over the
+flattened array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>cumsum_along_axis: PhiTensor</dt><dd><dl class="simple">
+<dt>A new array holding the result is returned. The result has the same size as input, and the same shape as</dt><dd><p>a if axis is not None or a is 1-d.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.cumprod">
+<span class="sig-name descname"><span class="pre">cumprod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.cumprod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.cumprod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cumulative product of the elements along a given axis.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>axis: int, optional</dt><dd><p>Axis along which the cumulative product is computed. The default (None) is to compute the cumprod over
+the flattened array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>cumprod_along_axis: PhiTensor</dt><dd><dl class="simple">
+<dt>A new array holding the result is returned. The result has the same size as input, and the same shape as</dt><dd><p>a if axis is not None or a is 1-d.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.prod">
+<span class="sig-name descname"><span class="pre">prod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.prod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.prod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the product of array elements over a given axis.
+Parameters</p>
+<blockquote>
+<div><dl class="simple">
+<dt>axis: None or int or tuple of ints, optional</dt><dd><p>Axis or axes along which a product is performed.
+The default, axis=None, will calculate the product of all the elements in the input array.
+If axis is negative it counts from the last to the first axis.
+If axis is a tuple of ints, a product is performed on all of the axes specified in the tuple instead of
+a single axis or all the axes as before.</p>
+</dd>
+<dt>keepdims: bool, optional</dt><dd><p>If this is set to True, the axes which are reduced are left in the result as dimensions with size one.
+With this option, the result will broadcast correctly against the input array.
+If the default value is passed, then keepdims will not be passed through to the prod method of
+sub-classes of ndarray, however any non-default value will be. If the sub-class’ method does not
+implement keepdims any exceptions will be raised.</p>
+</dd>
+<dt>initial: scalar, optional</dt><dd><p>The starting value for this product. See reduce for details.</p>
+</dd>
+<dt>where: array_like of bool, optional</dt><dd><p>Elements to include in the product. See reduce for details.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.mean">
+<span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the arithmetic mean along the specified axis.</p>
+<p>Returns the average of the array elements. The average is taken over the flattened array by default, otherwise
+over the specified axis.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>axis: None or int or tuple of ints, optional</dt><dd><p>Axis or axes along which the means are computed. The default is to compute the mean of the flattened
+array.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.std">
+<span class="sig-name descname"><span class="pre">std</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.std"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.std" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the standard deviation along the specified axis.
+Returns the standard deviation, a measure of the spread of a distribution, of the array elements.
+The standard deviation is computed for the flattened array by default, otherwise over the specified axis.</p>
+<dl>
+<dt>Parameters</dt><dd><dl>
+<dt>axis: None or int or tuple of ints, optional</dt><dd><p>Axis or axes along which the standard deviation is computed.
+The default is to compute the standard deviation of the flattened array.
+If this is a tuple of ints, a standard deviation is performed over multiple axes, instead of a single
+axis or all the axes as before.</p>
+</dd>
+<dt>out: ndarray, optional</dt><dd><p>Alternative output array in which to place the result. It must have the same shape as the expected
+output but the type (of the calculated values) will be cast if necessary.</p>
+</dd>
+<dt>ddof: int, optional</dt><dd><p>ddof = Delta Degrees of Freedom. By default ddof is zero.
+The divisor used in calculations is N - ddof, where N represents the number of elements.</p>
+</dd>
+<dt>keepdims: bool, optional</dt><dd><p>If this is set to True, the axes which are reduced are left in the result as dimensions with size one.
+With this option, the result will broadcast correctly against the input array.</p>
+<p>If the default value is passed, then keepdims will not be passed through to the std method of
+sub-classes of ndarray, however any non-default value will be. If the sub-class’ method does not
+implement keepdims any exceptions will be raised.</p>
+</dd>
+<dt>where: array_like of bool, optional</dt><dd><p>Elements to include in the standard deviation. See reduce for details.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Returns</p>
+<blockquote>
+<div><p>standard_deviation: PhiTensor</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.trace">
+<span class="sig-name descname"><span class="pre">trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sum along diagonals of the array.</p>
+<p>If a is 2-D, the sum along its diagonal with the given offset is returned, i.e., the sum of elements
+a[i,i+offset] for all i.</p>
+<p>If a has more than two dimensions, then the axes specified by axis1 and axis2 are used to determine the 2-D
+sub-arrays whose traces are returned. The shape of the resulting array is the same as that of a with axis1 and
+axis2 removed.</p>
+<p>Parameters</p>
+<blockquote>
+<div><dl class="simple">
+<dt>offset: int, optional</dt><dd><p>Offset of the diagonal from the main diagonal. Can be both positive and negative. Defaults to 0.</p>
+</dd>
+<dt>axis1, axis2: int, optional</dt><dd><p>Axes to be used as the first and second axis of the 2-D sub-arrays from which the diagonals should be
+taken. Defaults are the first two axes of a.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Returns</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Union[TensorWrappedPhiTensorPointer,MPCTensor]<span class="classifier">Result of the operation.</span></dt><dd><p>If a is 2-D, the sum along the diagonal is returned.
+If a has larger dimensions, then an array of sums along diagonals is returned.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.sort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sorted copy of an array.</p>
+<p>Parameters</p>
+<blockquote>
+<div><dl>
+<dt>a: array_like</dt><dd><p>Array to be sorted.</p>
+</dd>
+<dt>axis: int or None, optional</dt><dd><p>Axis along which to sort. If None, the array is flattened before sorting.
+The default is -1, which sorts along the last axis.</p>
+</dd>
+<dt>kind{‘quicksort’, ‘mergesort’, ‘heapsort’, ‘stable’}, optional</dt><dd><p>Sorting algorithm. The default is ‘quicksort’.
+Note that both ‘stable’ and ‘mergesort’ use timsort or radix sort under the covers and, in general,
+the actual implementation will vary with data type. The ‘mergesort’ option is retained for backwards
+compatibility.</p>
+<p>Changed in version 1.15.0.: The ‘stable’ option was added.</p>
+</dd>
+<dt>order: str or list of str, optional</dt><dd><p>When a is an array with fields defined, this argument specifies which fields to compare first, second,
+etc. A single field can be specified as a string, and not all fields need be specified, but unspecified</p>
+<blockquote>
+<div><p>fields will still be used, in the order in which they come up in the dtype, to break ties.</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p>Please see docs here: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sort.html">https://numpy.org/doc/stable/reference/generated/numpy.sort.html</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.argsort">
+<span class="sig-name descname"><span class="pre">argsort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.argsort"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.argsort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the indices that would sort an array.</p>
+<p>Perform an indirect sort along the given axis using the algorithm specified by the kind keyword.
+It returns an array of indices of the same shape as a that index data along the given axis in sorted order.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>axis: int or None, optional</dt><dd><p>Axis along which to sort. The default is -1 (the last axis). If None, the flattened array is used.</p>
+</dd>
+<dt>kind: {‘quicksort’, ‘mergesort’, ‘heapsort’, ‘stable’}, optional</dt><dd><p>Sorting algorithm. The default is ‘quicksort’. Note that both ‘stable’ and ‘mergesort’ use timsort
+under the covers and, in general, the actual implementation will vary with data type. The ‘mergesort’
+option is retained for backwards compatibility.</p>
+</dd>
+<dt>order: str or list of str, optional</dt><dd><p>When a is an array with fields defined, this argument specifies which fields to compare 1st, 2nd, etc.
+A single field can be specified as a string, and not all fields need be specified, but unspecified
+fields will still be used, in the order in which they come up in the dtype, to break ties.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>index_array: ndarray, int</dt><dd><p>Array of indices that sort a along the specified axis. If a is one-dimensional, a[index_array] yields a
+sorted a. More generally, np.take_along_axis(a, index_array, axis=axis) always yields the sorted a,
+irrespective of dimensionality.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.min">
+<span class="sig-name descname"><span class="pre">min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.min"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.min" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum of an array or minimum along an axis.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>axis: None or int or tuple of ints, optional</dt><dd><p>Axis or axes along which to operate. By default, flattened input is used.
+If this is a tuple of ints, the minimum is selected over multiple axes,
+instead of a single axis or all the axes as before.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>a_min: PhiTensor</dt><dd><p>Minimum of a.
+If axis is None, the result is a scalar value.
+If axis is given, the result is an array of dimension a.ndim - 1.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.max">
+<span class="sig-name descname"><span class="pre">max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.max"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum of an array or along an axis.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>axis: None or int or tuple of ints, optional</dt><dd><p>Axis or axes along which to operate. By default, flattened input is used.
+If this is a tuple of ints, the minimum is selected over multiple axes,
+instead of a single axis or all the axes as before.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>a_max: PhiTensor</dt><dd><p>Maximum of a.
+If axis is None, the result is a scalar value.
+If axis is given, the result is an array of dimension a.ndim - 1.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.compress">
+<span class="sig-name descname"><span class="pre">compress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.compress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.compress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return selected slices of an array along given axis.</p>
+<p>When working along a given axis, a slice along that axis is returned in output for each index
+where condition evaluates to True. When working on a 1-D array, compress is equivalent to extract.</p>
+<dl>
+<dt>Parameters</dt><dd><p>condition: 1-D array of bools
+Array that selects which entries to return. If len(condition) is less than the size of
+a along the given axis,then output is truncated to the length of the condition array.</p>
+<p>axis: int, optional
+Axis along which to take slices. If None (default), work on the flattened array.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>PhiTensor
+A copy of a without the slices along axis for which condition is false.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>compressed_array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.squeeze">
+<span class="sig-name descname"><span class="pre">squeeze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.squeeze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.squeeze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove axes of length one from a.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>axis: None or int or tuple of ints, optional</dt><dd><p>Selects a subset of the entries of length one in the shape.
+If an axis is selected with shape entry greater than one, an error is raised.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>PhiTensor</dt><dd><p>The input array, but with all or a subset of the dimensions of length 1 removed.
+This is always a itself or a view into a.
+Note that if all axes are squeezed, the result is a 0d array and not a scalar.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>squeezed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.zeros_like">
+<span class="sig-name descname"><span class="pre">zeros_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.zeros_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.zeros_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the “zeros_like” operation on “self”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedGammaTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">TensorWrappedGammaTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.ones_like">
+<span class="sig-name descname"><span class="pre">ones_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.ones_like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.ones_like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the “ones_like” operation on “self”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedGammaTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer">TensorWrappedGammaTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.transpose">
+<span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.transpose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse or permute the axes of an array; returns the modified array.</p>
+<dl class="simple">
+<dt>Returns</dt><dd><dl class="simple">
+<dt>p: ndarray</dt><dd><p>array with its axes permuted. A view is returned whenever possible.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.resize">
+<span class="sig-name descname"><span class="pre">resize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.resize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new array with the specified shape.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>new_shape: int or tuple of int</dt><dd><p>Shape of resized array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>reshaped_array: ndarray</dt><dd><p>The new array is formed from the data in the old array,
+repeated if necessary to fill out the required number of elements.
+The data are repeated iterating over the array in C-order.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.reshape">
+<span class="sig-name descname"><span class="pre">reshape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.reshape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.reshape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives a new shape to an array without changing its data.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>new_shape: int or tuple of int</dt><dd><p>The new shape should be compatible with the original shape. If an integer, then the result will
+be a 1-D array of that length. One shape dimension can be -1. In this case,
+the value is inferred from the length of the array and remaining dimensions.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>reshaped_array: ndarray</dt><dd><p>This will be a new view object if possible; otherwise, it will be a copy.
+Note there is no guarantee of the memory layout (C- or Fortran- contiguous) of the returned array.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.repeat">
+<span class="sig-name descname"><span class="pre">repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.repeat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the repeat” operation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>y</strong> (<em>Union[TensorWrappedPhiTensorPointer,MPCTensor,int,float,np.ndarray]</em>) – second operand.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of the operation.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[<a class="reference internal" href="syft.core.tensor.autodp.phi_tensor.html#syft.core.tensor.autodp.phi_tensor.TensorWrappedPhiTensorPointer" title="syft.core.tensor.autodp.phi_tensor.TensorWrappedPhiTensorPointer">TensorWrappedPhiTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.diagonal">
+<span class="sig-name descname"><span class="pre">diagonal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.diagonal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.diagonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return specified diagonals.
+If a is 2-D, returns the diagonal of a with the given offset, i.e., the collection of elements
+of the form a[i, i+offset].</p>
+<p>If a has more than two dimensions, then the axes specified by axis1 and axis are used to determine
+the 2-D sub-array whose diagonal is returned.  The shape of the resulting array can be determined by
+removing axis1 and axis2 and appending an index to the right equal to the size of the resulting diagonals.</p>
+<p>Parameters</p>
+<blockquote>
+<div><dl class="simple">
+<dt>offset: int, optional</dt><dd><p>Offset of the diagonal from the main diagonal.  Can be positive or negative.
+Defaults to main diagonal (0).</p>
+</dd>
+<dt>axis1, axis2: int, optional</dt><dd><p>Axis to be used as the first axis of the 2-D sub-arrays from which the diagonals should be taken.
+Defaults are the first two axes of a.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>Returns</dt><dd><dl>
+<dt>array_of_diagonals<span class="classifier">Union[TensorWrappedPhiTensorPointer,MPCTensor]</span></dt><dd><p>If a is 2-D, then a 1-D array containing the diagonal and of the same type as a is returned unless
+a is a matrix, in which case
+a 1-D array rather than a (2-D) matrix is returned in order to maintain backward compatibility.</p>
+<p>If a.ndim &gt; 2, then the dimensions specified by axis1 and axis2 are removed, and a new axis
+inserted at the end corresponding to the diagonal.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.flatten">
+<span class="sig-name descname"><span class="pre">flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.flatten"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.flatten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the array collapsed into one dimension.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><p>order: {‘C’, ‘F’, ‘A’, ‘K’}, optional
+‘C’ means to flatten in row-major (C-style) order.
+‘F’ means to flatten in column-major (Fortran- style) order.
+‘A’ means to flatten in column-major order if a is Fortran contiguous in memory, row-major order otherwise.
+‘K’ means to flatten a in the order the elements occur in memory. The default is ‘C’.</p>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>y: PhiTensor</dt><dd><p>A copy of the input array, flattened to one dimension.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.ravel">
+<span class="sig-name descname"><span class="pre">ravel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.ravel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.ravel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a contiguous flattened array.</p>
+<p>A 1-D array, containing the elements of the input, is returned. A copy is made only if needed.</p>
+<p>As of NumPy 1.10, the returned array will have the same type as the input array.
+(for example, a masked array will be returned for a masked array input)
+Parameters</p>
+<blockquote>
+<div><p>order: {‘C’,’F’, ‘A’, ‘K’}, optional
+The elements of a are read using this index order.
+‘C’ means to index the elements in row-major,
+C-style order, with the last axis index changing fastest, back to the first axis index changing slowest.
+‘F’ means to index the elements in column-major, Fortran-style order, with the first index changing fastest,</p>
+<blockquote>
+<div><p>and the last index changing slowest.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Note that the ‘C’ and ‘F’ options take no account of the memory layout of the underlying array,</dt><dd><p>and only refer to the order of axis indexing.</p>
+</dd>
+<dt>‘A’ means to read the elements in Fortran-like index order if a is Fortran contiguous in memory,</dt><dd><p>C-like order otherwise.</p>
+</dd>
+<dt>‘K’ means to read the elements in the order they occur in memory, except for reversing the data</dt><dd><p>when strides are negative.</p>
+</dd>
+</dl>
+<p>By default, ‘C’ index order is used.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>PhiTensor</dt><dd><p>y is an array of the same subtype as a, with shape (a.size,).
+Note that matrices are special cased for backward compatibility,
+if a is a matrix, then y is a 1-D ndarray.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>y</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.take">
+<span class="sig-name descname"><span class="pre">take</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.take"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.take" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take elements from an array along an axis.</p>
+<p>When axis is not None, this function does the same thing as “fancy” indexing (indexing arrays using arrays);
+however, it can be easier to use if you need elements along a given axis.
+A call such as np.take(arr, indices, axis=3) is equivalent to arr[:,:,:,indices,…].</p>
+<p>Explained without fancy indexing, this is equivalent to the following use of ndindex,         which sets each of ii, jj, and kk to a tuple of indices:</p>
+<blockquote>
+<div><p>Ni, Nk = a.shape[:axis], a.shape[axis+1:]
+Nj = indices.shape
+for ii in ndindex(Ni):</p>
+<blockquote>
+<div><dl class="simple">
+<dt>for jj in ndindex(Nj):</dt><dd><dl class="simple">
+<dt>for kk in ndindex(Nk):</dt><dd><p>out[ii + jj + kk] = a[ii + (indices[jj],) + kk]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<dl>
+<dt>Parameters</dt><dd><dl>
+<dt>indices: array_like (Nj…)</dt><dd><p>The indices of the values to extract.</p>
+</dd>
+<dt>axis: int, optional</dt><dd><p>The axis over which to select values. By default, the flattened input array is used.</p>
+</dd>
+<dt>mode: {‘raise’, ‘wrap’, ‘clip’}, optional</dt><dd><p>Specifies how out-of-bounds indices will behave.</p>
+<ul class="simple">
+<li><p>‘raise’ – raise an error (default)</p></li>
+<li><p>‘wrap’ – wrap around</p></li>
+<li><p>‘clip’ – clip to the range</p></li>
+</ul>
+<p>‘clip’ mode means that all indices that are too large are replaced by the index
+that addresses the last element along that axis.
+Note that this disables indexing with negative numbers.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns</dt><dd><dl class="simple">
+<dt>out: PhiTensor</dt><dd><p>The returned array has the same type as a.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.clip">
+<span class="sig-name descname"><span class="pre">clip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.clip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.clip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clip (limit) the values in an array.</p>
+<dl class="simple">
+<dt>Parameters</dt><dd><dl class="simple">
+<dt>a<span class="classifier">array_like</span></dt><dd><p>Array containing elements to clip.</p>
+</dd>
+<dt>a_min, a_max<span class="classifier">array_like or None</span></dt><dd><p>Minimum and maximum value. If None, clipping is not performed on
+the corresponding edge. Only one of a_min and a_max may be
+None. Both are broadcast against a.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Result of the operation.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[<a class="reference internal" href="syft.core.tensor.autodp.phi_tensor.html#syft.core.tensor.autodp.phi_tensor.TensorWrappedPhiTensorPointer" title="syft.core.tensor.autodp.phi_tensor.TensorWrappedPhiTensorPointer">TensorWrappedPhiTensorPointer</a>,<a class="reference internal" href="syft.core.tensor.smpc.mpc_tensor.html#syft.core.tensor.smpc.mpc_tensor.MPCTensor" title="syft.core.tensor.smpc.mpc_tensor.MPCTensor">MPCTensor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.choose">
+<span class="sig-name descname"><span class="pre">choose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.choose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.choose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct an array from an index array and a list of arrays to choose from.</p>
+<p>First of all, if confused or uncertain, definitely look at the Examples - in its full generality,
+this function is less simple than it might seem from the following code description
+(below ndi = numpy.lib.index_tricks):</p>
+<p>np.choose(a,c) == np.array([c[a[I]][I] for I in ndi.ndindex(a.shape)]).</p>
+<p>But this omits some subtleties. Here is a fully general summary:</p>
+<p>Given an “index” array (a) of integers and a sequence of n arrays (choices), a and each choice array are first
+broadcast, as necessary, to arrays of a common shape; calling these Ba and Bchoices[i], i = 0,…,n-1 we have that</p>
+<blockquote>
+<div><p>necessarily, Ba.shape == Bchoices[i].shape for each i. Then, a new array with shape Ba.shape is created
+as follows:</p>
+<blockquote>
+<div><p>if mode=’raise’ (the default), then, first of all, each element of a (and thus Ba) must be in the range
+[0, n-1]; now, suppose that i (in that range) is the value at the (j0, j1, …, jm) position in Ba -
+then the value at the same position in the new array is the value in Bchoices[i] at that same position;</p>
+<p>if mode=’wrap’, values in a (and thus Ba) may be any (signed) integer; modular arithmetic is used to map
+integers outside the range [0, n-1] back into that range; and then the new array is constructed as above;</p>
+<p>if mode=’clip’, values in a (and thus Ba) may be any (signed) integer; negative integers are mapped to 0;
+values greater than n-1 are mapped to n-1; and then the new array is constructed as above.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Parameters</p>
+<blockquote>
+<div><p>choices: sequence of arrays</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Choice arrays. a and all of the choices must be broadcastable to the same shape. If choices is itself an</dt><dd><dl class="simple">
+<dt>array (not recommended), then its outermost dimension (i.e., the one corresponding to choices.shape[0])</dt><dd><p>is taken as defining the “sequence”.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>out: array, optional</p>
+<blockquote>
+<div><p>If provided, the result will be inserted into this array. It should be of the appropriate shape and
+dtype. Note that out is always buffered if mode=’raise’; use other modes for better performance.</p>
+</div></blockquote>
+<p>mode{‘raise’ (default), ‘wrap’, ‘clip’}, optional</p>
+<blockquote>
+<div><p>Specifies how indices outside [0, n-1] will be treated:</p>
+<blockquote>
+<div><p>‘raise’ : an exception is raised</p>
+<p>‘wrap’ : value becomes value mod n</p>
+<p>‘clip’ : values &lt; 0 are mapped to 0, values &gt; n-1 are mapped to n-1</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns</dt><dd><dl class="simple">
+<dt>merged_array: PhiTensor</dt><dd><p>The merged result.</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises</dt><dd><dl class="simple">
+<dt>ValueError: shape mismatch</dt><dd><p>If a and each choice array are not all broadcastable to the same shape.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.to_local_object_without_private_data_child">
+<span class="sig-name descname"><span class="pre">to_local_object_without_private_data_child</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#TensorWrappedGammaTensorPointer.to_local_object_without_private_data_child"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.to_local_object_without_private_data_child" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert this pointer into a partial version of the GammaTensor but without
+any of the private data therein.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.get_protobuf_schema">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_protobuf_schema</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.get_protobuf_schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of protobuf object which stores a class of this type</p>
+<p>As a part of serialization and deserialization, we need the ability to
+lookup the protobuf object type directly from the object type. This
+static method allows us to do this.</p>
+<p>Importantly, this method is also used to create the reverse lookup ability within
+the metaclass of Serializable. In the metaclass, it calls this method and then
+it takes whatever type is returned from this method and adds an attribute to it
+with the type of this class attached to it. See the MetaSerializable class for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the type of protobuf object which corresponds to this class.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>GeneratedProtocolMessageType</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.get_request_config">
+<span class="sig-name descname"><span class="pre">get_request_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.get_request_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get config for request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – object.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Config for request.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.resolve_pointer_type">
+<span class="sig-name descname"><span class="pre">resolve_pointer_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.resolve_pointer_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve pointer of the object.</p>
+<p>Creates a request on a pointer to validate and regenerate the current pointer type. This method
+is useful when dealing with AnyPointer or Union&lt;types&gt;Pointers, to retrieve the real pointer.</p>
+<p>The existing pointer will be deleted and a new one will be generated. The remote data won’t
+be touched.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> – The pointer which will be validated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new pointer, validated from the remote object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.set_request_config">
+<span class="sig-name descname"><span class="pre">set_request_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer.set_request_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set config for request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – object.</p></li>
+<li><p><strong>request_config</strong> – new config.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">syft.core.tensor.autodp.gamma_tensor.</span></span><span class="sig-name descname"><span class="pre">GammaTensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">child</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jax_op</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_linear=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#GammaTensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A differential privacy tensor that contains data belonging to atleast 2 or more unique data subjects.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.child">
+<span class="sig-name descname"><span class="pre">child</span></span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.child" title="Permalink to this definition">¶</a></dt>
+<dd><p>jnp.array
+The private data itself.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>jax._src.numpy.lax_numpy.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.data_subjects">
+<span class="sig-name descname"><span class="pre">data_subjects</span></span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.data_subjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>DataSubjectArray
+(DP Metadata) A custom NumPy class that keeps track of which data subjects contribute which datapoints in
+this tensor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.min_vals">
+<span class="sig-name descname"><span class="pre">min_vals</span></span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.min_vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>lazyrepeatarray
+(DP Metadata) A custom class that keeps track of (data-independent) minimum values for this tensor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.max_vals">
+<span class="sig-name descname"><span class="pre">max_vals</span></span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.max_vals" title="Permalink to this definition">¶</a></dt>
+<dd><p>lazyrepeatarray
+(DP Metadata) A custom class that keeps track of (data-independent) maximum values for this tensor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.func_str">
+<span class="sig-name descname"><span class="pre">func_str</span></span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.func_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>str
+A string that will determine which function was used to build the current tensor.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.is_linear">
+<span class="sig-name descname"><span class="pre">is_linear</span></span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.is_linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>bool
+Whether the “func_str” for this tensor is a linear query or not. This impacts the epsilon calculations
+when publishing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.sources">
+<span class="sig-name descname"><span class="pre">sources</span></span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.sources" title="Permalink to this definition">¶</a></dt>
+<dd><p>dict
+A dictionary containing all the Tensors, integers, etc that were used to create this tensor.
+It maps an integer to each input object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>int
+A 32-bit integer that is used when this GammaTensor needs to be added to the “sources” dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">All</span> <span class="pre">efforts</span> <span class="pre">were</span> <span class="pre">made</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">this</span> <span class="pre">tensor's</span> <span class="pre">API</span> <span class="pre">as</span> <span class="pre">similar</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">NumPy</span> <span class="pre">API</span> <span class="pre">as</span> <span class="pre">possible.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Special,</span> <span class="pre">unique</span> <span class="pre">methods</span> <span class="pre">are</span> <span class="pre">listed</span> <span class="pre">below</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">reconstruct(sources</span></span></dt>
+<dd><p>Optional[dict]):
+rebuilds the tensor from the sources dictionary provided, or from the current self.sources.
+This is exclusively used when adding DP Noise, if the data scientist doesn’t have enough privacy budget to
+use one of the input tensors, thus requiring that tensor’s data to be removed from the computation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">swap_state(sources</span></span></dt>
+<dd><p>Optional[Dict]):
+calls reconstruct() and populates the rest of the GammaTensor’s attributes based on the current tensor.
+Used exclusively when adding DP Noise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/syft/core/tensor/autodp/gamma_tensor.html#GammaTensor.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>occasionally the use of a FixedPrecisionTensor (FPT) is needed during SMPC[1]. This helps convert back from
+FPT to regular numpy/jax arrays.</p>
+<p>(<a class="reference external" href="https://en.wikipedia.org/wiki/Secure_multi-party_computation">https://en.wikipedia.org/wiki/Secure_multi-party_computation</a>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.PointerClassOverride">
+<span class="sig-name descname"><span class="pre">PointerClassOverride</span></span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.PointerClassOverride" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer" title="syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer"><code class="xref py py-class docutils literal notranslate"><span class="pre">syft.core.tensor.autodp.gamma_tensor.TensorWrappedGammaTensorPointer</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.describe">
+<span class="sig-name descname"><span class="pre">describe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.describe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add description to object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – object to add description to.</p></li>
+<li><p><strong>description</strong> – Description to add.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.replace">
+<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">updates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Returns a new object replacing the specified fields with new values.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pointable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">searchable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chunk_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">send_to_blob_storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.send" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send obj to client and return pointer to the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – Object to be sent.</p></li>
+<li><p><strong>client</strong> – Client to send object to.</p></li>
+<li><p><strong>pointable</strong></p></li>
+<li><p><strong>description</strong> – Description for the object to send.</p></li>
+<li><p><strong>tags</strong> – Tags for the object to send.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Pointer to sent object.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><cite>searchable</cite> is deprecated please use <cite>pointable</cite> in the future.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="syft.core.tensor.autodp.gamma_tensor.GammaTensor.tag">
+<span class="sig-name descname"><span class="pre">tag</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">tags</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#syft.core.tensor.autodp.gamma_tensor.GammaTensor.tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add tags to object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – object to add tags to.</p></li>
+<li><p><strong>*tags</strong> – List of tags to add.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="syft.core.tensor.autodp.gamma_functions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">syft.core.tensor.autodp.gamma_functions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="syft.core.tensor.autodp.gamma_tensor_ops.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">syft.core.tensor.autodp.gamma_tensor_ops</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

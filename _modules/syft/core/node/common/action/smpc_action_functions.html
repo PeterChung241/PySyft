@@ -1,0 +1,858 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>syft.core.node.common.action.smpc_action_functions &#8212; PySyft  documentation</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../../../../index.html">
+  <img src="../../../../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../api_reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../guides/index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for syft.core.node.common.action.smpc_action_functions</h1><div class="highlight"><pre>
+<span></span><span class="c1"># stdlib</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
+
+<span class="c1"># third party</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># relative</span>
+<span class="kn">from</span> <span class="nn">....common.uid</span> <span class="kn">import</span> <span class="n">UID</span>
+<span class="kn">from</span> <span class="nn">....store.storeable_object</span> <span class="kn">import</span> <span class="n">StorableObject</span>
+<span class="kn">from</span> <span class="nn">....tensor.autodp.phi_tensor</span> <span class="kn">import</span> <span class="n">PhiTensor</span>
+<span class="kn">from</span> <span class="nn">....tensor.smpc</span> <span class="kn">import</span> <span class="n">context</span>
+<span class="kn">from</span> <span class="nn">....tensor.smpc</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">....tensor.smpc.share_tensor</span> <span class="kn">import</span> <span class="n">ShareTensor</span>
+<span class="kn">from</span> <span class="nn">....tensor.smpc.utils</span> <span class="kn">import</span> <span class="n">count_wraps</span>
+<span class="kn">from</span> <span class="nn">...abstract.node</span> <span class="kn">import</span> <span class="n">AbstractNode</span>
+<span class="kn">from</span> <span class="nn">.beaver_action</span> <span class="kn">import</span> <span class="n">BeaverAction</span>
+<span class="kn">from</span> <span class="nn">.greenlets_switch</span> <span class="kn">import</span> <span class="n">beaver_retrieve_object</span>
+<span class="kn">from</span> <span class="nn">.greenlets_switch</span> <span class="kn">import</span> <span class="n">crypto_store_retrieve_object</span>
+
+
+<span class="k">def</span> <span class="nf">get_id_at_location_from_op</span><span class="p">(</span><span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">operation_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">UID</span><span class="p">:</span>
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">UID</span><span class="p">(</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">generator</span><span class="o">.</span><span class="n">bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)))</span>
+
+
+<div class="viewcode-block" id="private_mul"><a class="viewcode-back" href="../../../../../../api_reference/syft.core.node.common.action.smpc_action_functions.html#syft.core.node.common.action.smpc_action_functions.private_mul">[docs]</a><span class="k">def</span> <span class="nf">private_mul</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span> <span class="n">op_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ShareTensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs SMPC Private Multiplication using Beaver Triples.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (ShareTensor): input share tensor</span>
+<span class="sd">        y (ShareTensor): input share tensor</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        res (ShareTensor): Result of the operation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">seed_id_locations</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">SMPC_CONTEXT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;seed_id_locations&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">seed_id_locations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Input seed : </span><span class="si">{</span><span class="n">seed_id_locations</span><span class="si">}</span><span class="s2"> for private multiplication should not None&quot;</span>
+        <span class="p">)</span>
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed_id_locations</span><span class="p">)</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">UID</span><span class="p">(</span>
+        <span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">generator</span><span class="o">.</span><span class="n">bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+    <span class="p">)</span>  <span class="c1"># Ignore first one as it is used for result.</span>
+    <span class="n">eps_id</span> <span class="o">=</span> <span class="n">UID</span><span class="p">(</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">generator</span><span class="o">.</span><span class="n">bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)))</span>
+    <span class="n">delta_id</span> <span class="o">=</span> <span class="n">UID</span><span class="p">(</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">generator</span><span class="o">.</span><span class="n">bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)))</span>
+    <span class="n">ring_size</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_ring_size</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">ring_size</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">ring_size</span><span class="p">)</span>
+    <span class="n">a_shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">b_shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="c1"># TODO: Make beaver retrieval context less, this might fail when there are several</span>
+    <span class="c1"># parallel multiplications.</span>
+    <span class="n">a_share</span><span class="p">,</span> <span class="n">b_share</span><span class="p">,</span> <span class="n">c_share</span> <span class="o">=</span> <span class="n">crypto_store_retrieve_object</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;beaver_</span><span class="si">{</span><span class="n">op_str</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">a_shape</span><span class="o">=</span><span class="n">a_shape</span><span class="p">,</span>
+        <span class="n">b_shape</span><span class="o">=</span><span class="n">b_shape</span><span class="p">,</span>
+        <span class="n">ring_size</span><span class="o">=</span><span class="n">ring_size</span><span class="p">,</span>
+        <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">node</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">SMPC_CONTEXT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="c1"># SMPC Multiplication</span>
+
+    <span class="c1"># Phase 1: Communication Phase (Beaver dispatch)</span>
+    <span class="n">spdz_mask</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">eps_id</span><span class="p">,</span> <span class="n">delta_id</span><span class="p">,</span> <span class="n">a_share</span><span class="p">,</span> <span class="n">b_share</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+    <span class="c1"># Phase 2: Share Reconstruction Phase:</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">spdz_multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">op_str</span><span class="p">,</span> <span class="n">eps_id</span><span class="p">,</span> <span class="n">delta_id</span><span class="p">,</span> <span class="n">a_share</span><span class="p">,</span> <span class="n">b_share</span><span class="p">,</span> <span class="n">c_share</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<span class="k">def</span> <span class="nf">spdz_mask</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">eps_id</span><span class="p">:</span> <span class="n">UID</span><span class="p">,</span>
+    <span class="n">delta_id</span><span class="p">:</span> <span class="n">UID</span><span class="p">,</span>
+    <span class="n">a_share</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">b_share</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AbstractNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Node context should be passed to spdz mask&quot;</span><span class="p">)</span>
+
+    <span class="n">clients</span> <span class="o">=</span> <span class="n">ShareTensor</span><span class="o">.</span><span class="n">login_clients</span><span class="p">(</span><span class="n">parties_info</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">parties_info</span><span class="p">)</span>
+
+    <span class="n">eps</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">a_share</span>  <span class="c1"># beaver intermediate values.</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">b_share</span>
+
+    <span class="n">client_id_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">client</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">client</span> <span class="k">for</span> <span class="n">client</span> <span class="ow">in</span> <span class="n">clients</span><span class="p">}</span>
+    <span class="n">curr_client</span> <span class="o">=</span> <span class="n">client_id_map</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
+    <span class="n">beaver_action</span> <span class="o">=</span> <span class="n">BeaverAction</span><span class="p">(</span>
+        <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="n">eps</span><span class="p">,</span> <span class="n">delta</span><span class="p">],</span>
+        <span class="n">locations</span><span class="o">=</span><span class="p">[</span><span class="n">eps_id</span><span class="p">,</span> <span class="n">delta_id</span><span class="p">],</span>
+        <span class="n">address</span><span class="o">=</span><span class="n">curr_client</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">beaver_action</span><span class="o">.</span><span class="n">execute_action</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">client</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clients</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">client</span> <span class="o">!=</span> <span class="n">curr_client</span><span class="p">:</span>
+            <span class="n">beaver_action</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">address</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">send_immediate_msg_without_reply</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">beaver_action</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">spdz_multiply</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">op_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">eps_id</span><span class="p">:</span> <span class="n">UID</span><span class="p">,</span>
+    <span class="n">delta_id</span><span class="p">:</span> <span class="n">UID</span><span class="p">,</span>
+    <span class="n">a_share</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">b_share</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">c_share</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ShareTensor</span><span class="p">:</span>
+
+    <span class="n">nr_parties</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">nr_parties</span>
+    <span class="n">ring_size</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">ring_size</span>
+
+    <span class="n">eps</span> <span class="o">=</span> <span class="n">beaver_retrieve_object</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">eps_id</span><span class="p">,</span> <span class="n">nr_parties</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">beaver_retrieve_object</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">delta_id</span><span class="p">,</span> <span class="n">nr_parties</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="n">eps</span><span class="p">:</span> <span class="n">ShareTensor</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">eps</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="n">delta</span><span class="p">:</span> <span class="n">ShareTensor</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">delta</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="n">op</span> <span class="o">=</span> <span class="n">ShareTensor</span><span class="o">.</span><span class="n">get_op</span><span class="p">(</span><span class="n">ring_size</span><span class="p">,</span> <span class="n">op_str</span><span class="p">)</span>
+    <span class="n">add_op</span> <span class="o">=</span> <span class="n">ShareTensor</span><span class="o">.</span><span class="n">get_op</span><span class="p">(</span><span class="n">ring_size</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">)</span>
+
+    <span class="n">eps_b</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="n">eps</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">b_share</span><span class="o">.</span><span class="n">child</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="n">delta_a</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="n">a_share</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">delta</span><span class="o">.</span><span class="n">child</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="n">tensor</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">add_op</span><span class="p">,</span> <span class="p">[</span><span class="n">c_share</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">eps_b</span><span class="p">,</span> <span class="n">delta_a</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">eps_delta</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="n">eps</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">delta</span><span class="o">.</span><span class="n">child</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="n">tensor</span> <span class="o">=</span> <span class="n">add_op</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">eps_delta</span><span class="p">)</span>
+
+    <span class="n">share</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy_tensor</span><span class="p">()</span>
+    <span class="n">share</span><span class="o">.</span><span class="n">child</span> <span class="o">=</span> <span class="n">tensor</span>
+
+    <span class="k">return</span> <span class="n">share</span>
+
+
+<div class="viewcode-block" id="public_divide"><a class="viewcode-back" href="../../../../../../api_reference/syft.core.node.common.action.smpc_action_functions.html#syft.core.node.common.action.smpc_action_functions.public_divide">[docs]</a><span class="k">def</span> <span class="nf">public_divide</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">ShareTensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs SMPC Public Division.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (ShareTensor): input share tensor</span>
+<span class="sd">        y (Union[int, np.integer]): input share tensor</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        res (ShareTensor): Result of the operation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">seed_id_locations</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">FPT_CONTEXT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;seed_id_locations&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">seed_id_locations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Input seed : </span><span class="si">{</span><span class="n">seed_id_locations</span><span class="si">}</span><span class="s2"> for public  division should not None&quot;</span>
+        <span class="p">)</span>
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed_id_locations</span><span class="p">)</span>
+    <span class="c1"># SKIPPING first 3 location as they are used for multiplication.</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">UID</span><span class="p">(</span>
+            <span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">generator</span><span class="o">.</span><span class="n">bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+        <span class="p">)</span>  <span class="c1"># Ignore first one as it is used for result.</span>
+    <span class="n">z_id</span> <span class="o">=</span> <span class="n">UID</span><span class="p">(</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">generator</span><span class="o">.</span><span class="n">bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)))</span>  <span class="c1"># id for result of x+r</span>
+
+    <span class="n">ring_size</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">ring_size</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="c1"># TODO: Make  retrieval context less, this might fail when there are several</span>
+    <span class="c1"># parallel division.</span>
+    <span class="n">r_sh</span><span class="p">,</span> <span class="n">theta_r_sh</span> <span class="o">=</span> <span class="n">crypto_store_retrieve_object</span><span class="p">(</span>
+        <span class="s2">&quot;beaver_wraps&quot;</span><span class="p">,</span>
+        <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span>
+        <span class="n">ring_size</span><span class="o">=</span><span class="n">ring_size</span><span class="p">,</span>
+        <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">node</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">SMPC_CONTEXT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="c1"># SMPC Public Division</span>
+
+    <span class="c1"># Phase 1: Communication Phase (Beaver dispatch)</span>
+    <span class="n">divide_mask</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">r_sh</span><span class="p">,</span> <span class="n">z_id</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+    <span class="c1"># Phase 2: Share Corretion Phase:</span>
+    <span class="n">theta_x</span> <span class="o">=</span> <span class="n">divide_wrap_correction</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z_id</span><span class="p">,</span> <span class="n">r_sh</span><span class="p">,</span> <span class="n">theta_r_sh</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+
+    <span class="n">x</span><span class="o">.</span><span class="n">child</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trunc</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">child</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="c1"># To avoid out-of-bounds when y is small</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">theta_x</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">*</span> <span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">ring_size</span> <span class="o">//</span> <span class="mi">4</span><span class="p">)</span> <span class="o">//</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<span class="k">def</span> <span class="nf">divide_mask</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">r</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">z_id</span><span class="p">:</span> <span class="n">UID</span><span class="p">,</span>
+    <span class="n">node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AbstractNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+    <span class="k">if</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Node context should be passed to spdz mask&quot;</span><span class="p">)</span>
+
+    <span class="n">clients</span> <span class="o">=</span> <span class="n">ShareTensor</span><span class="o">.</span><span class="n">login_clients</span><span class="p">(</span><span class="n">parties_info</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">parties_info</span><span class="p">)</span>
+
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">r</span>
+
+    <span class="n">client_id_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">client</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">client</span> <span class="k">for</span> <span class="n">client</span> <span class="ow">in</span> <span class="n">clients</span><span class="p">}</span>
+    <span class="n">curr_client</span> <span class="o">=</span> <span class="n">client_id_map</span><span class="p">[</span><span class="n">node</span><span class="o">.</span><span class="n">id</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
+    <span class="n">beaver_action</span> <span class="o">=</span> <span class="n">BeaverAction</span><span class="p">(</span>
+        <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="n">z</span><span class="p">],</span>
+        <span class="n">locations</span><span class="o">=</span><span class="p">[</span><span class="n">z_id</span><span class="p">],</span>
+        <span class="n">address</span><span class="o">=</span><span class="n">curr_client</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">beaver_action</span><span class="o">.</span><span class="n">execute_action</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">client</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">clients</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">client</span> <span class="o">!=</span> <span class="n">curr_client</span><span class="p">:</span>
+            <span class="n">beaver_action</span><span class="o">.</span><span class="n">address</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">address</span>
+            <span class="n">client</span><span class="o">.</span><span class="n">send_immediate_msg_without_reply</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="n">beaver_action</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="divide_wrap_correction"><a class="viewcode-back" href="../../../../../../api_reference/syft.core.node.common.action.smpc_action_functions.html#syft.core.node.common.action.smpc_action_functions.divide_wrap_correction">[docs]</a><span class="k">def</span> <span class="nf">divide_wrap_correction</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">],</span>
+    <span class="n">z_id</span><span class="p">:</span> <span class="n">UID</span><span class="p">,</span>
+    <span class="n">r_share</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">theta_r_sh</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">node</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AbstractNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ShareTensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Privately computes the number of wraparounds for a set a shares.</span>
+<span class="sd">    Adapted From Crypten</span>
+
+<span class="sd">    To do so, we note that:</span>
+<span class="sd">        [theta_x] = theta_z + [beta_xr] - [theta_r] - [eta_xr]</span>
+<span class="sd">    Where:</span>
+<span class="sd">        [theta_x] is the wraps for a variable x</span>
+<span class="sd">        [beta_xr] is the differential wraps for variables x and r</span>
+<span class="sd">        [eta_xr]  is the plaintext wraps for variables x and r</span>
+<span class="sd">    Note: Since [eta_xr] = 0 with probability 1 - |x| / Q for modulus Q, we</span>
+<span class="sd">    can make the assumption that [eta_xr] = 0 with high probability.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (ShareTensor): shares for which we want to compute the number of wraparounds</span>
+<span class="sd">        y (Union[int, np.integer]): the number/tensor by which we divide</span>
+<span class="sd">        r_share (ShareTensor): share for a random variable &quot;r&quot;</span>
+<span class="sd">        theta_r_sh (ShareTensor): share for the number of wraparounds for &quot;r&quot;</span>
+<span class="sd">        z_id (UID): UID which contains the z(z=x+r_share) from all parties</span>
+<span class="sd">        node (Optional[Any]) : current node context.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ShareTensor representing the number of wraparounds</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nr_parties</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">nr_parties</span>
+    <span class="n">theta_x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy_tensor</span><span class="p">()</span>
+
+    <span class="n">z_shares</span> <span class="o">=</span> <span class="n">beaver_retrieve_object</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">z_id</span><span class="p">,</span> <span class="n">nr_parties</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># type: ignore</span>
+
+    <span class="n">beta_xr</span> <span class="o">=</span> <span class="n">count_wraps</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">r_share</span><span class="o">.</span><span class="n">child</span><span class="p">])</span>
+
+    <span class="n">theta_x</span><span class="o">.</span><span class="n">child</span> <span class="o">=</span> <span class="n">beta_xr</span> <span class="o">-</span> <span class="n">theta_r_sh</span><span class="o">.</span><span class="n">child</span>
+    <span class="n">theta_z</span> <span class="o">=</span> <span class="n">count_wraps</span><span class="p">([</span><span class="n">share</span><span class="o">.</span><span class="n">child</span> <span class="k">for</span> <span class="n">share</span> <span class="ow">in</span> <span class="n">z_shares</span><span class="p">])</span>
+
+    <span class="c1"># TODO: We neglect calculation of Etaxr as it involves a comparision which bottlnecks</span>
+    <span class="c1"># the computation, we assume Etaxr =0 , the probability of an error in the division</span>
+    <span class="c1"># is low when we make this assumption.</span>
+    <span class="n">theta_x</span> <span class="o">=</span> <span class="n">theta_x</span> <span class="o">+</span> <span class="n">theta_z</span>
+
+    <span class="k">return</span> <span class="n">theta_x</span></div>
+
+
+<span class="k">def</span> <span class="nf">_decomposition</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span> <span class="n">ring_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bitwise</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">seed_id_locations</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">SMPC_CONTEXT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;seed_id_locations&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">SMPC_CONTEXT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">read_permissions</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">SMPC_CONTEXT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;read_permissions&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">seed_id_locations</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">node</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">read_permissions</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Input values seed,node,read_permissions : </span><span class="si">{</span><span class="n">seed_id_locations</span><span class="p">,</span><span class="n">node</span><span class="p">,</span><span class="n">read_permissions</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="o">+</span> <span class="s2">&quot; for decomposition should not None&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">local_decomposition</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">ring_size</span><span class="p">,</span> <span class="n">bitwise</span><span class="p">,</span> <span class="n">seed_id_locations</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">read_permissions</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="local_decomposition"><a class="viewcode-back" href="../../../../../../api_reference/syft.core.node.common.action.smpc_action_functions.html#syft.core.node.common.action.smpc_action_functions.local_decomposition">[docs]</a><span class="k">def</span> <span class="nf">local_decomposition</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ShareTensor</span><span class="p">,</span>
+    <span class="n">ring_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">bitwise</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">seed_id_locations</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">node</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="n">read_permissions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs local decomposition to generate shares of shares.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (ShareTensor) : input ShareTensor.</span>
+<span class="sd">        ring_size (str) : Ring size to generate decomposed shares in.</span>
+<span class="sd">        bitwise (bool): Perform bit level decomposition on bits if set.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List[List[ShareTensor]]: Decomposed shares in the given ring size.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed_id_locations</span><span class="p">)</span>
+    <span class="c1"># Skip the first ID ,as it is used for None return type in run class method.</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">UID</span><span class="p">(</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">generator</span><span class="o">.</span><span class="n">bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)))</span>
+
+    <span class="n">tensor_values</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">tensor_values</span> <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">tensor_values</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">tensor_values</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">rank</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">rank</span>
+    <span class="n">nr_parties</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">nr_parties</span>
+    <span class="n">numpy_type</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">RING_SIZE_TO_TYPE</span><span class="p">[</span><span class="n">ring_size</span><span class="p">]</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">numpy_type</span><span class="p">)</span>
+
+    <span class="n">input_shares</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">bitwise</span><span class="p">:</span>
+        <span class="n">ring_bits</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_nr_bits</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">ring_size</span><span class="p">)</span>  <span class="c1"># for bit-wise decomposition</span>
+        <span class="n">input_shares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">bit_extraction</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ring_bits</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">input_shares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">share</span> <span class="ow">in</span> <span class="n">input_shares</span><span class="p">:</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nr_parties</span><span class="p">):</span>
+            <span class="n">id_at_location</span> <span class="o">=</span> <span class="n">UID</span><span class="p">(</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">generator</span><span class="o">.</span><span class="n">bytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)))</span>
+            <span class="n">sh</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy_tensor</span><span class="p">()</span>
+            <span class="n">sh</span><span class="o">.</span><span class="n">ring_size</span> <span class="o">=</span> <span class="n">ring_size</span>
+            <span class="k">if</span> <span class="n">rank</span> <span class="o">!=</span> <span class="n">i</span><span class="p">:</span>
+                <span class="n">sh</span><span class="o">.</span><span class="n">child</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">zero</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sh</span><span class="o">.</span><span class="n">child</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">share</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">numpy_type</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">tensor_values</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_values</span><span class="o">.</span><span class="n">child</span><span class="p">,</span> <span class="n">PhiTensor</span><span class="p">):</span>
+                    <span class="c1"># Remove it when we move PC to share tensor.</span>
+                    <span class="k">if</span> <span class="n">ring_size</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+                        <span class="n">sh</span><span class="o">.</span><span class="n">child</span> <span class="o">=</span> <span class="n">tensor_values</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">sh</span><span class="o">.</span><span class="n">child</span><span class="p">)</span>
+                    <span class="n">tensor_values</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">child</span><span class="o">.</span><span class="n">child</span> <span class="o">=</span> <span class="n">sh</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">tensor_values</span><span class="o">.</span><span class="n">child</span> <span class="o">=</span> <span class="n">sh</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">tensor_values</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">sh</span>
+
+            <span class="n">store_obj</span> <span class="o">=</span> <span class="n">StorableObject</span><span class="p">(</span>
+                <span class="nb">id</span><span class="o">=</span><span class="n">id_at_location</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                <span class="n">read_permissions</span><span class="o">=</span><span class="n">read_permissions</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="n">node</span><span class="o">.</span><span class="n">store</span><span class="p">[</span><span class="n">id_at_location</span><span class="p">]</span> <span class="o">=</span> <span class="n">store_obj</span></div>
+
+
+<span class="c1"># Function mapped with seed in RunClassMethodSMPC</span>
+<span class="n">ACTION_FUNCTIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;__add__&quot;</span><span class="p">,</span> <span class="s2">&quot;__sub__&quot;</span><span class="p">,</span> <span class="s2">&quot;__mul__&quot;</span><span class="p">,</span> <span class="s2">&quot;bit_decomposition&quot;</span><span class="p">]</span>
+
+<span class="c1"># #############################################################</span>
+<span class="c1"># ### NOTE: DO NOT DELETE COMMENTED CODE,TO BE USED LATER #####</span>
+<span class="c1"># #############################################################</span>
+
+
+<span class="c1"># ##########ADD,SUB OPS################</span>
+<span class="c1"># def smpc_basic_op(</span>
+<span class="c1">#     op_str: str,</span>
+<span class="c1">#     nr_parties: int,</span>
+<span class="c1">#     self_id: UID,</span>
+<span class="c1">#     other_id: UID,</span>
+<span class="c1">#     seed_id_locations: int,</span>
+<span class="c1">#     node: Any,</span>
+<span class="c1"># ) -&gt; List[SMPCActionMessage]:</span>
+<span class="c1">#     # relative</span>
+<span class="c1">#     from ..... import Tensor</span>
+
+<span class="c1">#     &quot;&quot;&quot;Generator for SMPC public/private operations add/sub&quot;&quot;&quot;</span>
+
+<span class="c1">#     generator = np.random.default_rng(seed_id_locations)</span>
+<span class="c1">#     result_id = UID(UUID(bytes=generator.bytes(16)))</span>
+<span class="c1">#     other = node.store[other_id].data</span>
+
+<span class="c1">#     actions = []</span>
+<span class="c1">#     if isinstance(other, (ShareTensor, Tensor)):</span>
+<span class="c1">#         # All parties should add the other share if empty list</span>
+<span class="c1">#         actions.append(</span>
+<span class="c1">#             SMPCActionMessage(</span>
+<span class="c1">#                 f&quot;mpc_{op_str}&quot;,</span>
+<span class="c1">#                 self_id=self_id,</span>
+<span class="c1">#                 args_id=[other_id],</span>
+<span class="c1">#                 kwargs_id={},</span>
+<span class="c1">#                 ranks_to_run_action=list(range(nr_parties)),</span>
+<span class="c1">#                 result_id=result_id,</span>
+<span class="c1">#                 address=node.address,</span>
+<span class="c1">#             )</span>
+<span class="c1">#         )</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         actions.append(</span>
+<span class="c1">#             SMPCActionMessage(</span>
+<span class="c1">#                 &quot;mpc_noop&quot;,</span>
+<span class="c1">#                 self_id=self_id,</span>
+<span class="c1">#                 args_id=[],</span>
+<span class="c1">#                 kwargs_id={},</span>
+<span class="c1">#                 ranks_to_run_action=list(range(1, nr_parties)),</span>
+<span class="c1">#                 result_id=result_id,</span>
+<span class="c1">#                 address=node.address,</span>
+<span class="c1">#             )</span>
+<span class="c1">#         )</span>
+
+<span class="c1">#         # Only rank 0 (the first party) would do the add/sub for the public value</span>
+<span class="c1">#         actions.append(</span>
+<span class="c1">#             SMPCActionMessage(</span>
+<span class="c1">#                 f&quot;mpc_{op_str}&quot;,</span>
+<span class="c1">#                 self_id=self_id,</span>
+<span class="c1">#                 args_id=[other_id],</span>
+<span class="c1">#                 kwargs_id={},</span>
+<span class="c1">#                 ranks_to_run_action=[0],</span>
+<span class="c1">#                 result_id=result_id,</span>
+<span class="c1">#                 address=node.address,</span>
+<span class="c1">#             )</span>
+<span class="c1">#         )</span>
+
+<span class="c1">#     return actions</span>
+
+
+<span class="c1"># def get_action_generator_from_op(</span>
+<span class="c1">#     operation_str: str, nr_parties: int</span>
+<span class="c1"># ) -&gt; Callable[[UID, UID, int, Any], Any]:</span>
+<span class="c1">#     &quot;&quot;&quot; &quot;</span>
+<span class="c1">#     Get the generator for the operation provided by the argument</span>
+<span class="c1">#     Arguments:</span>
+<span class="c1">#         operation_str (str): the name of the operation</span>
+
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     return functools.partial(MAP_FUNC_TO_ACTION[operation_str], nr_parties)</span>
+
+
+<span class="c1"># # Given an SMPC Action map it to an action constructor</span>
+<span class="c1"># MAP_FUNC_TO_ACTION: Dict[</span>
+<span class="c1">#     str, Callable[[int, UID, UID, int, Any], List[SMPCActionMessage]]</span>
+<span class="c1"># ] = {</span>
+<span class="c1">#     &quot;__add__&quot;: functools.partial(smpc_basic_op, &quot;add&quot;),</span>
+<span class="c1">#     &quot;__sub__&quot;: functools.partial(smpc_basic_op, &quot;sub&quot;),</span>
+<span class="c1">#     &quot;__mul__&quot;: smpc_mul,  # type: ignore</span>
+<span class="c1">#     &quot;bit_decomposition&quot;: bit_decomposition,  # type: ignore</span>
+<span class="c1">#     # &quot;__gt__&quot;: smpc_gt,  # type: ignore TODO: this should be added back when we have only one action</span>
+<span class="c1"># }</span>
+
+
+<span class="c1"># # Map given an action map it to a function that should be run on the shares&quot;</span>
+<span class="c1"># _MAP_ACTION_TO_FUNCTION: Dict[str, Callable[..., Any]] = {</span>
+<span class="c1">#     &quot;mpc_add&quot;: functools.partial(apply_function, op_str=&quot;add&quot;),</span>
+<span class="c1">#     &quot;mpc_sub&quot;: functools.partial(apply_function, op_str=&quot;sub&quot;),</span>
+<span class="c1">#     &quot;mpc_mul&quot;: functools.partial(apply_function, op_str=&quot;mul&quot;),</span>
+<span class="c1">#     &quot;spdz_mask&quot;: spdz_mask,</span>
+<span class="c1">#     &quot;spdz_multiply&quot;: spdz_multiply,</span>
+<span class="c1">#     &quot;local_decomposition&quot;: local_decomposition,</span>
+<span class="c1">#     &quot;mpc_noop&quot;: deepcopy,</span>
+<span class="c1"># }</span>
+
+
+<span class="c1"># ###################PRIVATE MUL#############3</span>
+<span class="c1"># def smpc_mul(</span>
+<span class="c1">#     nr_parties: int,</span>
+<span class="c1">#     self_id: UID,</span>
+<span class="c1">#     other_id: UID,</span>
+<span class="c1">#     seed_id_locations: Optional[int] = None,</span>
+<span class="c1">#     node: Optional[Any] = None,</span>
+<span class="c1"># ) -&gt; SMPCActionSeqBatchMessage:</span>
+<span class="c1">#     &quot;&quot;&quot;Generator for the smpc_mul with a public value&quot;&quot;&quot;</span>
+<span class="c1">#     # relative</span>
+<span class="c1">#     from ..... import Tensor</span>
+
+<span class="c1">#     if seed_id_locations is None or node is None:</span>
+<span class="c1">#         raise ValueError(</span>
+<span class="c1">#             f&quot;The values seed_id_locations{seed_id_locations}, Node:{node} should not be None&quot;</span>
+<span class="c1">#         )</span>
+<span class="c1">#     generator = np.random.default_rng(seed_id_locations)</span>
+<span class="c1">#     result_id = UID(UUID(bytes=generator.bytes(16)))</span>
+<span class="c1">#     _self = node.store[self_id].data</span>
+<span class="c1">#     other = node.store[other_id].data</span>
+
+<span class="c1">#     actions = []</span>
+<span class="c1">#     if isinstance(other, (ShareTensor, Tensor)):</span>
+
+<span class="c1">#         if isinstance(other, ShareTensor):</span>
+<span class="c1">#             ring_size = other.ring_size</span>
+<span class="c1">#         else:</span>
+<span class="c1">#             ring_size = other.child.child.ring_size</span>
+
+<span class="c1">#         mask_result = UID(UUID(bytes=generator.bytes(16)))</span>
+<span class="c1">#         eps_id = UID(UUID(bytes=generator.bytes(16)))</span>
+<span class="c1">#         delta_id = UID(UUID(bytes=generator.bytes(16)))</span>
+<span class="c1">#         a_shape = tuple(_self.shape)</span>
+<span class="c1">#         b_shape = tuple(other.shape)</span>
+
+<span class="c1">#         a_share, b_share, c_share = crypto_store_retrieve_object(</span>
+<span class="c1">#             &quot;beaver_mul&quot;,</span>
+<span class="c1">#             a_shape=a_shape,</span>
+<span class="c1">#             b_shape=b_shape,</span>
+<span class="c1">#             ring_size=ring_size,</span>
+<span class="c1">#             remove=True,</span>
+<span class="c1">#         )</span>
+
+<span class="c1">#         actions.append(</span>
+<span class="c1">#             SMPCActionMessage(</span>
+<span class="c1">#                 &quot;spdz_mask&quot;,</span>
+<span class="c1">#                 self_id=self_id,</span>
+<span class="c1">#                 args_id=[other_id],</span>
+<span class="c1">#                 kwargs_id={},</span>
+<span class="c1">#                 kwargs={</span>
+<span class="c1">#                     &quot;eps_id&quot;: eps_id,</span>
+<span class="c1">#                     &quot;delta_id&quot;: delta_id,</span>
+<span class="c1">#                     &quot;a_share&quot;: a_share,</span>
+<span class="c1">#                     &quot;b_share&quot;: b_share,</span>
+<span class="c1">#                     &quot;c_share&quot;: c_share,</span>
+<span class="c1">#                 },</span>
+<span class="c1">#                 ranks_to_run_action=list(range(nr_parties)),</span>
+<span class="c1">#                 result_id=mask_result,</span>
+<span class="c1">#                 address=node.address,</span>
+<span class="c1">#             )</span>
+<span class="c1">#         )</span>
+
+<span class="c1">#         actions.append(</span>
+<span class="c1">#             SMPCActionMessage(</span>
+<span class="c1">#                 &quot;spdz_multiply&quot;,</span>
+<span class="c1">#                 self_id=self_id,</span>
+<span class="c1">#                 args_id=[other_id],</span>
+<span class="c1">#                 kwargs_id={},</span>
+<span class="c1">#                 kwargs={</span>
+<span class="c1">#                     &quot;eps_id&quot;: eps_id,</span>
+<span class="c1">#                     &quot;delta_id&quot;: delta_id,</span>
+<span class="c1">#                     &quot;a_share&quot;: a_share,</span>
+<span class="c1">#                     &quot;b_share&quot;: b_share,</span>
+<span class="c1">#                     &quot;c_share&quot;: c_share,</span>
+<span class="c1">#                 },</span>
+<span class="c1">#                 ranks_to_run_action=list(range(nr_parties)),</span>
+<span class="c1">#                 result_id=result_id,</span>
+<span class="c1">#                 address=node.address,</span>
+<span class="c1">#             )</span>
+<span class="c1">#         )</span>
+
+<span class="c1">#     else:</span>
+<span class="c1">#         # All ranks should multiply by that public value</span>
+<span class="c1">#         actions.append(</span>
+<span class="c1">#             SMPCActionMessage(</span>
+<span class="c1">#                 &quot;mpc_mul&quot;,</span>
+<span class="c1">#                 self_id=self_id,</span>
+<span class="c1">#                 args_id=[other_id],</span>
+<span class="c1">#                 kwargs_id={},</span>
+<span class="c1">#                 ranks_to_run_action=list(range(nr_parties)),</span>
+<span class="c1">#                 result_id=result_id,</span>
+<span class="c1">#                 address=node.address,</span>
+<span class="c1">#             )</span>
+<span class="c1">#         )</span>
+<span class="c1">#     batch = SMPCActionSeqBatchMessage(smpc_actions=actions, address=node.address)</span>
+<span class="c1">#     return batch</span>
+
+
+<span class="c1"># ###################### BIT DECOMPOSITION ####################</span>
+<span class="c1"># def bit_decomposition(</span>
+<span class="c1">#     nr_parties: int,</span>
+<span class="c1">#     self_id: UID,</span>
+<span class="c1">#     ring_size: UID,</span>
+<span class="c1">#     bitwise: UID,</span>
+<span class="c1">#     seed_id_locations: int,</span>
+<span class="c1">#     node: Any,</span>
+<span class="c1"># ) -&gt; List[SMPCActionMessage]:</span>
+<span class="c1">#     generator = np.random.default_rng(seed_id_locations)</span>
+<span class="c1">#     result_id = UID(UUID(bytes=generator.bytes(16)))</span>
+
+<span class="c1">#     actions = []</span>
+
+<span class="c1">#     actions.append(</span>
+<span class="c1">#         SMPCActionMessage(</span>
+<span class="c1">#             &quot;local_decomposition&quot;,</span>
+<span class="c1">#             self_id=self_id,</span>
+<span class="c1">#             args_id=[ring_size, bitwise],</span>
+<span class="c1">#             kwargs_id={},</span>
+<span class="c1">#             kwargs={&quot;seed_id_locations&quot;: str(seed_id_locations)},</span>
+<span class="c1">#             ranks_to_run_action=list(range(nr_parties)),</span>
+<span class="c1">#             result_id=result_id,</span>
+<span class="c1">#             address=node.address,</span>
+<span class="c1">#         )</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     return actions</span>
+
+
+<span class="c1"># ###########################COMPARISON#####################</span>
+<span class="c1">#</span>
+<span class="c1"># def smpc_gt(</span>
+<span class="c1">#     nr_parties: int,</span>
+<span class="c1">#     self_id: UID,</span>
+<span class="c1">#     other_id: UID,</span>
+<span class="c1">#     seed_id_locations: int,</span>
+<span class="c1">#     node: Any,</span>
+<span class="c1">#     client: Any,</span>
+<span class="c1"># ) -&gt; List[SMPCActionMessage]:</span>
+<span class="c1">#     &quot;&quot;&quot;Generator for the smpc_mul with a public value&quot;&quot;&quot;</span>
+<span class="c1">#     generator = np.random.default_rng(seed_id_locations)</span>
+
+<span class="c1">#     result_id = UID(UUID(bytes=generator.bytes(16)))</span>
+<span class="c1">#     sub_result = UID(UUID(bytes=generator.bytes(16)))</span>
+
+<span class="c1">#     x = node.store.get(self_id).data  # noqa</span>
+<span class="c1">#     y = node.store.get(other_id).data</span>
+
+<span class="c1">#     if not isinstance(y, ShareTensor):</span>
+<span class="c1">#         raise ValueError(&quot;Only private compare works at the moment&quot;)</span>
+
+<span class="c1">#     actions = []</span>
+<span class="c1">#     actions.append(</span>
+<span class="c1">#         SMPCActionMessage(</span>
+<span class="c1">#             &quot;mpc_sub&quot;,</span>
+<span class="c1">#             self_id=self_id,</span>
+<span class="c1">#             args_id=[other_id],</span>
+<span class="c1">#             kwargs_id={},</span>
+<span class="c1">#             ranks_to_run_action=list(range(nr_parties)),</span>
+<span class="c1">#             result_id=sub_result,</span>
+<span class="c1">#             address=client.address,</span>
+<span class="c1">#         )</span>
+<span class="c1">#     )</span>
+
+<span class="c1">#     actions.append(</span>
+<span class="c1">#         SMPCActionMessage(</span>
+<span class="c1">#             &quot;bit_decomposition&quot;,</span>
+<span class="c1">#             self_id=sub_result,</span>
+<span class="c1">#             args_id=[],</span>
+<span class="c1">#             # TODO: This value needs to be changed to something else and probably used</span>
+<span class="c1">#             # directly the przs_generator from ShareTensor - check bit_decomposition function</span>
+<span class="c1">#             kwargs_id={},</span>
+<span class="c1">#             ranks_to_run_action=list(range(nr_parties)),</span>
+<span class="c1">#             result_id=result_id,</span>
+<span class="c1">#             address=client.address,</span>
+<span class="c1">#         )</span>
+<span class="c1">#     )</span>
+<span class="c1">#     return actions</span>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

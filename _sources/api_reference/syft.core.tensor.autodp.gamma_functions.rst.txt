@@ -1,0 +1,23 @@
+syft.core.tensor.autodp.gamma\_functions
+========================================
+
+.. automodule:: syft.core.tensor.autodp.gamma_functions
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

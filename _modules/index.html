@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview: module code &#8212; PySyft  documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../api_reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../guides/index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="syft.html">syft</a></li>
+<ul><li><a href="syft/ast.html">syft.ast</a></li>
+<ul><li><a href="syft/ast/attribute.html">syft.ast.attribute</a></li>
+<li><a href="syft/ast/callable.html">syft.ast.callable</a></li>
+<li><a href="syft/ast/dynamic_object.html">syft.ast.dynamic_object</a></li>
+<li><a href="syft/ast/enum.html">syft.ast.enum</a></li>
+<li><a href="syft/ast/globals.html">syft.ast.globals</a></li>
+<li><a href="syft/ast/klass.html">syft.ast.klass</a></li>
+<li><a href="syft/ast/module.html">syft.ast.module</a></li>
+<li><a href="syft/ast/property.html">syft.ast.property</a></li>
+<li><a href="syft/ast/static_attr.html">syft.ast.static_attr</a></li>
+<li><a href="syft/ast/util.html">syft.ast.util</a></li>
+</ul><li><a href="syft/core/adp/data_subject.html">syft.core.adp.data_subject</a></li>
+<li><a href="syft/core/adp/data_subject_ledger.html">syft.core.adp.data_subject_ledger</a></li>
+<li><a href="syft/core/adp/data_subject_list.html">syft.core.adp.data_subject_list</a></li>
+<li><a href="syft/core/common/decorators.html">syft.core.common.decorators</a></li>
+<li><a href="syft/core/common/message.html">syft.core.common.message</a></li>
+<li><a href="syft/core/common/object.html">syft.core.common.object</a></li>
+<li><a href="syft/core/common/serde/deserialize.html">syft.core.common.serde.deserialize</a></li>
+<li><a href="syft/core/common/uid.html">syft.core.common.uid</a></li>
+<li><a href="syft/core/io/location/group/group.html">syft.core.io.location.group.group</a></li>
+<li><a href="syft/core/io/location/group/registry.html">syft.core.io.location.group.registry</a></li>
+<li><a href="syft/core/io/location/group/subscription.html">syft.core.io.location.group.subscription</a></li>
+<li><a href="syft/core/io/location/location.html">syft.core.io.location.location</a></li>
+<li><a href="syft/core/io/location/specific.html">syft.core.io.location.specific</a></li>
+<li><a href="syft/core/io/route.html">syft.core.io.route</a></li>
+<li><a href="syft/core/node/abstract_node_msg_registry.html">syft.core.node.abstract_node_msg_registry</a></li>
+<li><a href="syft/core/node/common/action/beaver_primitive_action.html">syft.core.node.common.action.beaver_primitive_action</a></li>
+<li><a href="syft/core/node/common/action/exception_action.html">syft.core.node.common.action.exception_action</a></li>
+<li><a href="syft/core/node/common/action/function_or_constructor_action.html">syft.core.node.common.action.function_or_constructor_action</a></li>
+<li><a href="syft/core/node/common/action/get_object_action.html">syft.core.node.common.action.get_object_action</a></li>
+<li><a href="syft/core/node/common/action/get_or_set_property_action.html">syft.core.node.common.action.get_or_set_property_action</a></li>
+<li><a href="syft/core/node/common/action/get_or_set_static_attribute_action.html">syft.core.node.common.action.get_or_set_static_attribute_action</a></li>
+<li><a href="syft/core/node/common/action/przs_action.html">syft.core.node.common.action.przs_action</a></li>
+<li><a href="syft/core/node/common/action/run_class_method_action.html">syft.core.node.common.action.run_class_method_action</a></li>
+<li><a href="syft/core/node/common/action/run_class_method_smpc_action.html">syft.core.node.common.action.run_class_method_smpc_action</a></li>
+<li><a href="syft/core/node/common/action/smpc_action_functions.html">syft.core.node.common.action.smpc_action_functions</a></li>
+<li><a href="syft/core/node/common/client.html">syft.core.node.common.client</a></li>
+<li><a href="syft/core/node/common/exceptions.html">syft.core.node.common.exceptions</a></li>
+<li><a href="syft/core/node/common/node.html">syft.core.node.common.node</a></li>
+<li><a href="syft/core/node/common/node_manager/constants.html">syft.core.node.common.node_manager.constants</a></li>
+<li><a href="syft/core/node/common/node_manager/dict_store.html">syft.core.node.common.node_manager.dict_store</a></li>
+<li><a href="syft/core/node/common/node_manager/redis_store.html">syft.core.node.common.node_manager.redis_store</a></li>
+<li><a href="syft/core/node/common/node_manager/user_manager.html">syft.core.node.common.node_manager.user_manager</a></li>
+<li><a href="syft/core/node/common/node_service/association_request/association_request_service.html">syft.core.node.common.node_service.association_request.association_request_service</a></li>
+<li><a href="syft/core/node/common/node_service/auth.html">syft.core.node.common.node_service.auth</a></li>
+<li><a href="syft/core/node/common/node_service/dataset_manager/dataset_manager_service.html">syft.core.node.common.node_service.dataset_manager.dataset_manager_service</a></li>
+<li><a href="syft/core/node/common/node_service/generic_payload/syft_message.html">syft.core.node.common.node_service.generic_payload.syft_message</a></li>
+<li><a href="syft/core/node/common/node_service/get_remaining_budget/get_remaining_budget_service.html">syft.core.node.common.node_service.get_remaining_budget.get_remaining_budget_service</a></li>
+<li><a href="syft/core/node/common/node_service/get_repr/get_repr_service.html">syft.core.node.common.node_service.get_repr.get_repr_service</a></li>
+<li><a href="syft/core/node/common/node_service/msg_forwarding/msg_forwarding_service.html">syft.core.node.common.node_service.msg_forwarding.msg_forwarding_service</a></li>
+<li><a href="syft/core/node/common/node_service/network_search/network_search_service.html">syft.core.node.common.node_service.network_search.network_search_service</a></li>
+<li><a href="syft/core/node/common/node_service/node_credential/node_credential_messages.html">syft.core.node.common.node_service.node_credential.node_credential_messages</a></li>
+<li><a href="syft/core/node/common/node_service/node_route/node_route_messages.html">syft.core.node.common.node_service.node_route.node_route_messages</a></li>
+<li><a href="syft/core/node/common/node_service/node_service.html">syft.core.node.common.node_service.node_service</a></li>
+<li><a href="syft/core/node/common/node_service/node_setup/node_setup_service.html">syft.core.node.common.node_service.node_setup.node_setup_service</a></li>
+<li><a href="syft/core/node/common/node_service/object_action/obj_action_service.html">syft.core.node.common.node_service.object_action.obj_action_service</a></li>
+<li><a href="syft/core/node/common/node_service/object_delete/object_delete_message.html">syft.core.node.common.node_service.object_delete.object_delete_message</a></li>
+<li><a href="syft/core/node/common/node_service/object_request/new_object_request_messages.html">syft.core.node.common.node_service.object_request.new_object_request_messages</a></li>
+<li><a href="syft/core/node/common/node_service/object_request/object_request_service.html">syft.core.node.common.node_service.object_request.object_request_service</a></li>
+<li><a href="syft/core/node/common/node_service/object_search/obj_search_service.html">syft.core.node.common.node_service.object_search.obj_search_service</a></li>
+<li><a href="syft/core/node/common/node_service/peer_discovery/peer_discovery_service.html">syft.core.node.common.node_service.peer_discovery.peer_discovery_service</a></li>
+<li><a href="syft/core/node/common/node_service/ping/ping_service.html">syft.core.node.common.node_service.ping.ping_service</a></li>
+<li><a href="syft/core/node/common/node_service/request_answer/request_answer_service.html">syft.core.node.common.node_service.request_answer.request_answer_service</a></li>
+<li><a href="syft/core/node/common/node_service/request_receiver/request_receiver_messages.html">syft.core.node.common.node_service.request_receiver.request_receiver_messages</a></li>
+<li><a href="syft/core/node/common/node_service/resolve_pointer_type/resolve_pointer_type_service.html">syft.core.node.common.node_service.resolve_pointer_type.resolve_pointer_type_service</a></li>
+<li><a href="syft/core/node/common/node_service/role_manager/role_manager_service.html">syft.core.node.common.node_service.role_manager.role_manager_service</a></li>
+<li><a href="syft/core/node/common/node_service/simple/simple_service.html">syft.core.node.common.node_service.simple.simple_service</a></li>
+<li><a href="syft/core/node/common/node_service/sleep/sleep_service.html">syft.core.node.common.node_service.sleep.sleep_service</a></li>
+<li><a href="syft/core/node/common/node_service/tff/tff_service.html">syft.core.node.common.node_service.tff.tff_service</a></li>
+<li><a href="syft/core/node/common/node_service/upload_service/upload_service_messages.html">syft.core.node.common.node_service.upload_service.upload_service_messages</a></li>
+<li><a href="syft/core/node/common/node_service/user_auth/user_auth_service.html">syft.core.node.common.node_service.user_auth.user_auth_service</a></li>
+<li><a href="syft/core/node/common/node_service/user_manager/new_user_messages.html">syft.core.node.common.node_service.user_manager.new_user_messages</a></li>
+<li><a href="syft/core/node/common/node_service/user_manager/user_manager_service.html">syft.core.node.common.node_service.user_manager.user_manager_service</a></li>
+<li><a href="syft/core/node/common/node_service/vm_request_service/vm_service.html">syft.core.node.common.node_service.vm_request_service.vm_service</a></li>
+<li><a href="syft/core/node/common/node_service/vpn/vpn_messages.html">syft.core.node.common.node_service.vpn.vpn_messages</a></li>
+<li><a href="syft/core/node/common/node_service/vpn/vpn_service.html">syft.core.node.common.node_service.vpn.vpn_service</a></li>
+<li><a href="syft/core/node/common/node_table/request.html">syft.core.node.common.node_table.request</a></li>
+<li><a href="syft/core/node/common/node_table/utils.html">syft.core.node.common.node_table.utils</a></li>
+<li><a href="syft/core/node/common/permissions/permissions.html">syft.core.node.common.permissions.permissions</a></li>
+<li><a href="syft/core/node/common/permissions/user_permissions.html">syft.core.node.common.permissions.user_permissions</a></li>
+<li><a href="syft/core/node/common/util.html">syft.core.node.common.util</a></li>
+<li><a href="syft/core/node/device.html">syft.core.node.device</a></li>
+<li><a href="syft/core/node/device_client.html">syft.core.node.device_client</a></li>
+<li><a href="syft/core/node/domain.html">syft.core.node.domain</a></li>
+<li><a href="syft/core/node/domain_client.html">syft.core.node.domain_client</a></li>
+<li><a href="syft/core/node/domain_msg_registry.html">syft.core.node.domain_msg_registry</a></li>
+<li><a href="syft/core/node/enums.html">syft.core.node.enums</a></li>
+<li><a href="syft/core/node/exceptions.html">syft.core.node.exceptions</a></li>
+<li><a href="syft/core/node/network.html">syft.core.node.network</a></li>
+<li><a href="syft/core/node/network_client.html">syft.core.node.network_client</a></li>
+<li><a href="syft/core/node/network_msg_registry.html">syft.core.node.network_msg_registry</a></li>
+<li><a href="syft/core/node/registry.html">syft.core.node.registry</a></li>
+<li><a href="syft/core/node/vm.html">syft.core.node.vm</a></li>
+<li><a href="syft/core/node/vm_client.html">syft.core.node.vm_client</a></li>
+<li><a href="syft/core/pointer/pointer.html">syft.core.pointer.pointer</a></li>
+<li><a href="syft/core/smpc.html">syft.core.smpc</a></li>
+<ul><li><a href="syft/core/smpc/approximations/exp.html">syft.core.smpc.approximations.exp</a></li>
+<li><a href="syft/core/smpc/approximations/log.html">syft.core.smpc.approximations.log</a></li>
+<li><a href="syft/core/smpc/approximations/reciprocal.html">syft.core.smpc.approximations.reciprocal</a></li>
+<li><a href="syft/core/smpc/approximations/utils.html">syft.core.smpc.approximations.utils</a></li>
+<li><a href="syft/core/smpc/protocol/aby3/aby3.html">syft.core.smpc.protocol.aby3.aby3</a></li>
+<li><a href="syft/core/smpc/protocol/beaver/beaver.html">syft.core.smpc.protocol.beaver.beaver</a></li>
+<li><a href="syft/core/smpc/protocol/spdz/spdz.html">syft.core.smpc.protocol.spdz.spdz</a></li>
+<li><a href="syft/core/smpc/store/crypto_primitive_provider.html">syft.core.smpc.store.crypto_primitive_provider</a></li>
+<li><a href="syft/core/smpc/store/crypto_store.html">syft.core.smpc.store.crypto_store</a></li>
+<li><a href="syft/core/smpc/store/exceptions.html">syft.core.smpc.store.exceptions</a></li>
+</ul><li><a href="syft/core/store/dataset.html">syft.core.store.dataset</a></li>
+<li><a href="syft/core/store/store_interface.html">syft.core.store.store_interface</a></li>
+<li><a href="syft/core/store/storeable_object.html">syft.core.store.storeable_object</a></li>
+<li><a href="syft/core/tensor/ancestors.html">syft.core.tensor.ancestors</a></li>
+<li><a href="syft/core/tensor/autodp/gamma_tensor.html">syft.core.tensor.autodp.gamma_tensor</a></li>
+<li><a href="syft/core/tensor/autodp/gamma_tensor_ops.html">syft.core.tensor.autodp.gamma_tensor_ops</a></li>
+<li><a href="syft/core/tensor/autodp/phi_tensor.html">syft.core.tensor.autodp.phi_tensor</a></li>
+<li><a href="syft/core/tensor/broadcastable.html">syft.core.tensor.broadcastable</a></li>
+<li><a href="syft/core/tensor/fixed_precision_tensor.html">syft.core.tensor.fixed_precision_tensor</a></li>
+<li><a href="syft/core/tensor/lazy_repeat_array.html">syft.core.tensor.lazy_repeat_array</a></li>
+<li><a href="syft/core/tensor/manager.html">syft.core.tensor.manager</a></li>
+<li><a href="syft/core/tensor/passthrough.html">syft.core.tensor.passthrough</a></li>
+<li><a href="syft/core/tensor/smpc/mpc_tensor.html">syft.core.tensor.smpc.mpc_tensor</a></li>
+<li><a href="syft/core/tensor/smpc/share_tensor.html">syft.core.tensor.smpc.share_tensor</a></li>
+<li><a href="syft/core/tensor/smpc/utils.html">syft.core.tensor.smpc.utils</a></li>
+<li><a href="syft/core/tensor/tensor.html">syft.core.tensor.tensor</a></li>
+<li><a href="syft/core/test/module_test.html">syft.core.test.module_test</a></li>
+<li><a href="syft/experimental_flags.html">syft.experimental_flags</a></li>
+<li><a href="syft/grid/client/grid_connection.html">syft.grid.client.grid_connection</a></li>
+<li><a href="syft/grid/client/proxy_client.html">syft.grid.client.proxy_client</a></li>
+<li><a href="syft/lib.html">syft.lib</a></li>
+<ul><li><a href="syft/lib/misc.html">syft.lib.misc</a></li>
+<ul><li><a href="syft/lib/misc/union.html">syft.lib.misc.union</a></li>
+</ul><li><a href="syft/lib/numpy.html">syft.lib.numpy</a></li>
+<ul><li><a href="syft/lib/numpy/array.html">syft.lib.numpy.array</a></li>
+</ul><li><a href="syft/lib/python.html">syft.lib.python</a></li>
+<ul><li><a href="syft/lib/python/bool.html">syft.lib.python.bool</a></li>
+<li><a href="syft/lib/python/bytes.html">syft.lib.python.bytes</a></li>
+<li><a href="syft/lib/python/collections/collections.html">syft.lib.python.collections.collections</a></li>
+<li><a href="syft/lib/python/collections/ordered_dict.html">syft.lib.python.collections.ordered_dict</a></li>
+<li><a href="syft/lib/python/complex.html">syft.lib.python.complex</a></li>
+<li><a href="syft/lib/python/dict.html">syft.lib.python.dict</a></li>
+<li><a href="syft/lib/python/float.html">syft.lib.python.float</a></li>
+<li><a href="syft/lib/python/int.html">syft.lib.python.int</a></li>
+<li><a href="syft/lib/python/iterator.html">syft.lib.python.iterator</a></li>
+<li><a href="syft/lib/python/list.html">syft.lib.python.list</a></li>
+<li><a href="syft/lib/python/primitive_factory.html">syft.lib.python.primitive_factory</a></li>
+<li><a href="syft/lib/python/primitive_interface.html">syft.lib.python.primitive_interface</a></li>
+<li><a href="syft/lib/python/range.html">syft.lib.python.range</a></li>
+<li><a href="syft/lib/python/set.html">syft.lib.python.set</a></li>
+<li><a href="syft/lib/python/slice.html">syft.lib.python.slice</a></li>
+<li><a href="syft/lib/python/string.html">syft.lib.python.string</a></li>
+<li><a href="syft/lib/python/tuple.html">syft.lib.python.tuple</a></li>
+<li><a href="syft/lib/python/util.html">syft.lib.python.util</a></li>
+</ul><li><a href="syft/lib/torch.html">syft.lib.torch</a></li>
+<ul><li><a href="syft/lib/torch/device.html">syft.lib.torch.device</a></li>
+<li><a href="syft/lib/torch/parameter.html">syft.lib.torch.parameter</a></li>
+<li><a href="syft/lib/torch/return_types.html">syft.lib.torch.return_types</a></li>
+<li><a href="syft/lib/torch/size.html">syft.lib.torch.size</a></li>
+<li><a href="syft/lib/torch/tensor_util.html">syft.lib.torch.tensor_util</a></li>
+<li><a href="syft/lib/torch/uppercase_tensor.html">syft.lib.torch.uppercase_tensor</a></li>
+</ul><li><a href="syft/lib/util.html">syft.lib.util</a></li>
+</ul><li><a href="syft/logger.html">syft.logger</a></li>
+<li><a href="syft/registry.html">syft.registry</a></li>
+<li><a href="syft/util.html">syft.util</a></li>
+</ul></ul>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

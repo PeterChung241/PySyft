@@ -1,0 +1,986 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>syft.util &#8212; PySyft  documentation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../api_reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../guides/index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for syft.util</h1><div class="highlight"><pre>
+<span></span><span class="c1"># stdlib</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">asyncio.selector_events</span> <span class="kn">import</span> <span class="n">BaseSelectorEventLoop</span>
+<span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ProcessPoolExecutor</span>
+<span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">repeat</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">set_start_method</span>
+<span class="kn">from</span> <span class="nn">multiprocessing.synchronize</span> <span class="kn">import</span> <span class="n">Event</span> <span class="k">as</span> <span class="n">EventClass</span>
+<span class="kn">from</span> <span class="nn">multiprocessing.synchronize</span> <span class="kn">import</span> <span class="n">Lock</span> <span class="k">as</span> <span class="n">LockBase</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">from</span> <span class="nn">secrets</span> <span class="kn">import</span> <span class="n">randbelow</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">ModuleType</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="c1"># third party</span>
+<span class="kn">from</span> <span class="nn">forbiddenfruit</span> <span class="kn">import</span> <span class="n">curse</span>
+<span class="kn">from</span> <span class="nn">nacl.signing</span> <span class="kn">import</span> <span class="n">SigningKey</span>
+<span class="kn">from</span> <span class="nn">nacl.signing</span> <span class="kn">import</span> <span class="n">VerifyKey</span>
+<span class="kn">from</span> <span class="nn">pympler.asizeof</span> <span class="kn">import</span> <span class="n">asizeof</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># relative</span>
+<span class="kn">from</span> <span class="nn">.logger</span> <span class="kn">import</span> <span class="n">critical</span>
+<span class="kn">from</span> <span class="nn">.logger</span> <span class="kn">import</span> <span class="n">debug</span>
+<span class="kn">from</span> <span class="nn">.logger</span> <span class="kn">import</span> <span class="n">error</span>
+<span class="kn">from</span> <span class="nn">.logger</span> <span class="kn">import</span> <span class="n">traceback_and_raise</span>
+
+
+<div class="viewcode-block" id="validate_type"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.validate_type">[docs]</a><span class="k">def</span> <span class="nf">validate_type</span><span class="p">(</span><span class="n">_object</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">_type</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">optional</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_object</span><span class="p">,</span> <span class="n">_type</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">optional</span> <span class="ow">and</span> <span class="p">(</span><span class="n">_object</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">_object</span>
+
+    <span class="n">traceback_and_raise</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Object </span><span class="si">{</span><span class="n">_object</span><span class="si">}</span><span class="s2"> should&#39;ve been of type </span><span class="si">{</span><span class="n">_type</span><span class="si">}</span><span class="s2">, not </span><span class="si">{</span><span class="n">_object</span><span class="si">}</span><span class="s2">.&quot;</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_loaded_syft"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.get_loaded_syft">[docs]</a><span class="k">def</span> <span class="nf">get_loaded_syft</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">ModuleType</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span></div>
+
+
+<div class="viewcode-block" id="validate_field"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.validate_field">[docs]</a><span class="k">def</span> <span class="nf">validate_field</span><span class="p">(</span><span class="n">_object</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">_field</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="nb">object</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_object</span><span class="p">,</span> <span class="n">_field</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">object</span>
+
+    <span class="n">traceback_and_raise</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object </span><span class="si">{</span><span class="n">_object</span><span class="si">}</span><span class="s2"> has no </span><span class="si">{</span><span class="n">_field</span><span class="si">}</span><span class="s2"> field set.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_subclasses"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.get_subclasses">[docs]</a><span class="k">def</span> <span class="nf">get_subclasses</span><span class="p">(</span><span class="n">obj_type</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">type</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Recursively generate the list of all classes within the sub-tree of an object</span>
+
+<span class="sd">    As a paradigm in Syft, we often allow for something to be known about by another</span>
+<span class="sd">    part of the codebase merely because it has subclassed a particular object. While</span>
+<span class="sd">    this can be a big &quot;magicish&quot; it also can simplify future extensions and reduce</span>
+<span class="sd">    the likelihood of small mistakes (if done right).</span>
+
+<span class="sd">    This is a utility function which allows us to look for sub-classes and the sub-classes</span>
+<span class="sd">    of those sub-classes etc. returning a full list of descendants of a class in the inheritance</span>
+<span class="sd">    hierarchy.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        obj_type: the type we want to look for sub-classes of</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        the list of subclasses of obj_type</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">classes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">sc</span> <span class="ow">in</span> <span class="n">obj_type</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">():</span>
+        <span class="n">classes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
+        <span class="n">classes</span> <span class="o">+=</span> <span class="n">get_subclasses</span><span class="p">(</span><span class="n">obj_type</span><span class="o">=</span><span class="n">sc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">classes</span></div>
+
+
+<div class="viewcode-block" id="index_modules"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.index_modules">[docs]</a><span class="k">def</span> <span class="nf">index_modules</span><span class="p">(</span><span class="n">a_dict</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Recursively find a syft module from its path</span>
+
+<span class="sd">    This is the recursive inner function of index_syft_by_module_name.</span>
+<span class="sd">    See that method for a full description.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        a_dict: a module we&#39;re traversing</span>
+<span class="sd">        keys: the list of string attributes we&#39;re using to traverse the module</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        a reference to the final object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a_dict</span>
+    <span class="k">return</span> <span class="n">index_modules</span><span class="p">(</span><span class="n">a_dict</span><span class="o">=</span><span class="n">a_dict</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">keys</span><span class="o">=</span><span class="n">keys</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span></div>
+
+
+<div class="viewcode-block" id="index_syft_by_module_name"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.index_syft_by_module_name">[docs]</a><span class="k">def</span> <span class="nf">index_syft_by_module_name</span><span class="p">(</span><span class="n">fully_qualified_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Look up a Syft class/module/function from full path and name</span>
+
+<span class="sd">    Sometimes we want to use the fully qualified name (such as one</span>
+<span class="sd">    generated from the &#39;get_fully_qualified_name&#39; method below) to</span>
+<span class="sd">    fetch an actual reference. This is most commonly used in deserialization</span>
+<span class="sd">    so that we can have generic protobuf objects which just have a string</span>
+<span class="sd">    representation of the specific object it is meant to deserialize to.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fully_qualified_name: the name in str of a module, class, or function</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        a reference to the actual object at that string path</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># @Tudor this needs fixing during the serde refactor</span>
+    <span class="c1"># we should probably just support the native type names as lookups for serde</span>
+    <span class="k">if</span> <span class="n">fully_qualified_name</span> <span class="o">==</span> <span class="s2">&quot;builtins.NoneType&quot;</span><span class="p">:</span>
+        <span class="n">fully_qualified_name</span> <span class="o">=</span> <span class="s2">&quot;syft.lib.python._SyNone&quot;</span>
+    <span class="n">attr_list</span> <span class="o">=</span> <span class="n">fully_qualified_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># we deal with VerifyAll differently, because we don&#39;t it be imported and used by users</span>
+    <span class="k">if</span> <span class="n">attr_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;VerifyAll&quot;</span><span class="p">:</span>
+        <span class="c1"># relative</span>
+        <span class="kn">from</span> <span class="nn">.core.common.group</span> <span class="kn">import</span> <span class="n">VERIFYALL</span>
+
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">VERIFYALL</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">attr_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;syft&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ReferenceError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reference don&#39;t match: </span><span class="si">{</span><span class="n">attr_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">attr_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;core&quot;</span>
+        <span class="ow">and</span> <span class="n">attr_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;lib&quot;</span>
+        <span class="ow">and</span> <span class="n">attr_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;grid&quot;</span>
+        <span class="ow">and</span> <span class="n">attr_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;wrappers&quot;</span>
+        <span class="ow">and</span> <span class="n">attr_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;proxy&quot;</span>
+    <span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ReferenceError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reference don&#39;t match: </span><span class="si">{</span><span class="n">attr_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">index_modules</span><span class="p">(</span><span class="n">a_dict</span><span class="o">=</span><span class="n">get_loaded_syft</span><span class="p">(),</span> <span class="n">keys</span><span class="o">=</span><span class="n">attr_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span></div>
+
+
+<div class="viewcode-block" id="get_fully_qualified_name"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.get_fully_qualified_name">[docs]</a><span class="k">def</span> <span class="nf">get_fully_qualified_name</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the full path and name of a class</span>
+
+<span class="sd">    Sometimes we want to return the entire path and name encoded</span>
+<span class="sd">    using periods. For example syft.core.common.message.SyftMessage</span>
+<span class="sd">    is the current fully qualified path and name for the SyftMessage</span>
+<span class="sd">    object.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        obj: the object we want to get the name of</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        the full path and name of the object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">fqn</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__module__</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">fqn</span> <span class="o">+=</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to get FQN: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fqn</span></div>
+
+
+<div class="viewcode-block" id="aggressive_set_attr"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.aggressive_set_attr">[docs]</a><span class="k">def</span> <span class="nf">aggressive_set_attr</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">attr</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Different objects prefer different types of monkeypatching - try them all</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        obj: object whose attribute has to be set</span>
+<span class="sd">        name: attribute name</span>
+<span class="sd">        attr: value given to the attribute</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># nosec</span>
+        <span class="n">curse</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="obj2pointer_type"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.obj2pointer_type">[docs]</a><span class="k">def</span> <span class="nf">obj2pointer_type</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fqn</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">fqn</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">fqn</span> <span class="o">=</span> <span class="n">get_fully_qualified_name</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># sometimes the object doesn&#39;t have a __module__ so you need to use the type</span>
+            <span class="c1"># like: collections.OrderedDict</span>
+            <span class="n">debug</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Unable to get get_fully_qualified_name of </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="si">}</span><span class="s2"> trying type. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="n">fqn</span> <span class="o">=</span> <span class="n">get_fully_qualified_name</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+
+        <span class="c1"># TODO: fix for other types</span>
+        <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fqn</span> <span class="o">=</span> <span class="s2">&quot;syft.lib.python._SyNone&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ref</span> <span class="o">=</span> <span class="n">get_loaded_syft</span><span class="p">()</span><span class="o">.</span><span class="n">lib_ast</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">fqn</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">log</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Cannot find </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">fqn</span><span class="si">}</span><span class="s2"> in lib_ast. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">critical</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">log</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ref</span><span class="o">.</span><span class="n">pointer_type</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="key_emoji"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.key_emoji">[docs]</a><span class="k">def</span> <span class="nf">key_emoji</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="nb">bytes</span><span class="p">,</span> <span class="n">SigningKey</span><span class="p">,</span> <span class="n">VerifyKey</span><span class="p">)):</span>
+            <span class="n">hex_chars</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">()[</span><span class="o">-</span><span class="mi">8</span><span class="p">:]</span>
+            <span class="k">return</span> <span class="n">char_emoji</span><span class="p">(</span><span class="n">hex_chars</span><span class="o">=</span><span class="n">hex_chars</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fail to get key emoji: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">pass</span>
+    <span class="k">return</span> <span class="s2">&quot;ALL&quot;</span></div>
+
+
+<div class="viewcode-block" id="char_emoji"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.char_emoji">[docs]</a><span class="k">def</span> <span class="nf">char_emoji</span><span class="p">(</span><span class="n">hex_chars</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\U0001F642</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">hex_base</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+    <span class="n">code</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">hex_chars</span><span class="p">:</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+        <span class="n">code</span> <span class="o">+=</span> <span class="n">offset</span> <span class="o">-</span> <span class="n">hex_base</span>
+    <span class="k">return</span> <span class="nb">chr</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">code</span><span class="p">)</span></div>
+
+
+<span class="n">left_name</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;admiring&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;adoring&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;affectionate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;agitated&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;amazing&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;angry&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;awesome&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;beautiful&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blissful&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bold&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;boring&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;brave&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;busy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;charming&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;clever&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cool&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;compassionate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;competent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;condescending&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;confident&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cranky&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;crazy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dazzling&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;determined&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;distracted&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dreamy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;eager&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;eagleman&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ecstatic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;elastic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;elated&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;elegant&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;eloquent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;epic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;exciting&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fervent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;festive&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;flamboyant&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;focused&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;friendly&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;frosty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;funny&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gallant&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gifted&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;goofy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gracious&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;great&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;happy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hardcore&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;heuristic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hopeful&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hungry&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;infallible&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;inspiring&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;interesting&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;intelligent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;jolly&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;jovial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;keen&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;laughing&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;loving&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lucid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;magical&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mystifying&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;modest&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;musing&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;naughty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nervous&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nifty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nostalgic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;objective&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;optimistic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;peaceful&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pedantic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pensive&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;practical&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;priceless&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;quirky&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;quizzical&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;recursing&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;relaxed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reverent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;romantic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sad&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;serene&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sharp&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;silly&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sleepy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stoic&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;strange&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stupefied&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;suspicious&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sweet&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tender&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thirsty&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;trusting&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unruffled&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;upbeat&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vibrant&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vigilant&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vigorous&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wizardly&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wonderful&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;xenodochial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;youthful&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;zealous&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;zen&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">right_name</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;altman&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bach&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bengios&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bostrom&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;botvinick&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;brockman&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;chintala&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;chollet&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;chomsky&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dean&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dolgov&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;eckersley&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fridman&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gardner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;goertzel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;goodfellow&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hassabis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;he&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hinton&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hochreiter&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hotz&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;howard&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hutter&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;isbell&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kaliouby&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;karp&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;karpathy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kearns&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;kellis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;knuth&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;koller&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;krizhevsky&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;larochelle&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lattner&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lecun&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;li&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lim&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;littman&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;malik&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mironov&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ng&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;norvig&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;olah&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pearl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pesenti&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;russell&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;salakhutdinov&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;schmidhuber&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;silver&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;smola&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;song&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sophia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sutskever&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thomas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thrun&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;trask&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vapnik&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vaswani&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vinyals&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;winston&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wolf&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wolfram&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="random_name"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.random_name">[docs]</a><span class="k">def</span> <span class="nf">random_name</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">left_i</span> <span class="o">=</span> <span class="n">randbelow</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">left_name</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">right_i</span> <span class="o">=</span> <span class="n">randbelow</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">right_name</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">left_name</span><span class="p">[</span><span class="n">left_i</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">right_name</span><span class="p">[</span><span class="n">right_i</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+<div class="viewcode-block" id="inherit_tags"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.inherit_tags">[docs]</a><span class="k">def</span> <span class="nf">inherit_tags</span><span class="p">(</span>
+    <span class="n">attr_path_and_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">result</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span>
+    <span class="n">self_obj</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">object</span><span class="p">],</span>
+    <span class="n">args</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
+    <span class="n">kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">self_obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">self_obj</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">):</span>
+        <span class="n">tags</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">self_obj</span><span class="o">.</span><span class="n">tags</span><span class="p">))</span>  <span class="c1"># type: ignore</span>
+
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">):</span>
+            <span class="n">tags</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">tag</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">arg</span><span class="o">.</span><span class="n">tags</span> <span class="k">if</span> <span class="n">tag</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">):</span>
+            <span class="n">tags</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">tag</span> <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">arg</span><span class="o">.</span><span class="n">tags</span> <span class="k">if</span> <span class="n">tag</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tags</span><span class="p">])</span>
+
+    <span class="c1"># only generate new tags if the result actually inherit some tags.</span>
+    <span class="k">if</span> <span class="n">tags</span><span class="p">:</span>
+        <span class="n">tags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attr_path_and_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">tags</span> <span class="o">=</span> <span class="n">tags</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="get_root_data_path"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.get_root_data_path">[docs]</a><span class="k">def</span> <span class="nf">get_root_data_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+    <span class="c1"># get the PySyft / data directory to share datasets between notebooks</span>
+    <span class="c1"># on Linux and MacOS the directory is: ~/.syft/data&quot;</span>
+    <span class="c1"># on Windows the directory is: C:/Users/$USER/.syft/data</span>
+
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;.syft&quot;</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_dir</span></div>
+
+
+<div class="viewcode-block" id="download_file"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.download_file">[docs]</a><span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">full_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="n">verify_tls</span><span class="p">())</span>  <span class="c1"># nosec</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">199</span> <span class="ow">or</span> <span class="mi">299</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> trying to download </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="str_to_bool"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.str_to_bool">[docs]</a><span class="k">def</span> <span class="nf">str_to_bool</span><span class="p">(</span><span class="n">bool_str</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">bool_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">bool_str</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">bool_str</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span> <span class="ow">or</span> <span class="n">bool_str</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="verify_tls"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.verify_tls">[docs]</a><span class="k">def</span> <span class="nf">verify_tls</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="n">str_to_bool</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;IGNORE_TLS_ERRORS&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="ssl_test"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.ssl_test">[docs]</a><span class="k">def</span> <span class="nf">ssl_test</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;REQUESTS_CA_BUNDLE&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span></div>
+
+
+<span class="n">_tracer</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="get_tracer"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.get_tracer">[docs]</a><span class="k">def</span> <span class="nf">get_tracer</span><span class="p">(</span><span class="n">service_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="k">global</span> <span class="n">_tracer</span>
+    <span class="k">if</span> <span class="n">_tracer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+        <span class="k">return</span> <span class="n">_tracer</span>  <span class="c1"># type: ignore</span>
+
+    <span class="n">PROFILE_MODE</span> <span class="o">=</span> <span class="n">str_to_bool</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;PROFILE&quot;</span><span class="p">,</span> <span class="s2">&quot;False&quot;</span><span class="p">))</span>
+    <span class="n">PROFILE_MODE</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">PROFILE_MODE</span><span class="p">:</span>
+
+        <span class="k">class</span> <span class="nc">NoopTracer</span><span class="p">:</span>
+            <span class="nd">@contextmanager</span>
+            <span class="k">def</span> <span class="nf">start_as_current_span</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="kc">None</span>
+
+        <span class="n">_tracer</span> <span class="o">=</span> <span class="n">NoopTracer</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">_tracer</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Profile mode with OpenTelemetry enabled&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">service_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">service_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;SERVICE_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;client&quot;</span><span class="p">)</span>
+
+    <span class="n">jaeger_host</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;JAEGER_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">)</span>
+    <span class="n">jaeger_port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;JAEGER_PORT&quot;</span><span class="p">,</span> <span class="s2">&quot;6831&quot;</span><span class="p">))</span>
+
+    <span class="c1"># third party</span>
+    <span class="kn">from</span> <span class="nn">opentelemetry</span> <span class="kn">import</span> <span class="n">trace</span>
+    <span class="kn">from</span> <span class="nn">opentelemetry.exporter.jaeger.thrift</span> <span class="kn">import</span> <span class="n">JaegerExporter</span>
+    <span class="kn">from</span> <span class="nn">opentelemetry.sdk.resources</span> <span class="kn">import</span> <span class="n">Resource</span>
+    <span class="kn">from</span> <span class="nn">opentelemetry.sdk.resources</span> <span class="kn">import</span> <span class="n">SERVICE_NAME</span>
+    <span class="kn">from</span> <span class="nn">opentelemetry.sdk.trace</span> <span class="kn">import</span> <span class="n">TracerProvider</span>
+    <span class="kn">from</span> <span class="nn">opentelemetry.sdk.trace.export</span> <span class="kn">import</span> <span class="n">BatchSpanProcessor</span>
+
+    <span class="n">trace</span><span class="o">.</span><span class="n">set_tracer_provider</span><span class="p">(</span>
+        <span class="n">TracerProvider</span><span class="p">(</span><span class="n">resource</span><span class="o">=</span><span class="n">Resource</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="n">SERVICE_NAME</span><span class="p">:</span> <span class="n">service_name</span><span class="p">}))</span>
+    <span class="p">)</span>
+
+    <span class="n">jaeger_exporter</span> <span class="o">=</span> <span class="n">JaegerExporter</span><span class="p">(</span>
+        <span class="n">agent_host_name</span><span class="o">=</span><span class="n">jaeger_host</span><span class="p">,</span>
+        <span class="n">agent_port</span><span class="o">=</span><span class="n">jaeger_port</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">trace</span><span class="o">.</span><span class="n">get_tracer_provider</span><span class="p">()</span><span class="o">.</span><span class="n">add_span_processor</span><span class="p">(</span><span class="n">BatchSpanProcessor</span><span class="p">(</span><span class="n">jaeger_exporter</span><span class="p">))</span>
+
+    <span class="n">_tracer</span> <span class="o">=</span> <span class="n">trace</span><span class="o">.</span><span class="n">get_tracer</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_tracer</span></div>
+
+
+<div class="viewcode-block" id="initializer"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.initializer">[docs]</a><span class="k">def</span> <span class="nf">initializer</span><span class="p">(</span><span class="n">event_loop</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseSelectorEventLoop</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the same event loop to other threads/processes.</span>
+<span class="sd">    This is needed because there are new threads/processes started with</span>
+<span class="sd">    the Executor and they do not have have an event loop set</span>
+<span class="sd">    Args:</span>
+<span class="sd">        event_loop: The event loop.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">event_loop</span><span class="p">:</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">set_event_loop</span><span class="p">(</span><span class="n">event_loop</span><span class="p">)</span></div>
+
+
+<span class="c1"># local scope functions cant be pickled so this needs to be global</span>
+<div class="viewcode-block" id="parallel_execution"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.parallel_execution">[docs]</a><span class="k">def</span> <span class="nf">parallel_execution</span><span class="p">(</span>
+    <span class="n">fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">parties</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">cpu_bound</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wrap a function such that it can be run in parallel at multiple parties.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        fn (Callable): The function to run.</span>
+<span class="sd">        parties (Union[None, List[Any]]): Clients from syft. If this is set, then the</span>
+<span class="sd">            function should be run remotely. Defaults to None.</span>
+<span class="sd">        cpu_bound (bool): Because of the GIL (global interpreter lock) sometimes</span>
+<span class="sd">            it makes more sense to use processes than threads if it is set then</span>
+<span class="sd">            processes should be used since they really run in parallel if not then</span>
+<span class="sd">            it makes sense to use threads since there is no bottleneck on the CPU side</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Callable[..., List[Any]]: A Callable that returns a list of results.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span>
+        <span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]],</span>
+        <span class="n">kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Wrap sanity checks and checks what executor should be used.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            args (List[List[Any]]): Args.</span>
+<span class="sd">            kwargs (Optional[Dict[Any, Dict[Any, Any]]]): Kwargs. Default to None.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            List[Any]: Results from the parties</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">args</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Parallel execution requires more than 0 args&quot;</span><span class="p">)</span>
+
+        <span class="c1"># _base.Executor</span>
+        <span class="n">executor</span><span class="p">:</span> <span class="n">Type</span>
+        <span class="k">if</span> <span class="n">cpu_bound</span><span class="p">:</span>
+            <span class="n">executor</span> <span class="o">=</span> <span class="n">ProcessPoolExecutor</span>
+            <span class="c1"># asyncio objects cannot pickled and sent across processes</span>
+            <span class="c1"># AttributeError: Can&#39;t pickle local object &#39;WeakSet.__init__.&lt;locals&gt;._remove&#39;</span>
+            <span class="n">loop</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">executor</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span>
+            <span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
+
+        <span class="c1"># Each party has a list of args and a dictionary of kwargs</span>
+        <span class="n">nr_parties</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="n">parties</span><span class="p">:</span>
+            <span class="n">func_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fn</span><span class="o">.</span><span class="vm">__module__</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">fn</span><span class="o">.</span><span class="vm">__qualname__</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">attr_getter</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">attrgetter</span><span class="p">(</span><span class="n">func_name</span><span class="p">)</span>
+            <span class="n">funcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">attr_getter</span><span class="p">(</span><span class="n">party</span><span class="p">)</span> <span class="k">for</span> <span class="n">party</span> <span class="ow">in</span> <span class="n">parties</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">funcs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">repeat</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">nr_parties</span><span class="p">))</span>
+
+        <span class="n">futures</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">with</span> <span class="n">executor</span><span class="p">(</span>
+            <span class="n">max_workers</span><span class="o">=</span><span class="n">nr_parties</span><span class="p">,</span> <span class="n">initializer</span><span class="o">=</span><span class="n">initializer</span><span class="p">,</span> <span class="n">initargs</span><span class="o">=</span><span class="p">(</span><span class="n">loop</span><span class="p">,)</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nr_parties</span><span class="p">):</span>
+                <span class="n">_args</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">_kwargs</span> <span class="o">=</span> <span class="n">kwargs</span>
+                <span class="n">futures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">funcs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">*</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">_kwargs</span><span class="p">))</span>
+
+        <span class="n">local_shares</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">result</span><span class="p">()</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">futures</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">local_shares</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span></div>
+
+
+<div class="viewcode-block" id="split_rows"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.split_rows">[docs]</a><span class="k">def</span> <span class="nf">split_rows</span><span class="p">(</span><span class="n">rows</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">cpu_count</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">cpu_count</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cpu_count</span><span class="p">):</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">a</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">b</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">])</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">end</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<div class="viewcode-block" id="list_sum"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.list_sum">[docs]</a><span class="k">def</span> <span class="nf">list_sum</span><span class="p">(</span><span class="o">*</span><span class="n">inp_lst</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">inp_lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">inp_lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">s</span></div>
+
+
+<div class="viewcode-block" id="concurrency_count"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.concurrency_count">[docs]</a><span class="k">def</span> <span class="nf">concurrency_count</span><span class="p">(</span><span class="n">factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">force_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;FORCE_CONCURRENCY_COUNT&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">mp_count</span> <span class="o">=</span> <span class="n">force_count</span> <span class="k">if</span> <span class="n">force_count</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">mp</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mp_count</span></div>
+
+
+<div class="viewcode-block" id="concurrency_override"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.concurrency_override">[docs]</a><span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">concurrency_override</span><span class="p">(</span><span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">:</span>
+    <span class="c1"># this only effects local code so its best to use in unit tests</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;FORCE_CONCURRENCY_COUNT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">yield</span> <span class="kc">None</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;FORCE_CONCURRENCY_COUNT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span></div>
+
+
+<div class="viewcode-block" id="size_mb"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.size_mb">[docs]</a><span class="k">def</span> <span class="nf">size_mb</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">asizeof</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">)</span>  <span class="c1"># MBs</span></div>
+
+
+<div class="viewcode-block" id="bcolors"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.bcolors">[docs]</a><span class="k">class</span> <span class="nc">bcolors</span><span class="p">:</span>
+    <span class="n">HEADER</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[95m&quot;</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[94m&quot;</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[92m&quot;</span>
+    <span class="n">YELLOW</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[93m&quot;</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[91m&quot;</span>
+    <span class="n">ENDC</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[0m&quot;</span>
+    <span class="n">BOLD</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[1m&quot;</span>
+    <span class="n">UNDERLINE</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\033</span><span class="s2">[4m&quot;</span>
+
+<div class="viewcode-block" id="bcolors.green"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.bcolors.green">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">green</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">GREEN</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">ENDC</span></div>
+
+<div class="viewcode-block" id="bcolors.red"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.bcolors.red">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">red</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">RED</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">ENDC</span></div>
+
+<div class="viewcode-block" id="bcolors.yellow"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.bcolors.yellow">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">yellow</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">YELLOW</span> <span class="o">+</span> <span class="n">message</span> <span class="o">+</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">ENDC</span></div>
+
+<div class="viewcode-block" id="bcolors.bold"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.bcolors.bold">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">bold</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">end_color</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="n">message</span>
+        <span class="k">if</span> <span class="n">end_color</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">ENDC</span>
+        <span class="k">return</span> <span class="n">msg</span></div>
+
+<div class="viewcode-block" id="bcolors.underline"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.bcolors.underline">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">underline</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">end_color</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">UNDERLINE</span> <span class="o">+</span> <span class="n">message</span>
+        <span class="k">if</span> <span class="n">end_color</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">ENDC</span>
+        <span class="k">return</span> <span class="n">msg</span></div>
+
+<div class="viewcode-block" id="bcolors.warning"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.bcolors.warning">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">bold</span><span class="p">(</span><span class="n">bcolors</span><span class="o">.</span><span class="n">yellow</span><span class="p">(</span><span class="n">message</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="bcolors.success"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.bcolors.success">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">success</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">green</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="bcolors.failure"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.bcolors.failure">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">failure</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">bcolors</span><span class="o">.</span><span class="n">red</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="print_process"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.print_process">[docs]</a><span class="k">def</span> <span class="nf">print_process</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">finish</span><span class="p">:</span> <span class="n">EventClass</span><span class="p">,</span>
+    <span class="n">success</span><span class="p">:</span> <span class="n">EventClass</span><span class="p">,</span>
+    <span class="n">lock</span><span class="p">:</span> <span class="n">LockBase</span><span class="p">,</span>
+    <span class="n">refresh_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">lock</span><span class="p">:</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">finish</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>  <span class="c1"># type: ignore</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">bold</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="si">}</span><span class="s2"> .&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">refresh_rate</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">bold</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="si">}</span><span class="s2"> ..&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">refresh_rate</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">bold</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">refresh_rate</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">success</span><span class="o">.</span><span class="n">is_set</span><span class="p">():</span>  <span class="c1"># type: ignore</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">success</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bcolors</span><span class="o">.</span><span class="n">failure</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">message</span><span class="p">)),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="os_name"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.os_name">[docs]</a><span class="k">def</span> <span class="nf">os_name</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">os_name</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">os_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;darwin&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;macOS&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">os_name</span></div>
+
+
+<div class="viewcode-block" id="print_dynamic_log"><a class="viewcode-back" href="../../api_reference/syft.html#syft.util.print_dynamic_log">[docs]</a><span class="k">def</span> <span class="nf">print_dynamic_log</span><span class="p">(</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">EventClass</span><span class="p">,</span> <span class="n">EventClass</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prints a dynamic log message that will change its color (to green or red) when some process is done.</span>
+
+<span class="sd">    message: str = Message to be printed.</span>
+
+<span class="sd">    return: tuple of events that can control the log print from the outside of this method.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">finish</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Event</span><span class="p">()</span>
+    <span class="n">lock</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">os_name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;macOS&quot;</span><span class="p">:</span>
+        <span class="c1"># set start method to fork in case of MacOS</span>
+        <span class="n">set_start_method</span><span class="p">(</span><span class="s2">&quot;fork&quot;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span>
+        <span class="n">target</span><span class="o">=</span><span class="n">print_process</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">finish</span><span class="p">,</span> <span class="n">success</span><span class="p">,</span> <span class="n">lock</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">finish</span><span class="p">,</span> <span class="n">success</span><span class="p">)</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

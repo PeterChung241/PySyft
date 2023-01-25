@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>syft.core.node.common.node_service.node_route.node_route_messages &#8212; PySyft  documentation</title>
+    
+  <link href="../../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../../" id="documentation_options" src="../../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../../../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../../../../../index.html">
+  <img src="../../../../../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../../api_reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../../../../guides/index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for syft.core.node.common.node_service.node_route.node_route_messages</h1><div class="highlight"><pre>
+<span></span><span class="c1"># stdlib</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="c1"># third party</span>
+<span class="kn">from</span> <span class="nn">nacl.signing</span> <span class="kn">import</span> <span class="n">VerifyKey</span>
+
+<span class="c1"># relative</span>
+<span class="kn">from</span> <span class="nn">......grid</span> <span class="kn">import</span> <span class="n">GridURL</span>
+<span class="kn">from</span> <span class="nn">.....common.serde.serializable</span> <span class="kn">import</span> <span class="n">serializable</span>
+<span class="kn">from</span> <span class="nn">....domain_msg_registry</span> <span class="kn">import</span> <span class="n">DomainMessageRegistry</span>
+<span class="kn">from</span> <span class="nn">....network_msg_registry</span> <span class="kn">import</span> <span class="n">NetworkMessageRegistry</span>
+<span class="kn">from</span> <span class="nn">....node_service</span> <span class="kn">import</span> <span class="n">NodeServiceInterface</span>
+<span class="kn">from</span> <span class="nn">...permissions.user_permissions</span> <span class="kn">import</span> <span class="n">NoRestriction</span>
+<span class="kn">from</span> <span class="nn">...permissions.user_permissions</span> <span class="kn">import</span> <span class="n">UserIsOwner</span>
+<span class="kn">from</span> <span class="nn">..generic_payload.syft_message</span> <span class="kn">import</span> <span class="n">NewSyftMessage</span> <span class="k">as</span> <span class="n">SyftMessage</span>
+<span class="kn">from</span> <span class="nn">..generic_payload.syft_message</span> <span class="kn">import</span> <span class="n">ReplyPayload</span>
+<span class="kn">from</span> <span class="nn">..generic_payload.syft_message</span> <span class="kn">import</span> <span class="n">RequestPayload</span>
+<span class="kn">from</span> <span class="nn">.route_update</span> <span class="kn">import</span> <span class="n">RouteUpdate</span>
+
+<span class="c1"># AddRoute Messages</span>
+<span class="c1"># Step 1: InitiateRouteUpdateToNodeMessage</span>
+<span class="c1"># Step 2: NotifyNodeWithRouteUpdateMessage</span>
+<span class="c1"># Step 3: VerifyRouteUpdateMessage</span>
+
+<span class="c1"># for example a user would call step 1 from their python client to their domain, their</span>
+<span class="c1"># domain would call step 2 on a network client, which would then in turn call step 3</span>
+<span class="c1"># back on the domains new route and then return back through all the steps back to</span>
+<span class="c1"># the user</span>
+
+
+<div class="viewcode-block" id="InitiateRouteUpdateToNodeMessage"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.InitiateRouteUpdateToNodeMessage">[docs]</a><span class="nd">@serializable</span><span class="p">(</span><span class="n">recursive_serde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">InitiateRouteUpdateToNodeMessage</span><span class="p">(</span>
+    <span class="n">SyftMessage</span><span class="p">,</span> <span class="n">DomainMessageRegistry</span><span class="p">,</span> <span class="n">NetworkMessageRegistry</span>
+<span class="p">):</span>
+    <span class="n">permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">NoRestriction</span> <span class="o">|</span> <span class="n">UserIsOwner</span><span class="p">]</span>  <span class="c1"># UserIsOwner not working</span>
+
+    <span class="c1"># Pydantic Inner class to define expected request payload fields.</span>
+<div class="viewcode-block" id="InitiateRouteUpdateToNodeMessage.Request"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.InitiateRouteUpdateToNodeMessage.Request">[docs]</a>    <span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">RequestPayload</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Payload fields and types used during a Request.&quot;&quot;&quot;</span>
+
+        <span class="n">target_node_url</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="n">route_update</span><span class="p">:</span> <span class="nb">dict</span></div>
+
+    <span class="c1"># Pydantic Inner class to define expected reply payload fields.</span>
+<div class="viewcode-block" id="InitiateRouteUpdateToNodeMessage.Reply"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.InitiateRouteUpdateToNodeMessage.Reply">[docs]</a>    <span class="k">class</span> <span class="nc">Reply</span><span class="p">(</span><span class="n">ReplyPayload</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Payload fields and types used during a Response.&quot;&quot;&quot;</span>
+
+        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Node route updated.&quot;</span></div>
+
+    <span class="n">request_payload_type</span> <span class="o">=</span> <span class="n">Request</span>
+    <span class="n">reply_payload_type</span> <span class="o">=</span> <span class="n">Reply</span>
+
+<div class="viewcode-block" id="InitiateRouteUpdateToNodeMessage.run"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.InitiateRouteUpdateToNodeMessage.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">NodeServiceInterface</span><span class="p">,</span> <span class="n">verify_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">VerifyKey</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplyPayload</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validates the request parameters and sends a ExchangeCredentialsWithNodeMessage.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            node (NodeServiceInterface): Node either Domain or Network.</span>
+<span class="sd">            verify_key (Optional[VerifyKey], optional): User signed verification key. Defaults to None.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NodeTimeout: If the destination node is unavailable</span>
+<span class="sd">            NodeError: If the destination node says there was an issue</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ReplyPayload: Message on successful exchange.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># TODO: get the client from the node and use a hashmap of uuid and / or url</span>
+        <span class="c1"># to cache existing client objects to target nodes</span>
+        <span class="c1"># get client for target node</span>
+        <span class="c1"># allow uuid so user client doesn&#39;t always need to obtain a network client</span>
+
+        <span class="c1"># relative</span>
+        <span class="kn">from</span> <span class="nn">......grid.client.client</span> <span class="kn">import</span> <span class="n">connect</span>
+
+        <span class="c1"># we may be trying to call another local test host like localhost so we need</span>
+        <span class="c1"># to also call as_container_host</span>
+        <span class="n">target_url</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">GridURL</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">target_node_url</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">with_path</span><span class="p">(</span><span class="s2">&quot;/api/v1&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">as_container_host</span><span class="p">(</span><span class="n">container_host</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">CONTAINER_HOST</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># we use our local keys so that signing and verification matches our node</span>
+        <span class="n">target_client</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">target_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">user_key</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">signing_key</span><span class="p">)</span>
+
+        <span class="c1"># extract route update to send on to target node</span>
+        <span class="n">route_update</span> <span class="o">=</span> <span class="n">RouteUpdate</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">route_update</span><span class="p">)</span>
+
+        <span class="c1"># see NotifyNodeWithRouteUpdateMessage below</span>
+        <span class="c1"># TODO: Add retry mechanism with multiple routes in the above client</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">target_client</span><span class="o">.</span><span class="n">networking</span><span class="o">.</span><span class="n">notify_node_with_route_update</span><span class="p">(</span>
+            <span class="n">route_update</span><span class="o">=</span><span class="n">route_update</span>
+        <span class="p">)</span>
+
+        <span class="c1"># check response coming back from target node before responding back to user</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Reply</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="NotifyNodeWithRouteUpdateMessage"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.NotifyNodeWithRouteUpdateMessage">[docs]</a><span class="nd">@serializable</span><span class="p">(</span><span class="n">recursive_serde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">NotifyNodeWithRouteUpdateMessage</span><span class="p">(</span>
+    <span class="n">SyftMessage</span><span class="p">,</span> <span class="n">DomainMessageRegistry</span><span class="p">,</span> <span class="n">NetworkMessageRegistry</span>
+<span class="p">):</span>
+    <span class="c1"># TODO: Change to known verify_key of domain UserIsForeignNodeOwner?</span>
+    <span class="n">permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">NoRestriction</span><span class="p">]</span>
+
+    <span class="c1"># Pydantic Inner class to define expected request payload fields.</span>
+<div class="viewcode-block" id="NotifyNodeWithRouteUpdateMessage.Request"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.NotifyNodeWithRouteUpdateMessage.Request">[docs]</a>    <span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">RequestPayload</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Payload fields and types used during a Request.&quot;&quot;&quot;</span>
+
+        <span class="n">route_update</span><span class="p">:</span> <span class="nb">dict</span></div>
+
+    <span class="c1"># Pydantic Inner class to define expected reply payload fields.</span>
+<div class="viewcode-block" id="NotifyNodeWithRouteUpdateMessage.Reply"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.NotifyNodeWithRouteUpdateMessage.Reply">[docs]</a>    <span class="k">class</span> <span class="nc">Reply</span><span class="p">(</span><span class="n">ReplyPayload</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Payload fields and types used during a Response.&quot;&quot;&quot;</span>
+
+        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Node route has been updated.&quot;</span></div>
+
+    <span class="n">request_payload_type</span> <span class="o">=</span> <span class="n">Request</span>
+    <span class="n">reply_payload_type</span> <span class="o">=</span> <span class="n">Reply</span>
+
+<div class="viewcode-block" id="NotifyNodeWithRouteUpdateMessage.run"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.NotifyNodeWithRouteUpdateMessage.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">NodeServiceInterface</span><span class="p">,</span> <span class="n">verify_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">VerifyKey</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplyPayload</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validates the request parameters and exchanges credentials.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            node (NodeServiceInterface): Node either Domain or Network.</span>
+<span class="sd">            verify_key (Optional[VerifyKey], optional): User signed verification key. Defaults to None.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NodeTimeout: If the destination node is unavailable</span>
+<span class="sd">            NodeError: If the destination node says there was an issue</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ReplyPayload: Message on successful user creation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># extract route update to send on to target node</span>
+        <span class="n">route_update</span> <span class="o">=</span> <span class="n">RouteUpdate</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">route_update</span><span class="p">)</span>
+
+        <span class="c1"># check credentials for node asking to update routes has already been added</span>
+        <span class="c1"># and matches the RouteUpdate request</span>
+        <span class="n">node_row</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">validate_id_and_key</span><span class="p">(</span>
+            <span class="n">node_uid</span><span class="o">=</span><span class="n">route_update</span><span class="o">.</span><span class="n">source_node_uid</span><span class="p">,</span> <span class="n">verify_key</span><span class="o">=</span><span class="n">verify_key</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">node_row</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;No node with that verify_key exists&quot;</span><span class="p">)</span>
+
+        <span class="c1"># check that the url isn&#39;t already assigned to another node</span>
+        <span class="n">valid</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">node_route</span><span class="o">.</span><span class="n">validate_route_update</span><span class="p">(</span>
+            <span class="n">node_row</span><span class="o">=</span><span class="n">node_row</span><span class="p">,</span> <span class="n">route_update</span><span class="o">=</span><span class="n">route_update</span><span class="p">,</span> <span class="n">verify_key</span><span class="o">=</span><span class="n">verify_key</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">valid</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;host_or_ip and port are already assigned to another node&quot;</span><span class="p">)</span>
+
+        <span class="c1"># check url works</span>
+        <span class="k">if</span> <span class="n">route_update</span><span class="o">.</span><span class="n">autodetect</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># autodetect url and try</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">route_update</span><span class="o">.</span><span class="n">source_node_url</span><span class="p">:</span>
+            <span class="c1"># create url</span>
+            <span class="n">source_node_url</span> <span class="o">=</span> <span class="n">GridURL</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="n">route_update</span><span class="o">.</span><span class="n">source_node_url</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Invalid RouteUpdate&quot;</span><span class="p">,</span> <span class="n">route_update</span><span class="p">)</span>
+
+        <span class="c1"># TODO: get the client from the node and use a hashmap of uuid and / or url</span>
+        <span class="c1"># to cache existing client objects to target nodes</span>
+        <span class="c1"># get client for target node</span>
+        <span class="c1"># allow uuid so user client doesn&#39;t always need to obtain a network client</span>
+
+        <span class="c1"># relative</span>
+        <span class="kn">from</span> <span class="nn">......grid.client.client</span> <span class="kn">import</span> <span class="n">connect</span>
+
+        <span class="c1"># we may be trying to call another local test host like localhost so we need</span>
+        <span class="c1"># to also call as_container_host</span>
+        <span class="n">target_url</span> <span class="o">=</span> <span class="n">source_node_url</span><span class="o">.</span><span class="n">with_path</span><span class="p">(</span><span class="s2">&quot;/api/v1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">as_container_host</span><span class="p">(</span>
+            <span class="n">container_host</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">CONTAINER_HOST</span>
+        <span class="p">)</span>
+
+        <span class="c1"># we use our local keys so that signing and verification matches our node</span>
+        <span class="n">target_client</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">target_url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">user_key</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">signing_key</span><span class="p">)</span>
+
+        <span class="c1"># try to connect to the node and make sure its the one we expect</span>
+        <span class="n">signed_response</span> <span class="o">=</span> <span class="n">target_client</span><span class="o">.</span><span class="n">networking</span><span class="o">.</span><span class="n">verify_route</span><span class="p">()</span>
+
+        <span class="c1"># since we&#39;re getting back the SignedMessage it can&#39;t hurt to check once more</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">signed_response</span><span class="o">.</span><span class="n">is_valid</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                <span class="s2">&quot;Response was signed by a fake key or was corrupted in transit.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">signed_response</span><span class="o">.</span><span class="n">verify_key</span> <span class="o">!=</span> <span class="n">verify_key</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Request key doesn&#39;t match verify response key.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># save route to node_route table</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">node_route</span><span class="o">.</span><span class="n">update_route</span><span class="p">(</span><span class="n">node_row</span><span class="o">=</span><span class="n">node_row</span><span class="p">,</span> <span class="n">route_update</span><span class="o">=</span><span class="n">route_update</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Reply</span><span class="p">()</span></div></div>
+
+
+<div class="viewcode-block" id="VerifyRouteUpdateMessage"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.VerifyRouteUpdateMessage">[docs]</a><span class="nd">@serializable</span><span class="p">(</span><span class="n">recursive_serde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">VerifyRouteUpdateMessage</span><span class="p">(</span>
+    <span class="n">SyftMessage</span><span class="p">,</span> <span class="n">DomainMessageRegistry</span><span class="p">,</span> <span class="n">NetworkMessageRegistry</span>
+<span class="p">):</span>
+    <span class="c1"># TODO: Change to known verify_key of domain UserIsForeignNodeOwner?</span>
+    <span class="n">permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">NoRestriction</span><span class="p">]</span>
+
+    <span class="c1"># Pydantic Inner class to define expected request payload fields.</span>
+<div class="viewcode-block" id="VerifyRouteUpdateMessage.Request"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.VerifyRouteUpdateMessage.Request">[docs]</a>    <span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">RequestPayload</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Payload fields and types used during a Request.&quot;&quot;&quot;</span>
+
+        <span class="n">route_update</span><span class="p">:</span> <span class="nb">dict</span></div>
+
+    <span class="c1"># Pydantic Inner class to define expected reply payload fields.</span>
+<div class="viewcode-block" id="VerifyRouteUpdateMessage.Reply"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.VerifyRouteUpdateMessage.Reply">[docs]</a>    <span class="k">class</span> <span class="nc">Reply</span><span class="p">(</span><span class="n">ReplyPayload</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Payload fields and types used during a Response.&quot;&quot;&quot;</span>
+
+        <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Node route has been updated.&quot;</span></div>
+
+    <span class="n">request_payload_type</span> <span class="o">=</span> <span class="n">Request</span>
+    <span class="n">reply_payload_type</span> <span class="o">=</span> <span class="n">Reply</span>
+
+<div class="viewcode-block" id="VerifyRouteUpdateMessage.run"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.VerifyRouteUpdateMessage.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">NodeServiceInterface</span><span class="p">,</span> <span class="n">verify_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">VerifyKey</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplyPayload</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validates the request parameters and exchanges credentials.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            node (NodeServiceInterface): Node either Domain or Network.</span>
+<span class="sd">            verify_key (Optional[VerifyKey], optional): User signed verification key. Defaults to None.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NodeTimeout: If the destination node is unavailable</span>
+<span class="sd">            NodeError: If the destination node says there was an issue</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ReplyPayload: Message on successful user creation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Responding to VerifyRouteUpdateMessage&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Reply</span><span class="p">()</span></div></div>
+
+
+<span class="c1"># RoutesListMessage</span>
+<span class="c1"># Step 1: RoutesListMessage</span>
+<span class="c1"># If the user has the right key they can manage their routes</span>
+
+
+<div class="viewcode-block" id="RoutesListMessage"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.RoutesListMessage">[docs]</a><span class="nd">@serializable</span><span class="p">(</span><span class="n">recursive_serde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">RoutesListMessage</span><span class="p">(</span><span class="n">SyftMessage</span><span class="p">,</span> <span class="n">DomainMessageRegistry</span><span class="p">,</span> <span class="n">NetworkMessageRegistry</span><span class="p">):</span>
+    <span class="c1"># TODO: Change to known verify_key of domain UserIsForeignNodeOwner?</span>
+    <span class="n">permissions</span> <span class="o">=</span> <span class="p">[</span><span class="n">NoRestriction</span><span class="p">]</span>
+
+    <span class="c1"># Pydantic Inner class to define expected request payload fields.</span>
+<div class="viewcode-block" id="RoutesListMessage.Request"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.RoutesListMessage.Request">[docs]</a>    <span class="k">class</span> <span class="nc">Request</span><span class="p">(</span><span class="n">RequestPayload</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Payload fields and types used during a Request.&quot;&quot;&quot;</span>
+
+        <span class="k">pass</span></div>
+
+    <span class="c1"># Pydantic Inner class to define expected reply payload fields.</span>
+<div class="viewcode-block" id="RoutesListMessage.Reply"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.RoutesListMessage.Reply">[docs]</a>    <span class="k">class</span> <span class="nc">Reply</span><span class="p">(</span><span class="n">ReplyPayload</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Payload fields and types used during a Response.&quot;&quot;&quot;</span>
+
+        <span class="n">routes_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span></div>
+
+    <span class="n">request_payload_type</span> <span class="o">=</span> <span class="n">Request</span>
+    <span class="n">reply_payload_type</span> <span class="o">=</span> <span class="n">Reply</span>
+
+<div class="viewcode-block" id="RoutesListMessage.run"><a class="viewcode-back" href="../../../../../../../api_reference/syft.core.node.common.node_service.node_route.node_route_messages.html#syft.core.node.common.node_service.node_route.node_route_messages.RoutesListMessage.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span>  <span class="c1"># type: ignore</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">:</span> <span class="n">NodeServiceInterface</span><span class="p">,</span> <span class="n">verify_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">VerifyKey</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ReplyPayload</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Validates the request parameters and exchanges credentials.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            node (NodeServiceInterface): Node either Domain or Network.</span>
+<span class="sd">            verify_key (Optional[VerifyKey], optional): User signed verification key. Defaults to None.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NodeTimeout: If the destination node is unavailable</span>
+<span class="sd">            NodeError: If the destination node says there was an issue</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            ReplyPayload: Message on successful user creation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">node_row</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">get_node_for</span><span class="p">(</span><span class="n">verify_key</span><span class="o">=</span><span class="n">verify_key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">node_row</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;There is no node for this verify_key&quot;</span><span class="p">)</span>
+
+        <span class="n">routes</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">node_route</span><span class="o">.</span><span class="n">get_routes</span><span class="p">(</span><span class="n">node_row</span><span class="o">=</span><span class="n">node_row</span><span class="p">)</span>
+        <span class="n">routes_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">routes</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Reply</span><span class="p">(</span><span class="n">routes_list</span><span class="o">=</span><span class="n">routes_list</span><span class="p">)</span></div></div>
+</pre></div>
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

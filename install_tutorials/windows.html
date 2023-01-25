@@ -26,6 +26,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/pysyft.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
@@ -35,10 +38,9 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="macOS Tutorial (Big Sur - 11.5.1)" href="osx_11_5_1.html" />
-    <link rel="prev" title="Installation on Linux (&gt;=20.04.03)" href="linux.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -56,9 +58,11 @@
   <div id="navbar-start">
     
     
+
 <a class="navbar-brand" href="../index.html">
-<p class="title">PySyft</p>
+  <img src="../_static/logo.png" class="logo" alt="logo">
 </a>
+
 
     
   </div>
@@ -74,38 +78,38 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="overview.html">
-  Beginner-level PySyft and PyGrid Installation Tutorials
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="linux.html">
-  Installation on Linux (&gt;=20.04.03)
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
-  Windows Tutorials
+ <a class="reference internal nav-link" href="../api_reference/index.html">
+  API reference
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="osx_11_5_1.html">
-  macOS Tutorial (Big Sur - 11.5.1)
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../deployment/index.html">
-  Advanced Deployment: Introduction to HaGrid
+ <a class="reference internal nav-link" href="../developer_guide/index.html">
+  Contributor Guidelines
  </a>
 </li>
 
 <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../deployment/glossary.html">
   Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../guides/index.html">
+  How-to Guides
  </a>
 </li>
 
@@ -119,6 +123,18 @@
       
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
       </ul>
       </div>
       
@@ -160,6 +176,18 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#step-1-enabling-wsl2">
    Step 1: Enabling WSL2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#alternate-way">
+   <strong>
+    Alternate way
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enable-virtual-machine-platform">
+   1. Enable Virtual Machine Platform
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -219,7 +247,7 @@
               <div>
                 
   <section id="windows-tutorials">
-<h1>Windows Tutorials<a class="headerlink" href="#windows-tutorials" title="Permalink to this headline">¶</a></h1>
+<span id="windows-install"></span><h1>Windows Tutorials<a class="headerlink" href="#windows-tutorials" title="Permalink to this headline">¶</a></h1>
 <p>The following instructions are for Windows 10 version 2004 or higher.</p>
 <p>Now, traditionally, getting things as big and imposing as PySyft to work on Windows is… really, really challenging.
 Luckily for us, we’ve got a few tricks up our sleeves to make the process super easy.</p>
@@ -235,6 +263,46 @@ unmodified, and without any of the drawbacks of more traditional solutions like 
 </div>
 <p>And that’s it! It’ll start installing all the dependencies and getting things in order.
 If you run into any issues here, please refer to <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/troubleshooting#installation-issues">this link</a>, which covers common WSL installation issues.</p>
+</section>
+<section id="alternate-way">
+<h2><strong>Alternate way</strong><a class="headerlink" href="#alternate-way" title="Permalink to this headline">¶</a></h2>
+<p><strong>Install WSL from Microsoft Store</strong>
+If the command line has you feeling confused, fear not! There’s a more user-friendly approach to installing WSL on Windows. We can bypass the command line altogether and download a package of all the components from the Microsoft Store. Not only that, but this method runs WSL isolated from Windows 11 and updates will be available through the Microsoft Store, so you won’t have to wait for the next version of the operating system to install the newest version.</p>
+<p>To install WSL from the Microsoft Store, use these steps:</p>
+</section>
+<section id="enable-virtual-machine-platform">
+<h2>1. Enable Virtual Machine Platform<a class="headerlink" href="#enable-virtual-machine-platform" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Open <strong>Start</strong></p></li>
+<li><p>Search for <strong>Turn Windows Features on or off</strong> and click the
+top result to open the app</p></li>
+<li><p>Check the <strong>Virtual Machine Platform</strong></p></li>
+<li><p>Click the <strong>OK</strong> button</p></li>
+<li><p>Click the <strong>Restart button</strong></p></li>
+</ul>
+</div></blockquote>
+<p>After completing these steps, you can download the app from the Microsoft Store.</p>
+<blockquote>
+<div></div></blockquote>
+<ul class="simple">
+<li><p>Open the <a class="reference external" href="https://www.microsoft.com/en-us/p/windows-subsystem-for-linux-preview/9p9tqf7mrm4r?activetab=pivot:overviewtab">Windows Subsystem for Linux Store Page</a></p></li>
+<li><p>Click the <strong>Get</strong> button</p></li>
+<li><p>Click the <strong>Open</strong> button</p></li>
+<li><p>Click the <strong>Get</strong> button again</p></li>
+</ul>
+<blockquote>
+<div></div></blockquote>
+<ul class="simple">
+<li><p>Open <strong>Microsoft Store</strong> app.</p></li>
+<li><p>Search for Linux distro. For example <cite>Ubuntu &lt;https://apps.microsoft.com/store/detail/ubuntu-22041-lts/9PN20MSR04DW&gt;`_</cite></p></li>
+<li><p>Click the <strong>Get</strong> button.</p></li>
+<li><p>Click the <strong>Open</strong> button.</p></li>
+</ul>
+<p><em>Congratulations! Once you complete the steps, WSL will install on Windows 11, including the support for Linux GUI apps and the Linux distribution.</em></p>
+<p><em>To access the command line for your Linux distribution, search for “wsl” in the search bar and select the top result, which should be a penguin logo</em></p>
+<blockquote>
+<div></div></blockquote>
 </section>
 <section id="step-2-setting-up-linux-user-info">
 <h2>Step 2: Setting up Linux User Info<a class="headerlink" href="#step-2-setting-up-linux-user-info" title="Permalink to this headline">¶</a></h2>
@@ -271,14 +339,15 @@ Ubuntu shell that comes bundled in.</p>
 <p>We’ve already installed a Linux distribution, (and if you followed the Optional step, have a <em>swanky</em> new terminal!) and we’re getting <em>really</em> close to installing our software.
 Our next step is an important one. It’ll help us make sure our software can install without any conflicts, and once installed, that it will be stable, and work as intended!</p>
 <p>We’re going to use a tool called Anaconda to do this. It’ll help us create something called a “Virtual Environment.”</p>
-<p>To install Anaconda, please follow the yellow brick road I lay down here below:
-- <a class="reference external" href="https://www.anaconda.com/products/individual#Downloads">Head to the Anaconda website</a>, and find the latest Linux installer.
-- Right click the installer, and select <strong>“Copy Link Address”</strong>
-- Head back to your WSL terminal, and type “wget ” and then right click next to it. This should paste the link you copied, which should produce something like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">anaconda</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">Anaconda3</span><span class="o">-</span><span class="mf">2021.05</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+<p>To install Anaconda, please follow the yellow brick road I lay down here below:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.anaconda.com/products/individual#Downloads">Head to the Anaconda website</a>, and find the latest Linux installer.</p></li>
+<li><p>Right click the installer, and select <strong>“Copy Link Address”</strong></p></li>
+<li><p>Head back to your WSL terminal, and type “wget ” and then right click next to it. This should paste the link you copied, which should produce something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">anaconda</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">Anaconda3</span><span class="o">-</span><span class="mf">2022.05</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
-<ul>
+</li>
 <li><p>You got it! Not only did you get it, you made it look <strong>easy.</strong> Now just hit enter.</p></li>
 <li><p>At this point, Conda will start installing. Type “yes” and hit Enter for all the various prompts that follow (Accepting the Terms and Conditions, Running Conda Init, etc)</p></li>
 <li><p>Once this is done, close and restart your WSL terminal.</p></li>
@@ -326,6 +395,7 @@ Trust me, your life is about to become a LOT easier.</p>
 <h2>Step 5: Become the Docker Doctor<a class="headerlink" href="#step-5-become-the-docker-doctor" title="Permalink to this headline">¶</a></h2>
 <p>The last tool needed to complete your arsenal is called Docker.
 You can install it by following the instructions <a class="reference external" href="https://docs.docker.com/desktop/windows/install/">here</a>.</p>
+<p>Note: The windows user account that launches wsl 2 has to be added to the local group “docker-users”. On Windows 10 Home, run netplwiz to add the Windows user to the group “docker-users”.</p>
 <p>Once you have it running, you just have to ensure the following:
 - You’ve allocated a sufficient amount of RAM (we recommend atleast 8GB, but you can get by with less)
 - You’re using the WSL2 backend</p>
@@ -350,6 +420,7 @@ You can install it by following the instructions <a class="reference external" h
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hagrid</span> <span class="n">launch</span> <span class="n">test_domain</span>
 </pre></div>
 </div>
+<p>Note: If you get the error message “test_domain is not valid for node_type please use one of the following options: [‘domain’, ‘network’]” then rerun the command by changing test_domain to domain.</p>
 <p>You should see the containers begin to appear on Docker!</p>
 <p><strong>CONGRATULATIONS!!!</strong></p>
 <p>You have reached the promise land. You’re ready to begin remote data science.
@@ -362,21 +433,7 @@ It was a pleasure walking you through the installation process. Now be sure to u
               
               
               <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="linux.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Installation on Linux (&gt;=20.04.03)</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="osx_11_5_1.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">macOS Tutorial (Big Sur - 11.5.1)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
               
           </main>
