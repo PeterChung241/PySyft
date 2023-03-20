@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Search for Datasets a Domain Server &#8212; PySyft  documentation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/pysyft.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../api_reference/index.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../developer_guide/index.html">
+  Contributor Guidelines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../deployment/glossary.html">
+  Glossary
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../resources/index.html">
+  Resources
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  How-to Guides
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/OpenMined/PySyft" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/openminedorg" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#steps-to-search-for-datasets-on-a-domain">
+   Steps to Search for Datasets on a Domain
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1-import-syft">
+     Step 1: Import Syft
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2-log-into-domain">
+     Step 2: Log into Domain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-3-search-for-datasets-on-the-domain">
+     Step 3: Search for Datasets on the Domain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-4-select-a-dataset-and-preview-it">
+     Step 4: Select a Dataset and Preview It
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#awesome">
+     Awesome 👏 !!
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#whats-next">
+   What’s Next?
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section id="search-for-datasets-a-domain-server">
+<h1>Search for Datasets a Domain Server<a class="headerlink" href="#search-for-datasets-a-domain-server" title="Permalink to this headline">¶</a></h1>
+<p><strong>Data Scientist Tutorials</strong></p>
+<p>☑️ 00-connect-to-domain</p>
+<p>◻️ 01-search-for-datasets👈</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>TIP:</strong> To run this tutorial interactively in Jupyter Lab on your own machine type:</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">hagrid</span>
+<span class="n">hagrid</span> <span class="n">quickstart</span> <span class="n">data</span><span class="o">-</span><span class="n">scientist</span>
+</pre></div>
+</div>
+<p>In the last tutorial, you learned <span class="xref std std-doc">How to Connect to a Domain Server</span>
+that allows us to connect to your organization’s private data servers.</p>
+<p>Once we are connected to the data servers, the first thing that we
+would like to do is to look for the available datasets on it. This
+is exactly what we are going to cover in this tutorial.</p>
+<p>After today’s tutorial, you will learn how to <code class="docutils literal notranslate"><span class="pre">search</span> <span class="pre">for</span> <span class="pre">datasets</span></code>
+on the <code class="docutils literal notranslate"><span class="pre">domain</span> <span class="pre">node</span></code> you are connected to.</p>
+<blockquote>
+<div><p><strong>Note:</strong> Throughout the tutorials, we mean Domain Servers
+whenever we refer to Domain Node. Both point to the same and are used
+interchangeably.</p>
+</div></blockquote>
+<section id="steps-to-search-for-datasets-on-a-domain">
+<h2>Steps to Search for Datasets on a Domain<a class="headerlink" href="#steps-to-search-for-datasets-on-a-domain" title="Permalink to this headline">¶</a></h2>
+<p>📒 Overview of this tutorial:</p>
+<ol class="arabic simple">
+<li><p><strong>Login</strong> to the Domain</p></li>
+<li><p><strong>List</strong> the Datasets on the Domain</p></li>
+<li><p><strong>Choose</strong> a Dataset</p></li>
+<li><p><strong>Preview</strong> the Description of the chosen Dataset</p></li>
+</ol>
+<p><a class="reference internal" href="../../_images/01-search-for-datasets-00.png"><img alt="01-upload-data-00" src="../../_images/01-search-for-datasets-00.png" style="width: 95%;" /></a></p>
+<section id="step-1-import-syft">
+<h3>Step 1: Import Syft<a class="headerlink" href="#step-1-import-syft" title="Permalink to this headline">¶</a></h3>
+<p>To utilize the privacy-enhancing features offered in PyGrid and to
+communicate with your domain node, you must first <code class="docutils literal notranslate"><span class="pre">import</span></code> OpenMined’s
+<code class="docutils literal notranslate"><span class="pre">private</span></code> deep learning library: PySyft.</p>
+<p>Let’s import Syft by running the below cell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span><span class="p">:</span>
+<span class="c1"># run this cell</span>
+
+<span class="kn">import</span> <span class="nn">syft</span> <span class="k">as</span> <span class="nn">sy</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Syft is imported&quot;</span><span class="p">)</span>
+
+<span class="c1"># If Syft is not installed. Please use the 🧙🏽‍♂️ Install Wizard above</span>
+
+<span class="n">Out</span><span class="p">:</span> <span class="n">Syft</span> <span class="ow">is</span> <span class="n">imported</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-log-into-domain">
+<h3>Step 2: Log into Domain<a class="headerlink" href="#step-2-log-into-domain" title="Permalink to this headline">¶</a></h3>
+<p>Let’s login to our Domain with the credentials provided to you by a domain owner.
+If you do not have a domain owner, you can create one locally for yourself following
+the tutorials starting here: <a class="reference external" href="../data-owner/00-deploy-domain.html">data-owner/00-deploy-domain</a>.</p>
+<p>To login to your Domain node, you will need to define which Domain you are logging into and who you are.
+In this case, it will take the form of:</p>
+<ul class="simple">
+<li><p>IP Address and Port of the domain host</p></li>
+<li><p>Your user account Email and Password</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure to use the Data Scientist credentials provided to you.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In:
+
+# Modify the port, email, and password accordingly! We are using the ones that will be generated for those who followed the Data-Owner tutorials and are now here.
+domain_client = sy.login(
+   url=&quot;localhost&quot;,
+   port=8081,
+   email=&quot;jane@email.com&quot;,
+   password=&quot;supersecurepassword&quot;
+)
+
+Out:
+ Connecting to &lt;IP-Address&gt;... done! Logging into &lt;domain-name&gt;... done!
+</pre></div>
+</div>
+<p>Amazing :) You have just logged in to your Domain and have a domain client with us to explore further.</p>
+</section>
+<section id="step-3-search-for-datasets-on-the-domain">
+<h3>Step 3: Search for Datasets on the Domain<a class="headerlink" href="#step-3-search-for-datasets-on-the-domain" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have an authenticated domain client with
+us, we will look out for the datasets available
+on this domain with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span><span class="p">:</span>
+<span class="n">domain_client</span><span class="o">.</span><span class="n">datasets</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../_images/01-search-for-datasets-01-datasets.png"><img alt="01-upload-data-01-datasets" src="../../_images/01-search-for-datasets-01-datasets.png" style="width: 95%;" /></a></p>
+<p>This should show you all the available datasets
+on the domain node along with its own metadata for
+each of the datasets.</p>
+</section>
+<section id="step-4-select-a-dataset-and-preview-it">
+<h3>Step 4: Select a Dataset and Preview It<a class="headerlink" href="#step-4-select-a-dataset-and-preview-it" title="Permalink to this headline">¶</a></h3>
+<p>Now that we can view the available datasets, we
+can fetch a dataset using the index within the
+datatsets list and store a pointer to (here
+called family_age_dataset) to refer to it easily afterwords.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">In</span><span class="p">:</span>
+
+ <span class="n">family_age_dataset</span><span class="o">=</span><span class="n">domain_client</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+ <span class="n">family_age_dataset</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../../_images/01-search-for-datasets-02-pointer-to-dataset.png"><img alt="01-upload-data-02-pointer-to-dataset" src="../../_images/01-search-for-datasets-02-pointer-to-dataset.png" style="width: 95%;" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note: We are assuming that you are following the
+data-owner tutorial hence we are naming as well
+as selecting the family-age dataset. Feel free to
+change the variable accordingly for easier
+readability based on your use case.</p>
+</div>
+</section>
+<section id="awesome">
+<h3>Awesome 👏 !!<a class="headerlink" href="#awesome" title="Permalink to this headline">¶</a></h3>
+<p>You have fetched all the available datasets, created a pointer for one of them and preview it!</p>
+<p>Now that we have a pointer to a dataset on the domain, we are one step
+close to performing remote data science and perform various methods.</p>
+</section>
+</section>
+<section id="whats-next">
+<h2>What’s Next?<a class="headerlink" href="#whats-next" title="Permalink to this headline">¶</a></h2>
+<p>Alright, so now is the perfect time to utilize the pointer we just created
+to a dataset and explore it in detail and see the amazing operations that we
+can perfrom on it.</p>
+<blockquote>
+<div><p>In the following tutorial, we will see how Data Scientists can explore
+a dataset securely.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Openmined Community.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
